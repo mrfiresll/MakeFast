@@ -824,7 +824,6 @@
     <Content Include="Plugin\easyui\locale\easyui-lang-zh_CN.js" />
     <Content Include="Plugin\easyui\locale\easyui-lang-zh_TW.js" />
     <Content Include="Plugin\easyui\mfextend\clear.png" />
-    <Content Include="Plugin\easyui\mfextend\jquery-easyui-datagrid-cell-debug.js" />
     <Content Include="Plugin\easyui\mfextend\jquery-easyui-datagrid-cell.js" />
     <Content Include="Plugin\easyui\mfextend\dirty.gif" />
     <Content Include="Plugin\easyui\mfextend\EasyUiExtend.css" />
