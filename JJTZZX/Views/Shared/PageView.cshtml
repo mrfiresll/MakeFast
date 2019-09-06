@@ -1,0 +1,16 @@
+﻿<div class="datagrid-toolbar formToolBar">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="save()" iconcls="iconfont iconfont-baocun">保存</a>
+</div>
+<div style="padding:2px;">
+    <form method="post" id="mf_form">
+        @Html.Raw(ViewBag.FormHtml)
+    </form>
+</div>
+<script>
+    var formId = '@ViewBag.FormId'
+    var id = queryString('id');
+</script>
+<script type="text/javascript" src="@Url.Content("/BaseResource/Script/configui.js")"></script>
+<script>
+    @Html.Raw(ViewBag.Script)
+</script>

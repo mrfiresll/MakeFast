@@ -1,0 +1,40 @@
+﻿<div class="datagrid-toolbar formToolBar">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="saveFormData()" iconcls="iconfont iconfont-baocun">保存</a>
+</div>
+<div style="padding:2px;">
+    <form id="mf_form" method="post">
+        <table class="groupTable">
+            <tr>
+                <td style="width:30%">必须选中:</td>
+                <td style="width:70%">
+                    <input id="mustSelect" name="mustSelect" class="easyui-combobox" data-options="data:mustSelect,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>                
+            </tr>
+            <tr>
+                <td>弹窗高度:</td>
+                <td>
+                    <input id="height" name="height" class="easyui-textbox" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>弹窗宽度:</td>
+                <td>
+                    <input id="width" name="width" class="easyui-textbox" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>onclick:</td>
+                <td>
+                    <input id="onclick" name="onclick" class="easyui-combobox" data-options="data:functionList,panelHeight:'auto'" style="width:100%" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script>
+    var mustSelect = [{ text: "一行", value: "OneRow" }, { text: "至少一行", value: "MultiRow" }];
+    var listId = queryString('Id');
+    var functionList = @Html.Raw(ViewBag.FunctionList);
+</script>
+<script>
+</script>

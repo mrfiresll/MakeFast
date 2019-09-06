@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>LODOP的使用样例十</title>
+<script language="javascript" src="CheckActivX.js"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+</object> 
+<style id="style1">
+<!--table         {border:5; border-style: solid; border-color: #000000 }
+--></style>
+</head>
+<body>
+<script language="javascript">CheckLodop();</script>
+<h2><font color="#009999">演示如何控制打印样式(STYLE)：</font>
+</h2>
+<P>在对页面内容直接裁剪输出时，有时候显示样式不一定</P>
+<P>适合打印，LODOP可以实现按需要控制打印样式。</P>
+<P>下面的表格由页面样式(STYLE)控制加了粗边框：</P>
+<div id="form1" style="width: 300; height: 109">
+<form>
+<table border="1" width="100%">
+  <tr> <td width="50%">101</td> <td width="50%">201</td>  </tr>
+  <tr> <td width="50%">102</td>  <td width="50%">202</td> </tr>
+  <tr> <td width="50%">103</td> <td width="50%">203</td>  </tr>
+  <tr> <td width="50%">104</td>  <td width="50%">204</td> </tr>
+</table>
+</form>
+</div>
+<script language="javascript" type="text/javascript"> 
+	function PreviewSameStyle(){
+		var strBodyStyle="<style>"+document.getElementById("style1").innerHTML+"</style>";
+		var strFormHtml=strBodyStyle+"<body>"+document.getElementById("form1").innerHTML+"</body>";
+		LODOP.ADD_PRINT_TEXT(50,50,260,39,"打印与显示样式一致：");
+		LODOP.ADD_PRINT_HTM(88,50,300,200,strFormHtml);
+		LODOP.PREVIEW();
+	};	
+	function PreviewNoneStyle(){
+   		var strFormHtml=document.getElementById("form1").innerHTML;
+		LODOP.ADD_PRINT_TEXT(50,50,260,39,"无样式打印：");
+		LODOP.ADD_PRINT_HTM(88,50,300,200,strFormHtml);
+		LODOP.PREVIEW();
+	};	
+	function PreviewOtherStyle(){
+		var strBodyStyle="<style><!--table { border: 3 solid #0000FF }--></style>";
+		var strFormHtml=strBodyStyle+"<body>"+document.getElementById("form1").innerHTML+"</body>";
+		LODOP.ADD_PRINT_TEXT(50,50,260,39,"另外样式打印：");
+		LODOP.ADD_PRINT_HTM(88,50,300,200,strFormHtml);
+		LODOP.PREVIEW();
+	};	
+	function PreviewHTMLtext(){
+		var strBodyStyle="<style><!--table { border: 3 solid #0000FF }--></style>";
+		var strFormHtml=strBodyStyle+"<body>"+document.getElementById("form1").innerHTML+"</body>";
+		LODOP.ADD_PRINT_TEXT(50,50,260,39,"传给控件的超文本代码(含蓝边框样式)：");
+		LODOP.ADD_PRINT_TEXT(88,50,300,200,strFormHtml);//注意这里不是ADD_PRINT_HTM！！
+		LODOP.PREVIEW();
+	};		
+</script> 
+<p>1、输出时可与显示样式一致：<a href="javascript:PreviewSameStyle()">预览同样式打印</a></p>
+<p>2、可以无样式(无粗边框)输出：<a href="javascript:PreviewNoneStyle()">预览无样式打印</a></p>
+<p>3、用另外样式(蓝粗边框)输出：<a href="javascript:PreviewOtherStyle()">预览其它样式打印</a></p>
+<p>4、如果调试时打印样式总非所想，可以查看一下你传给控件的</p>
+<p>&nbsp;&nbsp; 超文本代码内容：<a href="javascript:PreviewHTMLtext()">预览代码内容</a></p>   
+<p>&nbsp;&nbsp; 本例进一步说明控件接收超文本控制，反过来说，你不控制就无动作，包括样式(STYLE)。</p>
+<h3><font size="3"><font color="#009999">本样例关键点：将</font><font size="3" color="#FF00FF">STYLE</font>
+<font color="#009999">的内容传给控件。</font></font></h3>   
+</body>
+</html>

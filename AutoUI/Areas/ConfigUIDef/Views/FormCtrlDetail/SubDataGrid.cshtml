@@ -1,0 +1,207 @@
+﻿<div class="datagrid-toolbar formToolBar">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="saveFormData()" iconcls="iconfont iconfont-baocun">保存</a>
+</div>
+<div style="padding:2px;">
+    <form id="mf_form" method="post">
+        <table class="groupTable" style="margin-bottom:2px">
+            <tr>
+                <td style="width:15%">显示行号:</td>
+                <td style="width:35%">
+                    <input id="rownumbers" name="rownumbers" class="easyui-combobox" value="false" data-options="data:truefalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>
+                <td style="width:15%">
+                    高度:
+                </td>
+                <td style="width:35%">
+                    <input id="style_height" name="style_height" class="easyui-textbox" value="300px" style="width:100%" />
+                 </td>
+            </tr>
+            <tr>
+                <td>是否显示操作栏:</td>
+                <td>
+                    <input id="showToolBar" name="showToolBar" class="easyui-combobox" value="true" data-options="data:truefalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>
+                <td>
+                    列宽自适应:
+                </td>
+                <td>
+                    <input id="fitColumns" name="fitColumns" class="easyui-combobox" value="true" data-options="data:truefalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    显示复选框:
+                </td>
+                <td>
+                    <input id="checkbox" name="checkbox" class="easyui-combobox" value="true" data-options="data:truefalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>
+                <td>
+                    是否单选:
+                </td>
+                <td>
+                    <input id="singleSelect" name="singleSelect" class="easyui-combobox" value="false" data-options="data:truefalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>
+            </tr>
+        </table>
+        <div id="tb">
+            <table cellpadding="0" cellspacing="0" style="width: 100%">
+                <tr>
+                    <td>
+                        @*<a href="#" class="easyui-linkbutton" onclick="javascript: $('#ColumnSetting').datagrid('mfInsertRow')" iconcls="iconfont iconfont-jia1" plain="true">增加</a>*@
+                        @*<a href="#" class="easyui-linkbutton" onclick="saveFormData()" iconcls="iconfont iconfont-baocun" plain="true">保存</a>*@
+                        <a href="#" class="easyui-linkbutton" onclick="refreshProperty()" iconcls="iconfont iconfont-shuaxin" plain="true">刷新属性</a>
+                        <a href="#" class="easyui-linkbutton" onclick="javascript: $('#ColumnSetting').datagrid('mfMoveUp')" iconcls="iconfont iconfont-xiangshang" plain="true">上移</a>
+                        <a href="#" class="easyui-linkbutton" onclick="javascript: $('#ColumnSetting').datagrid('mfMoveDown')" iconcls="iconfont iconfont-paixu" plain="true">下移</a>
+
+                        @*<a href="#" class="easyui-linkbutton" onclick="javascript: $('#ColumnSetting').datagrid('mfDeleteRow')" iconcls="iconfont iconfont-shanchu" plain="true">删除</a>*@
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table id="ColumnSetting" rownumbers="true" fitcolumns="true" striped="true" border="true" idfield="FieldName" singleselect="true" style="height:300px;width:100%"
+               autorowheight="false" toolbar="#tb">
+            <thead>
+                <tr>
+                    <th field="Detail" width="90" halign='center'>
+                        详细设置
+                    </th>
+                    <th field="FieldType" width="150" halign='center'>
+                        字段类型
+                    </th>
+                    <th field="CtrlType" width="150" halign='center' formatter="GridControlTypeFormatter" editor="{type:'combobox',options:{data:GridControlType,panelHeight:'auto'}}">
+                        控件类型
+                    </th>
+                    <th field="ColumnName" width="150" halign='center' editor="{type:'validatebox'}">
+                        列名
+                    </th>
+                    <th field="FieldName" width="150" halign='center'>
+                        字段名
+                    </th>
+                    <th field="width" width="100" halign='center' editor="{type:'validatebox'}">
+                        列宽度
+                    </th>
+                    <th field="align" width="80" halign='center' formatter="AlignTypeFormatter" editor="{type:'combobox',options:{data:alignType,panelHeight:'auto'}}">
+                        对齐方式
+                    </th>
+                    <th field="IsVisible" width="80" halign='center' align="center" editor="{type:'checkbox',options:{on:'是',off:'否'}}">
+                        是否显示
+                    </th>
+                    <th field="Enable" width="80" halign='center' align="center" editor="{type:'checkbox',options:{on:'是',off:'否'}}">
+                        是否有效
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </form>
+</div>
+<script>
+    @Html.GetEnum(typeof(MF_Base.truefalseType))
+
+    @Html.GetEnumWithFormatter(typeof(MF_Base.GridControlType));
+    var alignType = [{ text: '靠左', value: 'left' }, { text: '居中', value: 'center' }, { text: '靠右', value: 'right' }];
+    function AlignTypeFormatter(value, rowData, rowIndex) {
+        if (value == 0) { return; } for (var i = 0; i < alignType.length; i++)
+        { if (alignType[i].value == value) { return alignType[i].text; } }
+    };
+    function trueFalseFormatter(value, rowData, rowIndex) {
+        if (value == 'true') {
+            return '是'
+        }
+        else {
+            return '否'
+        }
+    }
+</script>
+
+<script>
+    var formId = queryString('formId')
+    var fieldName = queryString('fieldName')
+
+    //界面控件赋值完成后
+    function afterSetFormData(data) {
+        //如果grid为空
+        var rows = $('#ColumnSetting').datagrid('getRows');
+        if (rows.length == 0) {
+            addAjaxParam('formId', formId);
+            addAjaxParam('fieldName', fieldName);
+            commitAjax('GetSubDataGrid', {
+                CallBack: function (data) {
+                    if (data) {
+                        $.each(data, function (index, item) {
+                            $("#ColumnSetting").datagrid('mfInsertRow', { row: item });
+                        })
+                    }
+                }
+            })
+        }
+    }
+
+    addGridBtn('ColumnSetting', 'Detail', {
+        linkText: '详细设置',
+        onButtonClick: function (row, index) {
+            if (!$('#ColumnSetting').datagrid('endEditingCell')) {
+                return;
+            }
+
+            var width = 300;
+            if (row.CtrlType == 'SubDataGrid') {
+                width = '80%';
+            }
+
+            var url = '/AutoUI/ConfigUIDef/FormCtrlDetail/' + row.CtrlType;
+            openWindow(url, {
+                width: width, height: '80%',
+                data: row.Detail,
+                onDestroy: function (res) {
+                    if (res) {
+                        $('#ColumnSetting').datagrid('mfUpdateRow', {
+                            index: index,
+                            row: {
+                                Detail: JSON.stringify(res)
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    });
+    $('#ColumnSetting').datagrid().datagrid('enableCellEditing');
+
+    //刷新
+    function refreshProperty() {
+        confirmBox('是否重新载入属性?', function (r) {
+            if (r) {
+                addAjaxParam('formId', formId);
+                addAjaxParam('fieldName', fieldName);
+                commitAjax('GetSubDataGrid', {
+                    CallBack: function (data) {
+                        if (data) {
+                            var rows = $("#ColumnSetting").datagrid('getRows')
+                            $.each(data, function (index, item) {
+                                var existItems = $.grep(rows, function (row, n) { return row.FieldName == item.FieldName; });
+                                if (existItems.length == 0)
+                                    $("#ColumnSetting").datagrid('mfInsertRow', { row: item });
+                            });
+                            var newRows = $("#ColumnSetting").datagrid('getRows');
+
+                            var rowTodelete = [];
+                            $.each(newRows, function (n, row) {
+                                var existItems = $.grep(data, function (item, index) { return row.FieldName == item.FieldName; });
+                                if (existItems.length == 0) {
+                                    rowTodelete.push(row);
+                                }
+                            });
+
+                            $.each(rowTodelete, function (n, row) {
+                                var newestRows = $("#ColumnSetting").datagrid('getRows');
+                                var existItems = $.grep(newestRows, function (item, index) { return row.FieldName == item.FieldName; });
+                                var rowIndex = $("#ColumnSetting").datagrid('getRowIndex', existItems[0]);
+                                $("#ColumnSetting").datagrid('deleteRow', rowIndex);
+                            });
+                        }
+                    }
+                })
+            }
+        })
+    }
+</script>

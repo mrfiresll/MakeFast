@@ -1,0 +1,89 @@
+﻿<div id="tb">
+    <table cellpadding="0" cellspacing="0" style="width: 100%">
+        <tr>
+            <td>                
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfInsertRow')" iconcls="iconfont iconfont-jia1" plain="true">增加</a>
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfDeleteRow')" iconcls="iconfont iconfont-shanchu" plain="true">删除</a>
+                <a href="#" class="easyui-linkbutton" onclick="saveData()" iconcls="iconfont iconfont-baocun" plain="true">确定</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="tb2">
+    <table cellpadding="0" cellspacing="0" style="width: 100%">
+        <tr>
+            <td>
+                <a href="#" class="easyui-linkbutton" onclick="selectEnum()" iconcls="iconfont iconfont-baocun" plain="true">选择</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="roleTab" class="easyui-tabs" data-options="fit:true,border:false,tabPosition:'top'">
+    <div title="自定义">
+        <table id="dg" rownumbers="true" fit="true" pagination="false" fitcolumns="true" striped="true" border="false" idfield="value"
+               autorowheight="false" toolbar="#tb">
+            <thead>
+                <tr>
+                    <th field="text" width="100" halign='center' editor="{type:'validatebox'}">
+                        显示值
+                    </th>
+                    <th field="value" width="100" halign='center' editor="{type:'validatebox'}">
+                        键值
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div title="枚举数据源">
+        <table id="dgEnum" class="easyui-datagrid" rownumbers="true" fit="true" pagination="false" fitcolumns="true" striped="true" border="false" idfield="Id"
+               url="GetEnumList" autorowheight="false" singleselect="true" toolbar="#tb2">
+            <thead>
+                <tr>
+                    <th field="Code" width="150" halign='center'>
+                        编号
+                    </th>
+                    <th field="Name" width="240" halign='center'>
+                        名称
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<script>
+    $('#dg').datagrid().datagrid('enableCellEditing');
+    //sourceType:Input,MF_Enum
+    function saveData()
+    {
+        $('#dg').datagrid('endEditingCell');
+        var datas = $('#dg').datagrid('getRows');
+        var datasStr = "";
+        if (datas.length > 0)
+        {
+            datasStr = JSON.stringify(datas);
+        }
+        closeWindow({ SourceText: datasStr, SourceType: "Input" });
+    }
+
+    function setFormData(data)
+    {
+        if (data)
+        {
+            if (data.SourceType == "Input")
+            {
+                var dataObj = eval('(' + data.SourceText + ')');
+                $('#dg').datagrid('loadData', dataObj);
+            }            
+        }        
+    }
+
+    function selectEnum()
+    {
+        var selectRow = $("#dgEnum").datagrid("getSelected");
+        if (!selectRow) return msgBox("请选择一行");
+
+        closeWindow({ SourceText: selectRow.Code, SourceType: "MF_Enum" });
+    }
+</script>
+

@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>LODOP的使用样例八</title>
+<script language="javascript" src="CheckActivX.js"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+</object> 
+</head>
+<body>
+<script language="javascript">CheckLodop();</script>
+
+<h2><b><font color="#009999">演示打印网页图片：</font></b></h2>
+<p>下面是互联网上的一个典型图片： </p>
+
+<img border="0" src="http://www.baidu.com/img/baidu_logo.gif" width="270" height="129" />&nbsp;
+
+<p>1：看到图片了吗（没有联网可能看不到哟）？如果能看到就可以打印出来，</p>
+
+<p>&nbsp;&nbsp; 先<a href="javascript:myPreview()">打印预览</a>一下，预览后感觉满意可<a href="javascript:myPrint()">直接打印</a>。</p>     
+
+<p>2：改变显示比例，打印三个百度图标：看看<a href="javascript:CreateThreeImage();LODOP.PREVIEW();">打印预览</a>。</p>
+
+<p><b><font color="#009999" size="3">要点</font></b><b><font color="#009999" size="3">：用标签&lt;img&gt;将图片读取方式和显示大小传给控件。</font></b></p>
+
+<script language="javascript" type="text/javascript"> 
+	function myPrint() {		
+		CreateOneImage();
+		LODOP.PRINT();		
+	};  
+	function myPreview() {		
+		CreateOneImage();
+		LODOP.PREVIEW();		
+	};		
+	function CreateOneImage() {
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_打印图片1");
+		LODOP.ADD_PRINT_HTML(12,125,284,226,"<img border='0' src='http://www.baidu.com/img/baidu_logo.gif' width='270' height='129' />");
+
+	};	
+	function CreateThreeImage() {
+	LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_打印图片3");
+	LODOP.ADD_PRINT_HTML(17,9,111,61,"<img border='0' src='http://www.baidu.com/img/baidu_logo.gif' width='81' height='43' />");
+	LODOP.ADD_PRINT_HTML(56,108,132,82,"<img border='0' src='http://www.baidu.com/img/baidu_logo.gif' width='121' height='61' />");
+	LODOP.ADD_PRINT_HTML(120,242,180,112,"<img border='0' src='http://www.baidu.com/img/baidu_logo.gif' width='178' height='89' />");
+	};	
+		
+</script> 
+
+</body>
+</html>

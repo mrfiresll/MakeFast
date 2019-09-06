@@ -1,0 +1,159 @@
+﻿@{
+    ViewBag.Title = "md";
+}
+<div id="dataGrid" class="mfire-grid-fullHeight"></div>
+<script>
+    var formId = queryString('id');
+    @Html.GetEnum(typeof(WebBase.Areas.ConfigUI.EasyUICtrl.ControlType));
+</script>
+<script>
+    var dataSource = {};
+    $(document).ready(function () {
+            //var baseUrl
+            dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    type: "get",
+                    url: "GetCtrlList?formId=" + formId,
+                    dataType: "json",
+                    contentType: "application/json"
+                },
+                save: function(options){//create按理应该是save,但这里只有create才有效
+                    addAjaxParam("models", options.models);
+                    commitAjax("SaveParam?formId=" + formId, {
+                        CallBack: function (d) {
+                            if (d)
+                            {
+                                var grid = $("#dataGrid").data("kendoGrid");
+                                grid.dataSource.read();
+                                grid.refresh();
+                            }                            
+                        }
+                    });
+                },
+                parameterMap: function (options, operation) { //定义提交给后台携带的参数  
+                    //var map = {};
+                    //if (operation !== "read") {
+                    //    return {
+                    //        formId: formId,
+                    //        models: kendo.stringify(options.models) //查询操作时返回的参数  
+                    //    };
+                    //}
+                }
+            },
+            batch: true,
+            schema: {
+                data: "Data",
+                model: {
+                    id: "Id",
+                    fields: {
+                        Id: { editable: false, nullable: true },
+                        ColDefine: { defaultValue: '{}' },
+                        CtrlType: { defaultValue: { text: "" } },
+                        FieldType: { defaultValue: { text: "" } },
+                        IsVisible: { defaultValue: true },
+                        Enable: { defaultValue: true },
+                        Sortable: { defaultValue: true }
+                    }
+                }
+            },
+            serverFiltering: true,
+            serverSorting: true
+        });
+
+        $("#dataGrid").kendoGrid({
+            dataSource: dataSource,
+            navigatable: true,
+            //height: 550,
+            selectable: "multiple",
+            toolbar: ["create", "save", "cancel", {
+                text: "Custom Text",
+                className: "k-grid-custom",
+                imageClass: "k-add"
+            }],
+            pageable: false,
+            columns: [
+               {
+                   command: { text: "列定义", click: colDefine }, title: "列定义", field: "ColDefine", width: "120px",
+                   attributes: {
+                       //"class": "table-cell",用class class加引号
+                       style: "text-align: center;"
+                   }
+               },
+              { title: "字段类型", field: "FieldType", editor: fieldTypeDropDownEditor, template: "#=FieldType.text#" },
+              { title: "控件类型", field: "CtrlType", editor: ctrlTypeDropDownEditor, template: "#=CtrlType.text#" },
+              { title: "列名", field: "ColumnName" },
+              { title: "字段名", field: "FieldName" },
+              {
+                  title: "是否显示", field: "IsVisible", width: 120, attributes: {
+                      style: "text-align: center;"
+                  }, editor: customBoolEditor
+              },
+              {
+                  title: "是否有效", field: "Enable", width: 120, attributes: {
+                      style: "text-align: center;"
+                  }, editor: customBoolEditor
+              },
+              {
+                  title: "排序", field: "Sortable", width: 120, attributes: {
+                      style: "text-align: center;"
+                  }, editor: customBoolEditor
+              }
+            ],
+            //dataBound: bindCheckColumn,//页面加载完成后
+            editable: true
+        });
+    });
+
+    function customBoolEditor(container, options) {
+        var guid = kendo.guid();
+        $('<input class="k-checkbox" id="' + guid + '" type="checkbox" name="' + options.field + '" data-type="boolean" data-bind="checked:' + options.field + '">').appendTo(container);
+        $('<label class="k-checkbox-label" for="' + guid + '">&#8203;</label>').appendTo(container);
+    }
+
+    function fieldTypeDropDownEditor(container, options) {
+        $('<input name="' + options.field + '"/>')
+            .appendTo(container)
+            .kendoDropDownList({
+                autoBind: false,
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: FieldType,
+            });
+    }
+
+    function ctrlTypeDropDownEditor(container, options) {
+        $('<input name="' + options.field + '"/>')
+            .appendTo(container)
+            .kendoDropDownList({
+                autoBind: false,
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: ControlType,
+            });
+    }
+
+    function colDefine(e) {
+        var grid = $("#dataGrid").data("kendoGrid");
+        var data = grid.dataItem($(e.currentTarget).closest("tr"));
+
+        //click不会选中行,这里强制选中
+        //否则openWindow.onDestroy就无法获取要赋值的数据行
+        var row = grid.table.find("[data-uid=" + data.uid + "]");
+        grid.select(row);
+        
+        var obj = JSON.parse(data.ColDefine);
+
+        openWindow("/MVCTemplate/FormConfig/TextBoxDefine", {
+            width: 200, height: 300, title: "文本框定义", formData: obj,
+            onDestroy: function (d) {
+                if (d) {
+                    var row = $("#dataGrid").data("kendoGrid").select();
+                    var data = $("#dataGrid").data("kendoGrid").dataItem(row);
+                    data.set("ColDefine", JSON.stringify(d));
+                }
+            }
+        });
+    }
+</script>
+

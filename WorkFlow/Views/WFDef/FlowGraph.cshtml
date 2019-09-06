@@ -1,0 +1,142 @@
+﻿@{
+    ViewBag.Title = "FlowGraph";
+}
+
+<link type="text/css" href="@Url.Content("~/Content/css/workflow.css")" rel="stylesheet" />
+
+@section Tail_Js{
+    <script type="text/javascript" src="@Url.Content("~/Plugin/jsplumb/dist/js/jsplumb.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/uuuid/uuuid.min.js")"></script>    
+    <script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/jquery/jquery-ui.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/styleConfig.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/index.js")"></script>
+}
+
+<div style="height:100%;width:100%;background-image: url('/WorkFlow/Content/img/wg.png');">
+    <div id="nav" class="datagrid-toolbar">
+        <a href="#" class="easyui-linkbutton  wkfNode" plain="true" onclick="saveFlow()" iconcls="iconfont iconfont-baocun">保存</a>
+    </div>
+    <div id="diagramContainer">
+        <div id="floatPanel">
+            <table class="groupTable" style="height:100%;margin:10px">
+                <tr>
+                    <td>
+                        <a href="#" class="wkfNode" style="float: left;" data-template="Start">
+                            <img src="~/Content/img/play.png" style="margin: 0 auto;display: block;">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <a href="#" class="wkfNode" style="float: left;" data-template="Process">
+                            <img src="~/Content/img/user.png" style="margin: 0 auto;display: block;">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title">
+                        <a href="#" class="wkfNode" style="float: left;" data-template="End">
+                            <img src="~/Content/img/stop.png" style="margin: 0 auto;display: block;">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script id="tpl-Start" type="text/html">
+    <div class="flowNodeDiv startNode" id="{{Id}}" style="top:{{Top}}px;left:{{Left}}px;">
+        <a href="#">
+            <img src="/WorkFlow/Content/img/play.png" style="margin: 0 auto;display: block;">
+        </a>
+    </div>
+</script>
+<script id="tpl-Process" type="text/html">
+    <div class='flowNodeDiv processNode' id='{{Id}}' style='top:{{Top}}px;left:{{Left}}px'>
+        <div id='{{Id}}Del' class="nodeDel" onclick="deleteNode('{{Id}}')">X</div>
+        <a href="#" style="cursor:auto" ondblclick="openNodeDetailWindow('{{Id}}')">
+            <img src="/WorkFlow/Content/img/user.png" style="margin: 0 auto;display: block;">
+        </a>
+        <span id='{{Id}}Title' class="nodeTitle">{{Name}}</span>
+    </div>
+</script>
+<script id="tpl-End" type="text/html">
+    <div class='flowNodeDiv endNode' id='{{Id}}' style='top:{{Top}}px;left:{{Left}}px'>
+        <a href="#">
+            <img src="/WorkFlow/Content/img/stop.png" style="margin: 0 auto;display: block;">
+        </a>
+    </div>
+</script>
+<script>
+    function loadFlowDesign() {
+        var defId = queryString('id');
+        addAjaxParam('flowDefId', defId);
+        commitAjax('GetFlowDesign', {
+            CallBack: function (data) {
+                if (data) {
+                    $.each(data.Nodes, function (index, item) {
+                        addNode(item.WFNodeType, item);
+                    })
+
+                    $.each(data.Routings, function (index, item) {
+                        addConnect(item, item.SNodeDefId, item.ENodeDefId);
+                    })
+                }
+                else {
+                    msgBox('获取失败');
+                }
+            }
+        })
+    }
+
+    function saveFlow() {
+        var nodes = getAllNodes();
+        var routings = getAllConnections();
+        addAjaxParam('nodes', nodes);
+        addAjaxParam('routings', routings);
+        commitAjax('SaveFlowDesign', {
+            CallBack: function (data) {
+                if (data) {
+                    closeWindow(true);
+                }
+                else {
+                    msgBox('操作失败');
+                }
+            }
+        })
+    }
+
+    function openNodeDetailWindow(nodeId) {
+        var nodeData = getNodeExtData(nodeId);
+        var url = 'NodeSetting';
+        openWindow(url, {
+            width: 400, height: '50%',
+            data: nodeData,
+            onDestroy: function (res) {
+                if (res) {
+                    jQuery.extend(true, nodeData, res);
+                    $('#' + nodeId + 'Title').html(res.Name);
+                }
+            }
+        });
+    }
+
+    function openConnectDetailWindow(id,conn)
+    {
+        var connectData = getConnectExtData(id);
+        var url = 'RoutingSetting';
+        openWindow(url, {
+            width: 500, height: '70%',
+            data: connectData,
+            onDestroy: function (res) {
+                if (res == 'delete')
+                {
+                    deleteConnect(conn);
+                }
+                else if (res) {
+                    jQuery.extend(true, connectData, res);
+                }
+            }
+        });
+    }
+</script>

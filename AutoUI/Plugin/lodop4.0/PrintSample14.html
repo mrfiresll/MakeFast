@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>LODOP的使用样例十四</title>
+<script language="javascript" src="CheckActivX.js"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+</object> 
+</head>
+<body>
+<script language="javascript">CheckLodop();</script>
+<h2><font color="#009999">演示按页面地址(URL)打印：</font></h2>
+<p>按URL打印的函数如下：</p>  
+<p><font color="#0000FF">ADD_PRINT_URL(intTop,intLeft,intWidth,intHeight,strURL);</font></p>  
+<p>例如:<p>1、在百度上搜“Lodop”的URL：<br>
+<input type="text" id="T1" size="54" value="http://www.baidu.com/s?wd=lodop">
+<a href="javascript:PrintOneURL('T1');">预览打印</a>其结果<p>2、在谷歌上搜“Lodop”的URL：<br> 
+<input type="text" id="T2" size="54" value="http://www.google.cn/search?hl=zh-CN&q=lodop&meta=&aq=f&oq=">
+<a href="javascript:PrintOneURL('T2');">预览打印</a>其结果<p>3、在A3纸上同时输出这俩结果：<a href="javascript:PrintTwoURL();">预览打印</a> 
+<script language="javascript" type="text/javascript">      
+	function PrintOneURL(strID){
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_按网址打印");
+		LODOP.ADD_PRINT_URL(30,20,746,509,document.getElementById(strID).value);
+		LODOP.SET_PRINT_STYLEA(1,"HOrient",3);
+		LODOP.SET_PRINT_STYLEA(1,"VOrient",3);
+		LODOP.PREVIEW();			
+	};	
+	function PrintTwoURL(){
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_同时打印俩网址");
+		LODOP.SET_PRINT_PAGESIZE(2,0,0,"A3");
+		LODOP.ADD_PRINT_URL(39,5,786,531,T1.value);
+		LODOP.ADD_PRINT_URL(407,779,771,531,T2.value);	
+		LODOP.SET_PREVIEW_MODE(2);	
+		LODOP.PREVIEW();			
+	};		
+</script>
+
+
+</body>
+</html>

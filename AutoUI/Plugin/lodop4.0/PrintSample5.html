@@ -1,0 +1,79 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>LODOP的使用样例五</title>
+<script language="javascript" src="CheckActivX.js"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+</object> 
+</head>
+<body>
+<script language="javascript">CheckLodop();</script>
+<script language="javascript" type="text/javascript">   
+	function Preview() {		
+		CreatePrintPage();
+	  	LODOP.PREVIEW();		
+	};
+	function Setup() {		
+		CreatePrintPage();
+		LODOP.PRINT_SETUP();		
+	};
+	function Design() {		
+		CreatePrintPage();
+		LODOP.PRINT_DESIGN();		
+	};	
+	function CreatePrintPage() {
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_自定义纸张");
+		LODOP.SET_PRINT_PAGESIZE(1,1380,880,"");
+		LODOP.SET_PRINT_STYLE("FontColor",16711680);
+		LODOP.ADD_PRINT_RECT(62,16,474,217,0,1);
+		LODOP.ADD_PRINT_TEXT(15,137,157,25,"交通银行（      ）");
+		LODOP.SET_PRINT_STYLEA(2,"FontName","隶书");
+		LODOP.SET_PRINT_STYLEA(2,"FontSize",11);
+		LODOP.SET_PRINT_STYLEA(2,"FontColor",0);
+		LODOP.ADD_PRINT_TEXT(41,213,100,20,"2008年11月9日");
+		LODOP.ADD_PRINT_TEXT(17,281,100,20,"个人业务受理书");
+		LODOP.SET_PRINT_STYLEA(4,"FontColor",0);
+		LODOP.ADD_PRINT_TEXT(75,37,431,20,"机构109110 流水9236703415 交易代码010110");
+		LODOP.ADD_PRINT_TEXT(102,37,431,20,"个人网银用户签约成功！");
+		LODOP.ADD_PRINT_TEXT(129,37,431,20,"网点名称：东城分行营业部");
+		LODOP.ADD_PRINT_TEXT(156,37,431,20,"主卡卡号：10101010101010");
+		LODOP.ADD_PRINT_TEXT(183,37,431,20,"客户姓名：郭德刚");
+		LODOP.ADD_PRINT_TEXT(212,37,431,20,"登陆方式：用户名登陆");
+		LODOP.ADD_PRINT_TEXT(17,218,60,20,"东城分行");
+		LODOP.ADD_PRINT_TEXT(249,169,221,20,"以上内容已核实确认无误，客户签名：");
+		LODOP.ADD_PRINT_TEXT(106,493,23,127,"第二联客户留联");
+		LODOP.SET_PRINT_STYLEA(13,"FontColor",0);
+		LODOP.ADD_PRINT_TEXT(284,21,74,20,"授权员");
+		LODOP.SET_PRINT_STYLEA(14,"FontColor",0);
+		LODOP.ADD_PRINT_TEXT(284,200,74,20,"复核员");
+		LODOP.SET_PRINT_STYLEA(15,"FontColor",0);
+		LODOP.ADD_PRINT_TEXT(284,346,74,20,"经办员");
+		LODOP.SET_PRINT_STYLEA(16,"FontColor",0);
+
+	};	
+</script> 
+<h2><b><font color="#009999">演示控制纸张类型或自定义纸张大小:</font></b></h2>
+<p>一般的打印设计任务是：程序控制一个逻辑布局，在不同的打印纸张上打印出对应效果。</p>
+<p>但有些打印业务需要固定纸张大小甚至连续套打，此时可用如下控制函数：</p>
+<p><font color="#0000FF" size="3">SET_PRINT_PAGESIZE(intOrient,intPageWidth,intPageHeight,strPageName);
+</font></p>
+<p><font size="3"><i>参数含义：</i></font><font color="#0000FF" size="3">
+<br>
+</font><font size="3"><font color="#0000FF">intOrient：</font>1-纵(正)向打印 2-横向打印       
+0或其它-默认打印方向。<font color="#0000FF"><br>
+intPageWidth,intPageHeight：</font>自定义的纸张宽和高，单位0.1毫米，等于0时则按纸张名（<font color="#0000FF">strPageName</font>）大小。</font><font color="#0000FF" size="3"><br>
+strPageName：</font><font size="3">纸张名，有如下选择：<br>
+</font><font size="2" face="System">Letter, LetterSmall, Tabloid, Ledger, Legal,Statement, Executive,&nbsp;<br>      
+ A3, A4, A4Small, A5, B4, B5, Folio, Quarto, qr10X14, qr11X17, Note,&nbsp;<br>      
+ Env9, Env10, Env11, Env12,Env14, Sheet, DSheet, ESheet</font></p>    
+<p>如下情况时<font size="3">按打印机默认或用户所选纸张大小：</font><font size="3"><br>
+1：不执行<font color="#0000FF">SET_PRINT_PAGESIZE</font>。<br>
+2：<font color="#0000FF">intPageWidth</font>与</font><font color="#0000FF">intPageHeight</font><font size="3">乘积小于等于0</font><font color="#0000FF">，</font><font size="3">且</font><font color="#0000FF">strPageName</font><font size="3">为空</font>。</p> 
+<p><b><font color="#0000FF">下面演示在宽13.8cm和高8.8cm的纸张内<font size="3">纵(正)向</font>打印一个交行受理书：</font></b></p>                                         
+<p><input type="button" value="打印预览" name="B3"  onclick="Preview()">
+<input type="button" value="打印维护" name="B3" onclick="Setup()">                                          
+<input type="button" value="打印设计" name="B3" onclick="Design()"></p>                                          
+<p>　</p>
+
+</body>
+</html>

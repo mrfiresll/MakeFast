@@ -1,0 +1,144 @@
+﻿<style>
+    .tabs-header-left .tabs li.tabs-selected a.tabs-inner {
+        /*padding-top:6px;*/
+        border-right-color: #95B8E7;
+    }
+
+    .tabs-title {
+        line-height: 18px;
+    }
+</style>
+<body class="easyui-layout">
+    <div data-options="region:'center',border:false">
+        <div class="easyui-layout" data-options="fit:true,border:false">
+            <div data-options=" region:'center',border:true">
+                <div id="roleTab" class="easyui-tabs" data-options="fit:true,border:false,tabPosition:'left',headerWidth:34,tabHeight:97">
+                    <div title="按<br>系<br>统<br>角<br>色">
+                        <table id="dgRole" class="easyui-datagrid" rownumbers="true" fit="true" pagination="false" fitcolumns="true" striped="true" border="false" idfield="Id"
+                               url="GetRoleList" autorowheight="false" singleselect="true" data-options="onClickRow:onClickRow">
+                            <thead>
+                                <tr>
+                                    <th field="Code" width="150" halign='center'>
+                                        编号
+                                    </th>
+                                    <th field="Name" width="240" halign='center'>
+                                        名称
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div title="按<br>组<br>织<br>部<br>门"></div>
+                </div>
+            </div>
+            <div data-options="region:'east',split:true,collapsible:false" style="width:50%;">
+                <div id="tb">
+                    <table cellpadding="0" cellspacing="0" style="width: 100%">
+                        <tr>
+                            <td></td>
+                            <td style="text-align:right">
+                                <input class="easyui-searchbox" data-options="prompt:'输入姓名',searcher:doSearch" style="width:200px">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <table id="dgUser" class="easyui-datagrid" rownumbers="true" fit="true" pagination="true" fitcolumns="true" striped="true" border="false" idfield="Id"
+                       url="GetUserList" autorowheight="false" singleselect="true" toolbar="#tb">
+                    <thead>
+                        <tr>
+                            <th field="Code" width="150" halign='center'>
+                                编号
+                            </th>
+                            <th field="RealName" width="200" halign='center'>
+                                名称
+                            </th>
+                            <th field="Select" width="100" halign='center'>
+                                选择
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'east',split:true,collapsible:false" style="width:30%;">
+        <div id="tb2">
+            <table cellpadding="0" cellspacing="0" style="width: 100%">
+                <tr>
+                    <td><a href="#" class="easyui-linkbutton" plain="true" onclick="thisConfirm()" iconcls="iconfont iconfont-baocun">确定</a></td>
+                    <td style="text-align:right"></td>
+                </tr>
+            </table>
+        </div>
+        <table id="dgUserSelect" class="easyui-datagrid" rownumbers="true" fit="true" pagination="false" fitcolumns="true" striped="true" border="false" idfield="Id"
+               url="" autorowheight="false" singleselect="true" toolbar="#tb2">
+            <thead>
+                <tr>
+                    <th field="RealName" width="200" halign='center'>
+                        名称
+                    </th>
+                    <th field="UnSelect" width="100" halign='center'>
+                        移除
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+
+<script>
+    function setFormData(d) {
+        if (!d) return;
+        if (!d.Id || d.Id == '') return;
+        var idArr = d.Id.split(',');
+        var nameArr = d.RealName.split(',');
+        $.each(idArr, function (index, item) {
+            $('#dgUserSelect').datagrid('appendRow', { Id: item, RealName: nameArr[index] });
+        })
+    }
+
+    addGridBtn('dgUser', 'Select', {
+        linkText: '选择',
+        onButtonClick: function (row, index) {
+            var selectRows = $('#dgUserSelect').datagrid('getRows');
+            if (!selectRows.containsField(row.Id, "Id"))
+            {
+                $('#dgUserSelect').datagrid('appendRow', { Id: row.Id, RealName: row.RealName });
+            }
+        }
+    });
+
+    addGridBtn('dgUserSelect', 'UnSelect', {
+        linkText: '移除',
+        onButtonClick: function (row, index) {
+            var rowIndex = $('#dgUserSelect').datagrid('getRowIndex', row);
+            $('#dgUserSelect').datagrid('deleteRow', rowIndex);
+        }
+    });
+
+    function onClickRow(index, rowData) {
+        $('#dgUser').datagrid({ url: 'GetRoleUserList?RoleId=' + rowData.Id });
+    }
+
+    function doSearch(value, name) {
+        $('#dgUser').datagrid('load', {
+            RealName: value
+        });
+    }
+
+    function thisConfirm()
+    {
+        var selectRows = $('#dgUserSelect').datagrid('getRows');
+        var idArr = [];
+        var nameArr = [];
+        $.each(selectRows, function (index, item) {
+            idArr.push(item.Id);
+            nameArr.push(item.RealName);
+        })
+        var res = {
+            Id: idArr.join(','),
+            RealName: nameArr.join(',')
+        }
+        closeWindow(res);
+    }
+</script>

@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "f";    
+}
+ 
+<div class="k-header k-grid-toolbar" style="height:22px;width:100%; position:fixed;top:0;z-index:10">
+    <a class="k-button" style="height:20px;" href=" javascript:void(0)" onclick="save()"><span class="k-icon k-i-plus"></span>保存</a>
+    <a class="k-button" style="height:20px;" href="javascript:void(0)" onclick="dialogClose()"><span class="k-icon k-i-cancel"></span>取消</a>
+</div>
+<div style="padding:2px;margin-top:32px">
+    <form class="k-content" action="Save" method="post">
+        <input type="hidden" name="id" id="id" value="" />
+        <input type="submit" style="display:none"/>
+        <table class="mfire-groupTable">
+            <tr>
+                <td style="width:15%"><label for="num" class="required">编号：</label></td>
+                <td style="width:35%"><input type="text" id="num" name="num" class="k-textbox" placeholder="请填写编号" required validationmessage="Enter {0}" style="width: 100%;" /></td>
+                <td style="width:15%"><label for="name" class="required">名称：</label></td>
+                <td style="width:35%"><input type="text" id="name" name="name" class="k-textbox" placeholder="请填写名称" required validationmessage="Enter {0}" style="width: 100%;" /></td>
+            </tr>
+            <tr>
+                <td><label for="entityFullName" class="required">表单类：</label></td>
+                <td><input id="entityFullName" name="entityFullName" style="width: 100%;" /></td>
+                <td><label for="name" class="required">表单类全名：</label></td>
+                <td><div style="margin-left:12px" id="classFullName"></div></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+ <script>
+     var configID = '@ViewBag.ConfigID';
+     var nameSpaceList = @Html.Raw(@ViewBag.NameSpaceList);
+     var id = queryString('id');
+ </script>
+<script>
+    function pageLoad()
+    {
+        //表单类下拉菜单载入默认数据及备选数据
+        if(nameSpaceList.length > 0)
+        {
+            $("#classFullName").html(nameSpaceList[0].value);
+        }
+        $("#entityFullName").kendoDropDownList({
+            dataTextField: "key",
+            dataValueField: "value",
+            dataSource: nameSpaceList,
+            index: 0,
+            change: function(e) {  
+                $("#classFullName").html(this.value());//打开下拉菜单时触发
+                if($("#name").val() == '')
+                {
+                    $("#name").val(this.text());
+                }                
+            }
+        });
+
+        //编辑
+        if(id)
+        {
+            $("#id").val(id);
+            addAjaxParam("id",id);
+            commitAjax("Get",{ CallBack:function(data){
+                if(data)
+                {
+                    var dropdownlist = $("#entityFullName").data("kendoDropDownList");
+                    dropdownlist.value(data.EntityFullName);
+                    $("#name").val(data.Name);
+                    $("#num").val(data.Num);
+                }            
+            }});
+        }
+    }
+
+    function save()
+    {
+        $("input[type=submit]").click();
+    }
+
+    $("form").submit(function(event) {        
+        var validatable = $("form").kendoValidator().data("kendoValidator");
+        if (validatable.validate()) {
+            var d = {};
+            var t = $('form').serializeArray();
+            $.each(t, function() {
+                d[this.name] = this.value;
+            });
+            addAjaxParam("formData",d);
+            commitAjax("Save",{ CallBack:function(data){            
+                if(data)
+                {
+                    closeWindow(true);
+                }
+                else
+                {
+                    msgBox('操作失败');
+                }
+            }
+            })
+        }
+        return false;
+    });
+</script>
+

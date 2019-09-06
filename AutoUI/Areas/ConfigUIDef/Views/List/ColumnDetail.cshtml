@@ -1,0 +1,62 @@
+﻿<div class="datagrid-toolbar formToolBar">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="saveFormData()" iconcls="iconfont iconfont-baocun">保存</a>
+</div>
+<div style="padding:2px;">
+    <form id="mf_form" method="post">
+        <table class="groupTable">
+            <tr>
+                <td style="width:30%">
+                    日期格式:
+                </td>
+                <td style="width:70%">
+                    <input id="dateFormat" name="dateFormat" class="easyui-textbox" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    数据源:
+                </td>
+                <td>
+                    <input id="SourceType" name="SourceType" class="easyui-mfbuttonedit" data-options="textName:'SourceValue',onButtonClick:dataBtnClick" style="width:100%" />
+                </td>
+            </tr>            
+            @*<tr>
+                <td>
+                    最大字符长度：
+                </td>
+                <td>
+                    <input name="maxLength" class="easyui-textbox" style="width: 100%" />
+                </td>
+            </tr>*@
+        </table>
+    </form>
+</div>
+<script>    
+    @Html.GetEnum(typeof(MF_Base.truefalseType), "False")
+    var valType = [{ text: "email", value: "email" }];
+</script>
+<script>
+    function dataBtnClick(e)
+    {
+        var val = e.value;
+        var text = e.text;
+        var param = {
+            SourceType: val,
+            SourceText: text
+        }
+
+        openWindow('/AutoUI/ConfigUIDef/FormCtrlDetail/EnumDef', {
+            width: 300, height: 400,
+            data: param,
+            onDestroy: function (res) {
+                if (res)
+                {
+                    var sourceType = res.SourceType;
+                    var sourceText = res.SourceText;
+                    $('#SourceType').mfbuttonedit('setValue', sourceType);
+                    $('#SourceType').mfbuttonedit('setText', sourceText);
+                }
+            }
+        });  
+    }
+</script>

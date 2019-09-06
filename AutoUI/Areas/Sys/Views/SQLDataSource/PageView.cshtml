@@ -1,0 +1,120 @@
+﻿<script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/codemirror/lib/codemirror.js")"></script>
+<script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/codemirror/mode/javascript/javascript.js")"></script>
+<script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/codemirror/mode/sql/sql.js")"></script>
+<link type="text/css" href="@Url.Content("/BaseResource/Plugin/codemirror/lib/codemirror.css")" rel="stylesheet" />
+<style>
+    .CodeMirror {
+        border: 1px solid #ccc;
+        font-size: 13px;
+    }
+</style>
+<div class="datagrid-toolbar formToolBar">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="save()" iconcls="iconfont iconfont-baocun">保存</a>
+</div>
+<div style="padding:2px;">
+    <form method="post">
+        <input id="Id" name="Id" type="hidden" />
+        <table class="groupTable">
+            <tr>
+                <td style="width:15%">编号:</td>
+                <td style="width:35%">
+                    <input id="Code" name="Code" class="easyui-textbox" data-options="required:true" style="width:100%" />
+                </td>
+                <td style="width:15%">
+                    名称:
+                </td>
+                <td style="width:35%">
+                    <input id="Name" name="Name" class="easyui-textbox" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:15%">数据库:</td>
+                <td style="width:35%">
+                    <input id="DBName" class="easyui-combobox" name="DBName"
+                           data-options="required:true,valueField:'value',textField:'text',panelHeight:'auto',data:DBNames" style="width:100%" />  
+                </td>
+                <td style="width:15%">
+    
+                </td>
+                <td style="width:35%">
+                   
+                </td>
+            </tr>
+            <tr>
+                <td>SQL:</td>
+                <td colspan="3">
+                    <textarea id="SQL" name="SQL" style="width:100%;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>备注:</td>
+                <td colspan="3">
+                    <input id="Remark" name="Remark" class="easyui-textbox" data-options="multiline:true,height:150" style="width:100%" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script>
+    @Html.DBNames();
+</script>
+<script>
+    var id = queryString('id');
+    var sqlCodeMirror
+    function initialCodeMirror()
+    {
+        sqlCodeMirror = CodeMirror.fromTextArea(document.getElementById('SQL'), {
+            mode: "text/x-sql",
+            indentWithTabs: true,
+            smartIndent: true,
+            lineNumbers: true,
+            matchBrackets: true,
+            autofocus: true
+        });
+        sqlCodeMirror.setSize('auto', '150px');
+    }
+    function pageLoad() {
+        initialCodeMirror();
+        //编辑
+        if (id) {
+            $("#Id").val(id);
+            addAjaxParam("id", id);
+            commitAjax("Get", {
+                CallBack: function (data) {
+                    if (data) {
+                        $('#Code').textbox('setValue', data.Code);
+                        $('#Name').textbox('setValue', data.Name);
+                        $('#DBName').combobox('setValue', data.DBName);
+                        sqlCodeMirror.setValue(data.SQL);
+                    }
+                }
+            });
+        }
+    }
+
+    function save() {
+        var isValid = $('form').form('validate');
+        if (!isValid) {
+            msgBox('请检查所填数据!');
+            return;
+        }
+
+        var t = $('form').serializeArray();
+        var formData = {};
+        $.each(t, function () {
+            formData[this.name] = this.value;
+        });
+        formData["SQL"] = sqlCodeMirror.getValue();
+        addAjaxParam("formData", formData);
+        commitAjax("Save", {
+            CallBack: function (data) {
+                if (data) {
+                    closeWindow(true);
+                }
+                else {
+                    msgBox('操作失败');
+                }
+            }
+        })
+    }
+</script>

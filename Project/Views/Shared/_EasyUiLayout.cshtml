@@ -1,0 +1,54 @@
+﻿@*<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">*@
+@*<!DOCTYPE html>*@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    @*<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />*@
+    <title>@ViewBag.Title</title>
+    
+    @* 头部预留css区域 *@
+    @this.RenderSection("Head_Css", false)
+    @* easyui *@
+    <script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/jquery/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/jquery/jquery.json-2.4.js")"></script>
+    @*<script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/easyui/jquery.easyui.min.js")"></script>*@
+    <script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/easyui/jquery.easyui.all.js")"></script>
+    @* easyui extend *@
+    <script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/easyui/mfextend/jquery-easyui-datagrid-cell.js")"></script>
+    @*<script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/easyui/mfextend/jquery-easyui-datagrid.js")"></script>*@
+    <script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/easyui/mfextend/jquery-easyui-mfbuttonedit.js")"></script>
+
+    <script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/easyui/locale/easyui-lang-zh_CN.js")"></script>
+    <link type="text/css" href="@Url.Content("/BaseResource/Plugin/easyui/themes/using/kube.css")" rel="stylesheet" />
+    <link type="text/css" href="@Url.Content("/BaseResource/Plugin/easyui/themes/using/easyui.css")" rel="stylesheet" /> 
+    <link type="text/css" href="@Url.Content("/BaseResource/Plugin/easyui/themes/icon.css")" rel="stylesheet" />
+    <link type="text/css" href="@Url.Content("/BaseResource/Plugin/easyui/themes/color.css")" rel="stylesheet" />     
+    <link type="text/css" href="@Url.Content("/BaseResource/Plugin/easyui/themes/using/style.css")" rel="stylesheet" />
+    @* plugin *@
+    <script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/layer/layer.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/mustache/mustache.min.js")"></script>
+    @* mfire *@
+    <script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/easyui/mfextend/EasyUiExtend.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/BaseResource/Script/mfbase.js")"></script>
+    @*<script type="text/javascript" src="@Url.Content("~/Scripts/common.js")"></script>*@
+    <link type="text/css" href="@Url.Content("/BaseResource/Plugin/easyui/mfextend/EasyUiExtend.css")" rel="stylesheet" />
+    
+    @* default *@
+    <link type="text/css" href="@Url.Content("/BaseResource/Css/Site.css")" rel="stylesheet" />
+
+    @* 头部预留js区域 *@
+    @this.RenderSection("Head_Js", false)
+</head>
+<body>
+    @RenderBody()
+    @* 尾部预留js区域 *@
+    @this.RenderSection("Tail_Js", false)
+    <script>
+    pageInit();
+    </script>
+</body>
+</html>
+
+
+

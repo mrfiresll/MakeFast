@@ -1,0 +1,9 @@
+﻿<ul id="dgTree" class="easyui-tree" url="/AutoUI/Sys/MFDepartment/GetTree" data-options="onClick:selectNode"></ul>
+
+<script>
+    function selectNode() {
+        var selected = $('#dgTree').tree('getSelected');
+        if (selected.parentId)
+            closeWindow(selected.id);
+    }
+</script>

@@ -1,0 +1,46 @@
+﻿<div class="datagrid-toolbar formToolBar">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="save()" iconcls="iconfont iconfont-baocun">保存</a>
+</div>
+<div style="padding:2px;">
+    <form method="post">
+        <input id="Id" name="Id" type="hidden" />
+        <table class="groupTable">
+            <tr>
+                <td style="width:15%">密码:</td>
+                <td style="width:85%">
+                    <input id="PassWord" name="PassWord" class="easyui-passwordbox" style="width: 100%" data-options="showEye:true" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script>
+    var formData = [];
+</script>
+<script>
+    var id = queryString('id');
+    function save() {
+        var isValid = $('form').form('validate');
+        if (!isValid) {
+            msgBox('请检查所填数据!');
+            return;
+        }
+
+        var t = $('form').serializeArray();
+        $.each(t, function () {
+            formData[this.name] = this.value;
+        });
+        addAjaxParam("Id", id);
+        addAjaxParam("PassWord", $('#PassWord').textbox('getValue'));
+        commitAjax("ResetPwd", {
+            CallBack: function (data) {
+                if (data) {
+                    closeWindow(formData);
+                }
+                else {
+                    msgBox('操作失败');
+                }
+            }
+        })
+    }
+</script>

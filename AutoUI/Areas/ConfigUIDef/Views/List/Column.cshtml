@@ -1,0 +1,108 @@
+﻿<div id="tb">
+    <table cellpadding="0" cellspacing="0" style="width: 100%">
+        <tr>
+            <td>
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfInsertRow')" iconcls="iconfont iconfont-jia1" plain="true">增加</a>
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfMoveUp')" iconcls="iconfont iconfont-xiangshang" plain="true">上移</a>
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfMoveDown')" iconcls="iconfont iconfont-paixu" plain="true">下移</a>
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfDeleteRow')" iconcls="iconfont iconfont-shanchu" plain="true">删除</a>
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfSaveRows', true)" iconcls="iconfont iconfont-baocun" plain="true">保存</a>
+                <a href="#" class="easyui-linkbutton" onclick="loadColumn()" iconcls="iconfont iconfont-shuaxin" plain="true">导入列</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<table id="dg" rownumbers="true" fit="true" pagination="true" fitcolumns="false" striped="true" border="false" remotesort="false"
+       autorowheight="false" toolbar="#tb" singleselect="false" data-options="">
+    <thead>
+        <tr>
+            <th data-options="field:'ck',checkbox:true"></th>
+            <th field="Detail" width="100" halign='center'>
+                详细设置
+            </th>
+            <th field="field" width="150" halign='center' editor="{type:'validatebox'}">
+                列字段
+            </th>
+            <th field="title" width="150" halign='center' editor="{type:'validatebox'}">
+                列标题
+            </th>
+            <th field="width" width="100" halign='center' editor="{type:'validatebox'}">
+                列宽度
+            </th>
+            <th field="align" width="100" halign='center' formatter="AlignTypeFormatter" editor="{type:'combobox',options:{data:alignType,panelHeight:'auto'}}">
+                对齐方式
+            </th>
+            <th field="hidden" width="70" halign='center' formatter="trueFalseFormatter" align="center" editor="{type:'checkbox',options:{on:'true',off:'false'}}">
+                是否隐藏
+            </th>
+            <th field="sortable" width="70" halign='center' formatter="trueFalseFormatter" align="center" editor="{type:'checkbox',options:{on:'true',off:'false'}}">
+                是否排序
+            </th>
+            <th field="quickSearch" width="70" halign='center' formatter="trueFalseFormatter" align="center" editor="{type:'checkbox',options:{on:'true',off:'false'}}">
+                快查
+            </th>
+        </tr>
+    </thead>
+</table>
+<script>
+    var alignType = [{ text: '靠左', value: 'left' }, { text: '居中', value: 'center' }, { text: '靠右', value: 'right' }];
+    function AlignTypeFormatter(value, rowData, rowIndex) {
+        if (value == 0) { return; } for (var i = 0; i < alignType.length; i++)
+        { if (alignType[i].value == value) { return alignType[i].text; } }
+    };
+    function trueFalseFormatter(value,rowData,rowIndex)
+    {
+        if(value == 'true')
+        {
+            return '是'
+        }
+        else
+        {
+            return '否'
+        }
+    }
+
+</script>
+
+<script>
+    var listId = queryString('Id')
+    addGridBtn('dg', 'Detail', {
+        linkText: '详细设置',
+        onButtonClick: function (row, index) {
+            var url = 'ColumnDetail';
+            openWindow(url, {
+                width: 300, height: 400,
+                data: row.Detail,
+                onDestroy: function (res) {
+                    if (res) {
+                        $('#dg').datagrid('mfUpdateRow', {
+                            index: index,
+                            row: {
+                                Detail: JSON.stringify(res)
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    });
+    $('#dg').datagrid({ onSuccess: function (e) { msgBox('保存成功'); }, url: 'GetColumnList', saveUrl: 'SaveColumn?listId=' + listId, queryParams: { listId: queryString('Id') } }).datagrid('enableCellEditing');
+
+    function loadColumn() {
+        confirmBox('是否根据SQL载入列?', function (r) {
+            if (r) {
+                addAjaxParam('listId', listId);
+                commitAjax('GetColumnFromSQL', {
+                    CallBack: function (data) {
+                        var rows = $("#dg").datagrid('getRows');
+                        $.each(data, function (index, item) {
+                            if (!rows.containsField(item['field'],'field'))
+                                $("#dg").datagrid('mfInsertRow', { row: { field: item, title: item } });
+                        })
+                    }
+                });
+            }
+        })
+    }
+</script>
+

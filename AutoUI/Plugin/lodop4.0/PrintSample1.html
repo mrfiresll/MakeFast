@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>LODOP的使用样例一</title>
+
+<script language="javascript" src="CheckActivX.js"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+</object> 
+</head>
+<body>
+<script language="javascript">CheckLodop();</script>
+
+<h2><font color="#009999">演示如何在页面内嵌入打印控件Lodop：</font></h2>
+<p>当以上页面出现“控件未安装”字样时，请按提示信息执行，无该字样时表明已成功安装。
+<p>嵌入方式说明如下，在页面的head附近插入如下代码：
+<p><font color="#0000FF" size="2">&lt;script language=&quot;javascript&quot;                                  
+src=&quot;CheckActivX.js&quot;&gt;&lt;/script&gt;</font></p>
+<p><font color="#0000FF" size="2">&lt;OBJECT&nbsp; ID=&quot;LODOP&quot;                  
+CLASSID=&quot;clsid:2105C259-1E0C-4534-8141-A753534CB4CA&quot; WIDTH=0 HEIGHT=0&gt;&nbsp;&lt;/OBJECT&gt;         
+</font><font SIZE="1"></p></font>
+<p><font color="#0000FF" size="2">&lt;script language=&quot;javascript&quot;&gt;CheckLodop();&lt;/script&gt;</font></p>   
+<p>其中CheckActivX.js中CheckLodop的任务是检查控件是否安装、是否最新版本、并引导安装或升级。
+<p>其它Lodop相关文件说明如下：</p>
+<p><font color="#0000FF">install_lodop.exe</font>是控件安装或升级主文件，提供给用户或开发者下载安装（100%成功），</p>
+<p>如果将其复制或改名为<font color="#0000FF">uninstall_lodop.exe</font>(名前加un)就可用其卸载控件。</p>
+<p><font color="#0000FF">npActiveX0712SFx31.xpi</font>是Firefox浏览器需要的安装附加文件。目前Lodop支持IE系列</p>
+<p>浏览器、Firefox系列浏览器和IE内核类浏览器(遨游、腾讯TT、麒麟、世界之窗等)及其它</p>
+<p>支持ActiveX的各类浏览器。</p>
+</body>
+</html>

@@ -1,0 +1,78 @@
+﻿<div id="tb">
+    <table cellpadding="0" cellspacing="0" style="width: 100%">
+        <tr>
+            <td>
+                @Html.Raw(ViewBag.ButtonHtml)
+            </td>
+            <td style="text-align:right">
+                @if (!string.IsNullOrEmpty(ViewBag.QuickSearchColumTitle))
+                {
+                    <input class="easyui-searchbox" data-options="prompt:'输入@{@ViewBag.QuickSearchColumTitle}',searcher:doSearch" style="width:200px">
+                }                
+            </td>
+        </tr>
+    </table>
+</div>
+@Html.Raw(ViewBag.ListHtml)
+<!--导出Excel——模拟异步ajax提交表单 -->
+<form id='exportExcelForm' style='display:none;' action='/AutoUI/ConfigUI/NPOI/ExportExcel' method='post' target='exportExcelIFrame'>
+    <input type='hidden' name='gridUrl' />
+    <input type='hidden' name='referUrl' />
+    <input type='hidden' name='pageNumber' />
+    <input type='hidden' name='pageSize' />
+    <input type='hidden' name='queryParams' />
+    <input type='hidden' name='title' />
+    <input type='hidden' name='sortName' />
+    <input type='hidden' name='sortOrder' />
+    <input type='hidden' name='columns' />
+</form>
+<iframe id='exportExcelIFrame' name='exportExcelIFrame' style='display:none;'></iframe>
+
+<script>
+    var code = queryString('UICode');
+    @Html.Raw(ViewBag.Script)
+</script>
+<script>
+    $('#mf_grid').datagrid({ url: 'GetList', queryParams: { UICode: code } });
+
+    function thisDelRow(e)
+    {
+        var url = '/AutoUI/ConfigUI/List/Delete';
+        delRow({ url: url, params: { UICode: code } });
+    }
+
+    function openWindowWithUrl(url, width, height) {
+        url = url.replace('{UICode}', code);
+
+        var rows = $('#mf_grid').datagrid('getSelections');
+        if (rows.length != 0) {
+            for (var key in rows[0]) {
+                url = url.replace('{' + key + '}', rows[0][key]);
+            }
+        }
+        
+        openWindow(url, {
+            width: width,
+            height: height,
+            onDestroy: function (data) {
+                if (data) {
+                    $("#mf_grid").datagrid('reload');
+                    $('#mf_grid').datagrid('clearSelections');
+                }
+            }
+        });
+    }
+
+    function doSearch(value,name)
+    {
+        $('#mf_grid').datagrid('load', {
+            UICode: code,
+            QuickSearchValue: value
+        });
+    }
+
+    function exportList() {
+        exportExcel('','导出的数据');
+    }
+
+</script>

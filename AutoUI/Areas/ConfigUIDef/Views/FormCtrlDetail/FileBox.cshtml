@@ -1,0 +1,66 @@
+﻿<div class="datagrid-toolbar formToolBar">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="saveFormData()" iconcls="iconfont iconfont-baocun">保存</a>
+</div>
+<div style="padding:2px;">
+    <form id="mf_form" method="post">
+        <table class="groupTable">
+            <tr>
+                <td style="width:30%">是否必填:</td>
+                <td style="width:70%">
+                    <input id="required" name="required" class="easyui-combobox" data-options="data:truefalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>                
+            </tr>
+            <tr>
+                <td>
+                    可否输入:
+                </td>
+                <td>
+                    <input id="editable" name="editable" class="easyui-combobox" data-options="data:TrueFalseType2,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    空文本提示:
+                </td>
+                <td>
+                    <input id="prompt" name="prompt" class="easyui-textbox" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    可指定文件类型：
+                </td>
+                <td>
+                    <input id="accept" name="accept" class="easyui-textbox" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>是否多文件选择:</td>
+                <td>
+                    <input id="multiple" name="multiple" class="easyui-combobox" data-options="data:truefalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    多个文件名称分隔符：
+                </td>
+                <td>
+                    <input id="separator" name="separator" class="easyui-textbox" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    控件宽度：
+                </td>
+                <td>
+                    <input name="style_width" class="easyui-textbox" value="100%" style="width: 100%" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script>   
+    @Html.GetEnum(typeof(MF_Base.truefalseType), "False")
+     @Html.GetEnum(typeof(MF_Base.truefalseType), "True", "TrueFalseType2")
+    var valType = [{ text: "email", value: "email" }];
+</script>

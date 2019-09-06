@@ -1,0 +1,80 @@
+﻿<div id="tb">
+    <table cellpadding="0" cellspacing="0" style="width: 100%">
+        <tr>
+            <td>
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfInsertRow')" iconcls="iconfont iconfont-jia1" plain="true">增加</a>
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfMoveUp')" iconcls="iconfont iconfont-xiangshang" plain="true">上移</a>
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfMoveDown')" iconcls="iconfont iconfont-paixu" plain="true">下移</a>
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfDeleteRow')" iconcls="iconfont iconfont-shanchu" plain="true">删除</a>
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfSaveRows', true)" iconcls="iconfont iconfont-baocun" plain="true">保存</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<table id="dg" rownumbers="true" fit="true" fitcolumns="true" striped="true" border="false" remotesort="false"
+       autorowheight="false" toolbar="#tb" singleselect="false">
+    <thead>
+        <tr>
+            <th data-options="field:'ck',checkbox:true"></th>
+            <th field="id" width="100" halign='center' align="center" editor="{type:'validatebox'}">
+                Id
+            </th>
+            <th field="iconcls" width="100" halign='center' align="center" editor="{type:'combobox',options:{data:iconClsList,panelHeight:'auto',editable:true}}">
+                图标
+            </th>
+            <th field="title" width="120" halign='center' editor="{type:'validatebox'}">
+                按钮标题
+            </th>
+            <th field="url" width="350" halign='center' editor="{type:'validatebox'}">
+                Url
+            </th>
+            <th field="hidden" width="80" halign='center' formatter="trueFalseFormatter" align="center" editor="{type:'checkbox',options:{on:'true',off:'false'}}">
+                是否隐藏
+            </th>
+            <th field="Detail" width="100" halign='center' align="center">
+                详细设置
+            </th>
+        </tr>
+    </thead>
+</table>
+<script>
+    var iconClsList = [{ text: 'iconfont-jia1', value: 'iconfont-jia1' }, { text: 'iconfont-jian1', value: 'iconfont-jian1' }, { text: 'iconfont-bianji1', value: 'iconfont-bianji1' }];
+    function trueFalseFormatter(value,rowData,rowIndex)
+    {
+        if(value == 'true')
+        {
+            return '是'
+        }
+        else
+        {
+            return '否'
+        }
+    }
+
+</script>
+
+<script>
+    var listId = queryString('Id')
+    addGridBtn('dg', 'Detail', {
+        linkText: '详细设置',
+        onButtonClick: function (row, index) {
+            var url = 'ButtonDetail?Id=' + listId;
+            openWindow(url, {
+                width: 400, height: 350,
+                data: row.Detail,
+                onDestroy: function (res) {
+                    if (res) {
+                        $('#dg').datagrid('mfUpdateRow', {
+                            index: index,
+                            row: {
+                                Detail: JSON.stringify(res)
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    });
+    $('#dg').datagrid({ onSuccess: function (e) { msgBox('保存成功'); }, url: 'GetButtonList', saveUrl: 'SaveButton?listId=' + listId, queryParams: { listId: queryString('Id') } }).datagrid('enableCellEditing');
+</script>
+

@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>LODOP的使用样例十三</title>
+<script language="javascript" src="CheckActivX.js"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+</object> 
+</head>
+<body>
+<script language="javascript">CheckLodop();</script>
+<h2><font color="#009999">演示如何打印旋转内容：</font>
+</h2>
+<p>设定打印内容旋转的(设置风格)函数如下：</p>  
+<p><font color="#0000FF">SET_PRINT_STYLEA(varItemNameID,strStyleName,varStyleValue)</font></p>  
+<p>参数含义:</p>  
+<p><font color="#0000FF">varItemNameID</font> 打印对象的序号或名称</p>   
+<p><font color="#0000FF">strStyleName </font><font color="#000000">风格名称，这里为“Angle”</font></p>   
+<p><font color="#0000FF">varStyleValue </font><font color="#000000">逆时针旋转角度数，单位是度，0度表示不旋转。</font></p>  
+
+
+<p><font size="2"><input type="button" value="打印预览" onclick="prn1_preview()"><input type="button" value="打印维护" onclick="prn1_setup()"><input type="button" value="打印设计" onclick="prn1_design()"><br>
+</font>
+<script language="javascript" type="text/javascript"> 
+	function prn1_preview() {	
+		CreateOneFormPage();	
+		LODOP.PREVIEW();	
+	};
+	function prn1_setup() {		
+		CreateOneFormPage();
+		LODOP.PRINT_setup();	
+	};
+	function prn1_design() {		
+		CreateOneFormPage();
+		LODOP.PRINT_design(); 	
+	};	
+	function CreateOneFormPage(){
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_内容旋转");
+		LODOP.SET_PRINT_STYLE("FontName","黑体");
+		LODOP.SET_PRINT_STYLE("FontSize",15);
+		LODOP.ADD_PRINT_TEXT(79,291,120,35,"正常内容");
+		LODOP.ADD_PRINT_TEXT(284,464,163,34,"逆时针旋转90度");
+		LODOP.SET_PRINT_STYLEA(2,"Angle",90);
+		LODOP.ADD_PRINT_TEXT(252,189,196,34,"逆时针旋转45度");
+		LODOP.SET_PRINT_STYLEA(3,"Angle",45);
+			
+	};	
+</script> 
+
+
+</body>
+</html>

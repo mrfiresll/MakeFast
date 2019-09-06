@@ -1,0 +1,90 @@
+﻿<div class="datagrid-toolbar formToolBar">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="saveFormData()" iconcls="iconfont iconfont-baocun">保存</a>
+</div>
+<div style="padding:2px;">
+    <form id="mf_form" method="post">
+        <table class="groupTable">
+            <tr>
+                <td style="width:30%">是否必填:</td>
+                <td style="width:70%">
+                    <input id="required" name="required" class="easyui-combobox" data-options="data:truefalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>                
+            </tr>
+            <tr>
+                <td>
+                    外键表名:
+                </td>
+                <td>
+                    <input id="textName" name="textName" class="easyui-textbox" value="" style="width: 100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    外键表显示字段:
+                </td>
+                <td>
+                    <input id="foreignTableFieldName" name="foreignTableFieldName" class="easyui-textbox" value="" style="width: 100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Url:
+                </td>
+                <td>
+                    <input id="url" name="url" class="easyui-textbox" prompt="url?参数名={控件名}&参数名=参数值" value="" style="width: 100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    返回值Value绑定的字段:
+                </td>
+                <td>
+                    <input id="value" name="value" class="easyui-textbox" value="Id" style="width: 100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    返回值Text绑定的字段:
+                </td>
+                <td>
+                    <input id="text" name="text" class="easyui-textbox" value="Name" style="width: 100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    返回值其他绑定:
+                </td>
+                <td>
+                    <input id="returnVal" name="returnVal" prompt="控件名=返回值字段名,..." class="easyui-textbox" value="" style="width: 100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    窗体高度：
+                </td>
+                <td>
+                    <input name="height" class="easyui-textbox" value="100%" style="width: 100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    窗体宽度：
+                </td>
+                <td>
+                    <input name="width" class="easyui-textbox" value="70%" style="width: 100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    控件宽度：
+                </td>
+                <td>
+                    <input name="style_width" class="easyui-textbox" value="80%" style="width: 100%" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script>   
+    @Html.GetEnum(typeof(MF_Base.truefalseType), "False")
+</script>

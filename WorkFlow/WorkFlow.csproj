@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1382B881-D2F8-412F-9B75-1DB6E6040B08}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WorkFlow</RootNamespace>
+    <AssemblyName>WorkFlow</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NCode.Composition.DisposableParts">
+      <HintPath>..\3rd\NCode.Composition.DisposableParts.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rd\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\WFListController.cs" />
+    <Compile Include="Controllers\WFFormController.cs" />
+    <Compile Include="Controllers\WFDefController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\workflow.css" />
+    <Content Include="Content\img\play.png" />
+    <Content Include="Content\img\stop.png" />
+    <Content Include="Content\img\user.png" />
+    <Content Include="Content\img\userSign.png" />
+    <Content Include="Content\img\wg.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Plugin\jsplumb\.gitignore" />
+    <Content Include="Plugin\jsplumb\build-support.js" />
+    <Content Include="Plugin\jsplumb\css\external\cssgrids-min.css" />
+    <Content Include="Plugin\jsplumb\css\external\prettify-min.css" />
+    <Content Include="Plugin\jsplumb\css\ico-jsplumb.svg" />
+    <Content Include="Plugin\jsplumb\css\jsplumb-doc.css" />
+    <Content Include="Plugin\jsplumb\css\jsplumb.css" />
+    <Content Include="Plugin\jsplumb\css\jsplumbtoolkit-defaults.css" />
+    <Content Include="Plugin\jsplumb\css\jsplumbtoolkit-demo.css" />
+    <Content Include="Plugin\jsplumb\css\main.css" />
+    <Content Include="Plugin\jsplumb\demo\animation\bigdot.png" />
+    <Content Include="Plugin\jsplumb\demo\animation\demo.css" />
+    <Content Include="Plugin\jsplumb\demo\animation\demo.js" />
+    <Content Include="Plugin\jsplumb\demo\animation\dom.html" />
+    <Content Include="Plugin\jsplumb\demo\animation\littledot.png" />
+    <Content Include="Plugin\jsplumb\demo\Apache License Version 2.txt" />
+    <Content Include="Plugin\jsplumb\demo\bootstrap-dropdowns.css" />
+    <Content Include="Plugin\jsplumb\demo\chart\demo.css" />
+    <Content Include="Plugin\jsplumb\demo\chart\demo.js" />
+    <Content Include="Plugin\jsplumb\demo\chart\dom.html" />
+    <Content Include="Plugin\jsplumb\demo\demo-list.js" />
+    <Content Include="Plugin\jsplumb\demo\draggableConnectors\demo.css" />
+    <Content Include="Plugin\jsplumb\demo\draggableConnectors\demo.js" />
+    <Content Include="Plugin\jsplumb\demo\draggableConnectors\dom.html" />
+    <Content Include="Plugin\jsplumb\demo\dynamicAnchors\demo.css" />
+    <Content Include="Plugin\jsplumb\demo\dynamicAnchors\demo.js" />
+    <Content Include="Plugin\jsplumb\demo\dynamicAnchors\dom.html" />
+    <Content Include="Plugin\jsplumb\demo\flowchart\demo.css" />
+    <Content Include="Plugin\jsplumb\demo\flowchart\demo.js" />
+    <Content Include="Plugin\jsplumb\demo\flowchart\dom.html" />
+    <Content Include="Plugin\jsplumb\demo\groups\demo.css" />
+    <Content Include="Plugin\jsplumb\demo\groups\demo.js" />
+    <Content Include="Plugin\jsplumb\demo\groups\dom.html" />
+    <Content Include="Plugin\jsplumb\demo\index.html" />
+    <Content Include="Plugin\jsplumb\demo\lists\demo.css" />
+    <Content Include="Plugin\jsplumb\demo\lists\demo.js" />
+    <Content Include="Plugin\jsplumb\demo\lists\dom.html" />
+    <Content Include="Plugin\jsplumb\demo\logo-export-35h.png" />
+    <Content Include="Plugin\jsplumb\demo\logo.svg" />
+    <Content Include="Plugin\jsplumb\demo\perimeterAnchors\circle.png" />
+    <Content Include="Plugin\jsplumb\demo\perimeterAnchors\demo.css" />
+    <Content Include="Plugin\jsplumb\demo\perimeterAnchors\demo.js" />
+    <Content Include="Plugin\jsplumb\demo\perimeterAnchors\diamond.png" />
+    <Content Include="Plugin\jsplumb\demo\perimeterAnchors\dom.html" />
+    <Content Include="Plugin\jsplumb\demo\perimeterAnchors\ellipse.png" />
+    <Content Include="Plugin\jsplumb\demo\perimeterAnchors\rectangle.png" />
+    <Content Include="Plugin\jsplumb\demo\perimeterAnchors\triangle.png" />
+    <Content Include="Plugin\jsplumb\demo\perimeterAnchors\triangle_90.png" />
+    <Content Include="Plugin\jsplumb\demo\sourcesAndTargets\demo.css" />
+    <Content Include="Plugin\jsplumb\demo\sourcesAndTargets\demo.js" />
+    <Content Include="Plugin\jsplumb\demo\sourcesAndTargets\dom.html" />
+    <Content Include="Plugin\jsplumb\demo\statemachine\demo.css" />
+    <Content Include="Plugin\jsplumb\demo\statemachine\demo.js" />
+    <Content Include="Plugin\jsplumb\demo\statemachine\dom.html" />
+    <Content Include="Plugin\jsplumb\demo\webpack\demo.css" />
+    <Content Include="Plugin\jsplumb\demo\webpack\Gruntfile.js" />
+    <Content Include="Plugin\jsplumb\demo\webpack\index.html" />
+    <Content Include="Plugin\jsplumb\demo\webpack\index.js" />
+    <Content Include="Plugin\jsplumb\demo\webpack\webpack.config.js" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\api.js" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\css\external-small.png" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\css\logo.png" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\css\main.css" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\favicon.png" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\img\spinner.gif" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\index.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\js\api-filter.js" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\js\api-list.js" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\js\api-search.js" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\js\apidocs.js" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\js\yui-prettify.js" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\vendor\prettify\CHANGES.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\vendor\prettify\prettify-min.css" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\vendor\prettify\prettify-min.js" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\assets\vendor\prettify\README.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.Assign.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.AutoDefault.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.Bottom.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.BottomCenter.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.BottomLeft.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.BottomRight.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.Center.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.Continuous.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.ContinuousBottom.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.ContinuousLeft.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.ContinuousRight.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.ContinuousTop.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.Left.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.LeftMiddle.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.Perimeter.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.Right.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.RightMiddle.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.Top.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.TopCenter.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.TopLeft.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Anchors.TopRight.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Connection.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Connector.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Connectors.Bezier.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Connectors.Flowchart.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Connectors.StateMachine.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Connectors.Straight.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Endpoint.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Endpoints.Blank.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Endpoints.Dot.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Endpoints.Image.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Endpoints.Rectangle.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\jsPlumb.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\jsPlumbInstance.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\jsPlumbUIComponent.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\jsPlumbUtil.EventGenerator.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\jsPlumbUtil.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\OverlayCapableJsPlumbUIComponent.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Overlays.Arrow.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Overlays.Diamond.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Overlays.Label.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\classes\Overlays.PlainArrow.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\files\doc_api_anchors.js.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\files\doc_api_connection-api.js.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\files\doc_api_connectors.js.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\files\doc_api_endpoint-api.js.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\files\doc_api_jsplumb-api.js.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\files\doc_api_overlaycomponent.js.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\files\doc_api_overlays-api.js.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\files\doc_api_uicomponent.js.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\files\doc_api_util-api.js.html" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\index.html" />
+    <Content Include="Plugin\jsplumb\dist\js\jsplumb.js" />
+    <Content Include="Plugin\jsplumb\dist\js\jsplumb.min.js" />
+    <Content Include="Plugin\jsplumb\doc\api\anchors.js" />
+    <Content Include="Plugin\jsplumb\doc\api\connection-api.js" />
+    <Content Include="Plugin\jsplumb\doc\api\connectors.js" />
+    <Content Include="Plugin\jsplumb\doc\api\endpoint-api.js" />
+    <Content Include="Plugin\jsplumb\doc\api\jsplumb-api.js" />
+    <Content Include="Plugin\jsplumb\doc\api\overlaycomponent.js" />
+    <Content Include="Plugin\jsplumb\doc\api\overlays-api.js" />
+    <Content Include="Plugin\jsplumb\doc\api\uicomponent.js" />
+    <Content Include="Plugin\jsplumb\doc\api\util-api.js" />
+    <Content Include="Plugin\jsplumb\doc\yuitheme\helpers.js" />
+    <Content Include="Plugin\jsplumb\Gruntfile.js" />
+    <Content Include="Plugin\jsplumb\img\bigdot.jpg" />
+    <Content Include="Plugin\jsplumb\img\bigdot.png" />
+    <Content Include="Plugin\jsplumb\img\circle.png" />
+    <Content Include="Plugin\jsplumb\img\diamond.png" />
+    <Content Include="Plugin\jsplumb\img\dragging_1.jpg" />
+    <Content Include="Plugin\jsplumb\img\dragging_2.jpg" />
+    <Content Include="Plugin\jsplumb\img\dragging_3.jpg" />
+    <Content Include="Plugin\jsplumb\img\dynamicAnchorBg.jpg" />
+    <Content Include="Plugin\jsplumb\img\ellipse.png" />
+    <Content Include="Plugin\jsplumb\img\endpointTest1.png" />
+    <Content Include="Plugin\jsplumb\img\favicon.jpg" />
+    <Content Include="Plugin\jsplumb\img\favicon.png" />
+    <Content Include="Plugin\jsplumb\img\index-bg.gif" />
+    <Content Include="Plugin\jsplumb\img\jsplumb-logo-bw2.jpg" />
+    <Content Include="Plugin\jsplumb\img\littledot.png" />
+    <Content Include="Plugin\jsplumb\img\logo-big-jsplumb.png" />
+    <Content Include="Plugin\jsplumb\img\logo-docs-jsplumb.png" />
+    <Content Include="Plugin\jsplumb\img\logo-jsplumb-206px.png" />
+    <Content Include="Plugin\jsplumb\img\logo-jsplumb-green.png" />
+    <Content Include="Plugin\jsplumb\img\logo-jsplumb.png" />
+    <Content Include="Plugin\jsplumb\img\logo-medium-jsplumb.png" />
+    <Content Include="Plugin\jsplumb\img\pattern.jpg" />
+    <Content Include="Plugin\jsplumb\img\rectangle.png" />
+    <Content Include="Plugin\jsplumb\img\swappedAnchors.jpg" />
+    <Content Include="Plugin\jsplumb\img\triangle.png" />
+    <Content Include="Plugin\jsplumb\img\triangle_90.png" />
+    <Content Include="Plugin\jsplumb\index.d.ts" />
+    <Content Include="Plugin\jsplumb\index.html" />
+    <Content Include="Plugin\jsplumb\install.js" />
+    <Content Include="Plugin\jsplumb\jsPlumb-LICENSE.txt" />
+    <Content Include="Plugin\jsplumb\logo-bw.png" />
+    <Content Include="Plugin\jsplumb\src\anchors.js" />
+    <Content Include="Plugin\jsplumb\src\base-library-adapter.js" />
+    <Content Include="Plugin\jsplumb\src\browser-util.js" />
+    <Content Include="Plugin\jsplumb\src\connection.js" />
+    <Content Include="Plugin\jsplumb\src\connectors-bezier.js" />
+    <Content Include="Plugin\jsplumb\src\connectors-flowchart.js" />
+    <Content Include="Plugin\jsplumb\src\connectors-statemachine.js" />
+    <Content Include="Plugin\jsplumb\src\connectors-straight.js" />
+    <Content Include="Plugin\jsplumb\src\defaults.js" />
+    <Content Include="Plugin\jsplumb\src\dom-adapter.js" />
+    <Content Include="Plugin\jsplumb\src\dom.jsPlumb.js" />
+    <Content Include="Plugin\jsplumb\src\endpoint.js" />
+    <Content Include="Plugin\jsplumb\src\group.js" />
+    <Content Include="Plugin\jsplumb\src\jsPlumb.js" />
+    <Content Include="Plugin\jsplumb\src\overlay-component.js" />
+    <Content Include="Plugin\jsplumb\src\renderers-svg.js" />
+    <Content Include="Plugin\jsplumb\src\util.js" />
+    <Content Include="Plugin\jsplumb\tests\android-svg.html" />
+    <Content Include="Plugin\jsplumb\tests\atom.png" />
+    <Content Include="Plugin\jsplumb\tests\bind-shim.js" />
+    <Content Include="Plugin\jsplumb\tests\endpoint-loadtest-dom.html" />
+    <Content Include="Plugin\jsplumb\tests\endpoint-loadtest.js" />
+    <Content Include="Plugin\jsplumb\tests\experiments\npm\browserify-test.js" />
+    <Content Include="Plugin\jsplumb\tests\experiments\npm\index.html" />
+    <Content Include="Plugin\jsplumb\tests\experiments\npm\input.js" />
+    <Content Include="Plugin\jsplumb\tests\experiments\original-group-dragging.html" />
+    <Content Include="Plugin\jsplumb\tests\experiments\overlays-guidelines.js" />
+    <Content Include="Plugin\jsplumb\tests\index.html" />
+    <Content Include="Plugin\jsplumb\tests\jsPlumb-tests.js" />
+    <Content Include="Plugin\jsplumb\tests\littledot.png" />
+    <Content Include="Plugin\jsplumb\tests\loadtest-dom.html" />
+    <Content Include="Plugin\jsplumb\tests\loadtest-template.html" />
+    <Content Include="Plugin\jsplumb\tests\loadtest.js" />
+    <Content Include="Plugin\jsplumb\tests\makeSourceLoadTest.html" />
+    <Content Include="Plugin\jsplumb\tests\makeSourceLoadTest.js" />
+    <Content Include="Plugin\jsplumb\tests\makeSourceMemoryLeak.html" />
+    <Content Include="Plugin\jsplumb\tests\memory.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\1-3-1-positioning.jpg" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\1_3_0_clone_fail.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\absoluteOverlayTest.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\absolute_position_1_3_0_test1.jpg" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\changeEndpointStyleTest.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\chartDemoConnectors.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\clicktest.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\ContainerWithScrollOverflowTest.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\createAndDrag_jquery-1.6.3.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\createAndDrag_jquery-1.7.1.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\createAndDrag_mootools.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\createAndDrag_yui.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\cssTransformTest.css" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\cssTransformTests.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\detachedConnectionScopeBug.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\detachedConnectionsScopeBugMooTools.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\detachedConnectionsScopeBugYUI.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\drag-test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\dragChildElements.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\dragChildElementsMootools.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\dragChildElementsYUI.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\draggableConnectorsWithArrows.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\eelco_1.3.0_test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\eelco_1.3.0_test_mootools.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\eelco_1.3.0_test_yui.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\eelco_test_3.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\exampleConnector.js" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\extension.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\fragmentTest.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\g_vml_output-from-demo.xml" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\ie6-vml-mouseover.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\inlinevmltest.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue16_test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue17_test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue22_test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue23_test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue23_test_mootools.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue2_test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue37_test-jquery.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue37_test-mootools.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue45_sortable_test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue4_test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue59_test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue71_test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue76_test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue80_test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue98_layout.jpg" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue98_test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\jsPlumb.css" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\css\ui-lightness\jquery-ui-1.8.14.custom.css" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\js\EndPoints.js" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\js\jquery-ui-1.8.14.custom.min.js" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\js\jquery.jsPlumb-1.3.1-all.js" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\js\jquery.min.js" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\js\util.js" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_106_test\test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_211.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\issue_template.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\jquery.mockjax.js" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\jQueryOffsetCSS3Scale.js" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\jquerySetOffsetAbsolute.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\magnetsTest.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\mootoolsdragdroptest.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\object-avoid.js" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\perimeter-anchors-test.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\prototype.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\qunit.css" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\qunit.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\removeAllEndpointsTest.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\ScrollOverflowCheckPage.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\ScrollOverflowCheckPageMooTools.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\ScrollOverflowCheckPageYUI.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\scrollOverflowTest.css" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\scrollOverflowTestJquery.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\scrollOverflowTestMootools.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\scrollOverflowTestYUI.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\sprout-test.js" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\svg-sprout.js" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\svg-test1.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\template.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\testATanFunction.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\uniqueAnchorsTest.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\vml-test1.html" />
+    <Content Include="Plugin\jsplumb\tests\miscellaneous\vml-test2.html" />
+    <Content Include="Plugin\jsplumb\tests\unit\all\atom.png" />
+    <Content Include="Plugin\jsplumb\tests\unit\all\qunit.html" />
+    <Content Include="Plugin\jsplumb\tests\unit\all\tests.js" />
+    <Content Include="Plugin\jsplumb\tests\unit\bind-shim.js" />
+    <Content Include="Plugin\jsplumb\tests\unit\drag\qunit.html" />
+    <Content Include="Plugin\jsplumb\tests\unit\drag\tests.js" />
+    <Content Include="Plugin\jsplumb\tests\unit\groups\qunit.html" />
+    <Content Include="Plugin\jsplumb\tests\unit\groups\tests.js" />
+    <Content Include="Plugin\jsplumb\tests\unit\index.html" />
+    <Content Include="Plugin\jsplumb\tests\unit\make-source\qunit.html" />
+    <Content Include="Plugin\jsplumb\tests\unit\make-source\tests.js" />
+    <Content Include="Plugin\jsplumb\tests\unit\qunit-1.11.0.css" />
+    <Content Include="Plugin\jsplumb\tests\unit\qunit-1.11.0.js" />
+    <Content Include="Plugin\jsplumb\tests\unit\qunit-composite.css" />
+    <Content Include="Plugin\jsplumb\tests\unit\qunit-composite.js" />
+    <Content Include="Plugin\jsplumb\tests\unit\test-support-dom.js" />
+    <Content Include="Plugin\jsplumb\tests\unit\util\qunit.html" />
+    <Content Include="Plugin\jsplumb\tests\unit\util\tests.js" />
+    <Content Include="Plugin\jsplumb\tests\unit\_scaffold\qunit.html" />
+    <Content Include="Plugin\jsplumb\tests\unit\_scaffold\tests.js" />
+    <Content Include="Plugin\jsplumb\todo.txt" />
+    <Content Include="Scripts\index.js" />
+    <Content Include="Scripts\styleConfig.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Plugin\jsplumb\.babelrc" />
+    <Content Include="Plugin\jsplumb\.eslintrc.json" />
+    <Content Include="Plugin\jsplumb\build.json" />
+    <Content Include="Plugin\jsplumb\css\ico-jsplumb.eot" />
+    <Content Include="Plugin\jsplumb\css\ico-jsplumb.ttf" />
+    <Content Include="Plugin\jsplumb\css\ico-jsplumb.woff" />
+    <Content Include="Plugin\jsplumb\demo\animation\littledot.xcf" />
+    <Content Include="Plugin\jsplumb\demo\webpack\package.json" />
+    <Content Include="Plugin\jsplumb\dist\apidocs\data.json" />
+    <Content Include="Plugin\jsplumb\doc\api\README.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\anchors.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\animation.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\basic-concepts.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\Build.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\changelog.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\connect-examples.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\connections.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\connectors.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\contents.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\defaults.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\development-documentation.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\draggable-connections-examples.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\dragging.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\editing.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\endpoints.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\events.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\groups.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\home.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\interceptors.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\miscellaneous-examples.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\overlays.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\paint-styles.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\parameters.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\querying.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\removing.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\styling-via-css.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\test.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\types.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\utilities.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\webpack.md" />
+    <Content Include="Plugin\jsplumb\doc\wiki\zooming.md" />
+    <Content Include="Plugin\jsplumb\doc\yuitheme\layouts\main.handlebars" />
+    <Content Include="Plugin\jsplumb\doc\yuitheme\partials\index.handlebars" />
+    <Content Include="Plugin\jsplumb\img\bigdot.xcf" />
+    <Content Include="Plugin\jsplumb\img\endpointTest1.xcf" />
+    <Content Include="Plugin\jsplumb\img\favicon.xcf" />
+    <Content Include="Plugin\jsplumb\img\littledot.xcf" />
+    <Content Include="Plugin\jsplumb\jsplumb.tgz" />
+    <Content Include="Plugin\jsplumb\package.json" />
+    <Content Include="Plugin\jsplumb\README.md" />
+    <Content Include="Plugin\jsplumb\tests\experiments\npm\package.json" />
+    <Content Include="Plugin\jsplumb\tests\unit\_scaffold\README.md" />
+    <Content Include="Views\WFDef\FlowGraph.cshtml" />
+    <Content Include="Views\WFDef\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EFBase\EFBase.csproj">
+      <Project>{2ec68dbb-a0ed-401c-92cf-b2b3904ebb76}</Project>
+      <Name>EFBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFTool\MFTool.csproj">
+      <Project>{3438cdd7-2f17-4798-83ad-2c4e99bad4a3}</Project>
+      <Name>MFTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MF_Base\MF_Base.csproj">
+      <Project>{c946df5c-2ec0-4b04-80b7-b7321c1f099e}</Project>
+      <Name>MF_Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MF_WorkFlow\MF_WorkFlow.csproj">
+      <Project>{efbd3d93-af2c-4216-bb76-a6570763305b}</Project>
+      <Name>MF_WorkFlow</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UIBase\UIBase.csproj">
+      <Project>{7afbda4a-4151-4071-aee3-f207dabcfc94}</Project>
+      <Name>UIBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoUI\AutoUI.csproj">
+      <Project>{ce64084f-fdfb-432f-84c5-918cfc12ce94}</Project>
+      <Name>AutoUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WFDef\Basic.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WFDef\EntityList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WFForm\PageView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WFDef\NodeSetting.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WFList\ToDoList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WFForm\Trace.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WFDef\RoutingSetting.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WFList\ListTab.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\1.pubxml" />
+    <Content Include="Views\Shared\_InsdepEasyUiLayout.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4253</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5775/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(SolutionDir)MF_Base\bin\Debug\MF_Base.dll" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

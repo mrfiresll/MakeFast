@@ -1,0 +1,106 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>LODOP的使用样例七</title>
+<script language="javascript" src="CheckActivX.js"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+</object> 
+</head>
+<body>
+<script language="javascript">CheckLodop();</script>
+<h2><b><font color="#009999">演示获得打印设备和选择打印机输出:</font></b></h2>
+<p>相关函数有以下几个：</p>
+<p><font color="#0000FF" size="3">GET_PRINTER_COUNT;获得打印机个数<br>
+GET_PRINTER_NAME(intPrinterIndex);获得打印机名（以便用名控制）<br>
+SET_PRINTER_INDEX(intIndex);按序号指定打印机，序号从0开始<br>
+</font><font color="#0000FF" size="3">SET_PRINTER_INDEXA(strPrinterName);按名指定打印机<br>
+SELECT_PRINTER;弹出界面选打印机并返回其序号，序号从0开始,返回-1表示放弃<br>
+SET_PRINT_COPIES(intCopies);指定每次打印份数，系统缺省为1</font></p>
+<p>下面演示如何实现打印输出控制：</p>
+
+<p>
+  1：获得本系统内的打印机<input type="button" value="个数:" onclick="T1.value=LODOP.GET_PRINTER_COUNT()">
+  <input type="text" id="T1" size="5">                 
+</p>
+
+
+<p>2：获得第<input type="text" id="T2" size="2" value="0">号打印机的<input type="button" value="名称:" onclick="T3.value=LODOP.GET_PRINTER_NAME(T2.value)">     
+  <input type="text" id="T3" size="20">      
+</p>
+
+
+<p>3：指定用<input type="text" id="T4" size="2" value="0">号打印机来<input type="button" value="打印预览" 
+onclick="PreviewByPrinterIndex(T4.value)">或<input type="button" value="直接打印" onclick="PrintByPrinterIndex(T4.value)">(测试页)。 </p>
+<script language="javascript" type="text/javascript">   
+	function PreviewByPrinterIndex(intPrinterIndex) {
+		if (!LODOP.SET_PRINTER_INDEX(intPrinterIndex)) return;			
+		CreatePrintPage();
+		LODOP.PREVIEW();		
+	};
+	function PrintByPrinterIndex(intPrinterIndex) {	
+	    if (!LODOP.SET_PRINTER_INDEX(intPrinterIndex)) return;	
+		CreatePrintPage();		
+		LODOP.PRINT();		
+	};
+	function PreviewByPrinterName(strPrinterName) {				
+		if (!LODOP.SET_PRINTER_INDEXA(strPrinterName)) return;
+		CreatePrintPage();
+		LODOP.PREVIEW();		
+	};
+	function PrintByPrinterName(strPrinterName) {		
+		if (!LODOP.SET_PRINTER_INDEXA(strPrinterName)) return;
+		CreatePrintPage();
+		LODOP.PRINT();		
+	};	
+	function SelectPrinterAndPrint() {
+                if (LODOP.SELECT_PRINTER()<0) return; 
+		CreatePrintPage();
+		LODOP.PRINT();	
+	};
+	function PrintMoreCopies(intCopies) {	
+	    LODOP.SET_PRINT_COPIES(intCopies);	
+		CreatePrintPage();		
+		LODOP.PREVIEW();		
+	};		
+	function CreatePrintPage() {		
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_测试页");
+		LODOP.ADD_PRINT_RECT(77,74,409,345,0,2);
+		LODOP.ADD_PRINT_ELLIPSE(351,140,140,60,0,1);
+		LODOP.ADD_PRINT_RECT(299,133,344,42,1,1);
+		LODOP.ADD_PRINT_TEXT(91,242,70,21,"测试页标题");
+		LODOP.ADD_PRINT_TEXT(201,94,20,94,"测试页内容");
+		LODOP.ADD_PRINT_TEXT(129,131,345,31,"测试内容一:9号宋体字是默认字体");
+		LODOP.ADD_PRINT_TEXT(161,131,345,31,"测试内容二:11号普通宋体字正体");
+		LODOP.SET_PRINT_STYLEA(7,"FontSize",11);
+		LODOP.ADD_PRINT_TEXT(193,131,345,31,"测试内容三:13号宋体字的粗体");
+		LODOP.SET_PRINT_STYLEA(8,"FontSize",13);
+		LODOP.SET_PRINT_STYLEA(8,"Bold",1);
+		LODOP.ADD_PRINT_TEXT(225,131,345,31,"测试内容四:15号宋体字的斜体");
+		LODOP.SET_PRINT_STYLEA(9,"FontSize",15);
+		LODOP.SET_PRINT_STYLEA(9,"Italic",1);
+		LODOP.ADD_PRINT_TEXT(260,131,345,31,"测试内容五:16号斜体字带下划线");
+		LODOP.SET_PRINT_STYLEA(10,"FontSize",16);
+		LODOP.SET_PRINT_STYLEA(10,"Italic",1);
+		LODOP.SET_PRINT_STYLEA(10,"Underline",1);
+		LODOP.ADD_PRINT_TEXT(308,144,318,29,"测试内容六:黑体字居中");
+		LODOP.SET_PRINT_STYLEA(11,"FontName","黑体");
+		LODOP.SET_PRINT_STYLEA(11,"FontSize",13);
+		LODOP.SET_PRINT_STYLEA(11,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(350,300,170,66,"测试内容七:单行文字右靠齐超出区域宽度时则折行显示");
+		LODOP.SET_PRINT_STYLEA(12,"FontSize",11);
+		LODOP.SET_PRINT_STYLEA(12,"Alignment",3);
+		LODOP.ADD_PRINT_TEXT(428,79,400,23,"以上演示了位置、区域、字体、图形、线型等打印布局和风格。");
+		LODOP.ADD_PRINT_LINE(119,76,118,481,0,1);
+		LODOP.ADD_PRINT_LINE(78,127,420,128,0,1);
+		LODOP.ADD_PRINT_LINE(79,76,118,127,0,1);
+			
+	};	
+</script> 
+<p>4：指定其名称为<input type="text" id="T5" size="15" value="">的打印机来<input type="button" value="打印预览" 
+onClick="PreviewByPrinterName(T5.value)">或<input type="button" value="直接打印" onClick="PrintByPrinterName(T5.value)">(测试页)。</p>
+<p>5：<input type="button" value="选择打印机" 
+onClick="SelectPrinterAndPrint()"></p>
+<p>6：打印份数为<input type="text" id="T6" size="2" value="2" name="copies"><input type="button" value="打印预览" 
+onclick="PrintMoreCopies(T6.value)"></p>
+</body>
+</html>

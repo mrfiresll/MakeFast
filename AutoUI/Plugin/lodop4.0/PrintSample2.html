@@ -1,0 +1,87 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>LODOP的使用样例二</title>
+<script language="javascript" src="CheckActivX.js"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+</object> 
+</head>
+<body>
+<script language="javascript">CheckLodop();</script>
+<h2><font color="#009999">演示如何打印当前页面的内容：</font>
+</h2>
+<form id="form1">
+  <table border="1" width="300" id="tb01" bgcolor="#CCFFCC"><tr><td width="133" id="mtb001">
+  <font face="黑体" color="#FF0000" size="3">《表一》</font></td></tr></table>
+  <table border="2" width="300" height="106" cellspacing="1" bgcolor="#CCFFFF"><tr>
+  <td width="66" height="16"><font color="#0000FF">A</font><font color="#0000FF">等</font></td>
+<td width="51" height="16"><font color="#0000FF">B</font><font color="#0000FF">等</font></td>
+<td width="51" height="16"><font color="#0000FF">C</font><font color="#0000FF">等</font></td></tr> 
+  <tr><td width="66" height="12">A001</td><td width="51" height="12">B001</td><td width="51" height="12">C001</td></tr> 
+  <tr><td width="66" height="16">A002</td><td width="51" height="16">B002</td><td width="51" height="16">C002</td></tr> 
+  <tr><td width="66" height="16">A003</td><td width="51" height="16">B003</td><td width="51" height="16">C003</td></tr> </table>
+</form>
+<br>
+<form id="form2">
+  <table border="1" width="100%" id="tb2" bgcolor="#CCFFCC"><tr><td width="142" id="mtb2">
+<font face="黑体" color="#FF0000" size="3">《表二》</font></td></tr></table>
+  <table border="1" width="100%" bgcolor="#CCFFFF"><tr><td width="60"><font color="#0000FF">X</font><font color="#0000FF">类</font></td><td width="76">
+<font color="#0000FF">Y</font><font color="#0000FF">类</font></td><td width="69"><font color="#0000FF">Z</font><font color="#0000FF">类</font></td></tr> 
+  <tr><td width="60">X001</td><td width="76">Y001</td><td width="69">Z001</td></tr> 
+  <tr><td width="60">X002</td><td width="76">Y002</td><td width="69">Z002</td></tr> 
+  <tr><td width="60">X003</td><td width="76">Y003</td><td width="69">Z003</td></tr> </table>
+</form>
+<p><font size="2">1：若只打印<font color="#0000FF">《表一》</font>,看一下<input type="button" value="打印预览" onClick="prn1_preview()">,可<input type="button" value="直接打印" onClick="prn1_print()">也可<input type="button" value="选择打印机" onClick="prn1_printA()">打印。<br><br>
+2：若<font color="#0000FF">《表一》</font>和<font color="#0000FF">《表二》</font>横排输出,看一下<input type="button" value="打印预览" onClick="prn2_preview()">,其布局风格可<input type="button" value="打印维护" onClick="prn2_manage()">调整。</font>
+<p><font size="2">3：若<font color="#0000FF"></font>打印整个页面,看看<input type="button" value="打印预览" onClick="prn3_preview()">。</font>   
+ <p><font color="#0000FF" size="3"><b>要点：用document的innerHTML方法将超文本送给控件。</b></font> 
+<script language="javascript" type="text/javascript"> 
+	function prn1_preview() {	
+		CreateOneFormPage();	
+		LODOP.PREVIEW();	
+	};
+	function prn1_print() {		
+		CreateOneFormPage();
+		LODOP.PRINT();	
+	};
+	function prn1_printA() {		
+		CreateOneFormPage();
+		LODOP.PRINTA(); 	
+	};	
+	function CreateOneFormPage(){
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_表单一");	
+		LODOP.ADD_PRINT_TEXT(50,231,260,39,"打印页面部分内容");
+		LODOP.SET_PRINT_TEXT_STYLE(1,"宋体",18,1,0,0,1);
+		LODOP.ADD_PRINT_HTM(88,200,350,600,document.getElementById("form1").innerHTML);
+	};	
+</script> 
+<script language="javascript" type="text/javascript">              
+	function prn2_preview() {	
+		CreateTwoFormPage();	
+		LODOP.PREVIEW();	
+	};
+	function prn2_manage() {	
+		CreateTwoFormPage();
+		LODOP.PRINT_SETUP();	
+	};	
+	function CreateTwoFormPage(){
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_表单二");
+		LODOP.ADD_PRINT_RECT(70,27,629,242,0,1);			
+		LODOP.ADD_PRINT_TEXT(29,236,279,38,"页面内容改变布局打印");
+		LODOP.SET_PRINT_TEXT_STYLE(2,"宋体",18,1,0,0,1);
+		LODOP.ADD_PRINT_HTM(88,40,321,185,document.getElementById("form1").innerHTML);
+		LODOP.ADD_PRINT_HTM(87,355,285,187,document.getElementById("form2").innerHTML);
+		LODOP.ADD_PRINT_TEXT(319,58,500,30,"注：其中《表一》按显示大小，《表二》在程序控制宽度(285像素)内自适应调整");
+	};
+</script> 
+<script language="javascript" type="text/javascript">    
+	function prn3_preview(){
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_全页");
+		LODOP.ADD_PRINT_HTM(20,40,610,900,document.documentElement.innerHTML);
+		LODOP.PREVIEW();	
+	};	
+</script> 
+<p>　
+</p>
+</body>
+</html>

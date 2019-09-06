@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E2655E59-9010-4D2D-BBBF-632A38E91B78}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DocumentIndex</RootNamespace>
+    <AssemblyName>DocumentIndex</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\3rd\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu">
+      <HintPath>..\3rd\PanGu.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IFilterTextReader\ComHelpers.cs" />
+    <Compile Include="IFilterTextReader\Exceptions\IFAccesFailure.cs" />
+    <Compile Include="IFilterTextReader\Exceptions\IFClassFactoryFailure.cs" />
+    <Compile Include="IFilterTextReader\Exceptions\IFFileIsPasswordProtected.cs" />
+    <Compile Include="IFilterTextReader\Exceptions\IFFileToLarge.cs" />
+    <Compile Include="IFilterTextReader\Exceptions\IFFilterNotFound.cs" />
+    <Compile Include="IFilterTextReader\Exceptions\IFFilterPartiallyFiltered.cs" />
+    <Compile Include="IFilterTextReader\Exceptions\IFilterTimeout.cs" />
+    <Compile Include="IFilterTextReader\Exceptions\IFOldFilterFormat.cs" />
+    <Compile Include="IFilterTextReader\Exceptions\IFUnknownFormat.cs" />
+    <Compile Include="IFilterTextReader\Extensions.cs" />
+    <Compile Include="IFilterTextReader\FileTypeSelector.cs" />
+    <Compile Include="IFilterTextReader\FilterLoader.cs" />
+    <Compile Include="IFilterTextReader\FilterReader.cs" />
+    <Compile Include="IFilterTextReader\FilterReaderOptions.cs" />
+    <Compile Include="IFilterTextReader\FilterSearcher.cs" />
+    <Compile Include="IFilterTextReader\IStreamWrapper.cs" />
+    <Compile Include="IFilterTextReader\Job.cs" />
+    <Compile Include="IFilterTextReader\Localization\LanguageConsts1.Designer.cs" />
+    <Compile Include="IFilterTextReader\NativeMethods.cs" />
+    <Compile Include="IFilterTextReader\Property.cs" />
+    <Compile Include="IFilterTextReader\PropertyMapper.cs" />
+    <Compile Include="IFilterTextReader\RegistryHelpers.cs" />
+    <Compile Include="IFilterTextReader\UnmappedPropertyEventArgs.cs" />
+    <Compile Include="IndexContent.cs" />
+    <Compile Include="SearchIndexManager.cs" />
+    <Compile Include="RegistryHelpers.cs" />
+    <Compile Include="PanGuAnalyzer.cs" />
+    <Compile Include="PanGuTokenizer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="IFilterTextReader\Localization\LanguageConsts.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IFilterTextReader\filter.ico" />
+    <Content Include="IFilterTextReader\IFilterTextReader.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IFilterTextReader\Properties.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MFTool\MFTool.csproj">
+      <Project>{3438cdd7-2f17-4798-83ad-2c4e99bad4a3}</Project>
+      <Name>MFTool</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

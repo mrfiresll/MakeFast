@@ -1,0 +1,6 @@
+﻿/*列表顶部工具条*/
+.datagrid-toolbar .l-btn:hover,
+.datagrid-toolbar.l-btn.l-btn-selected{background: #094583; color:#ffffff}
+/*.theme-style-green .theme-header-navigate .l-btn .l-btn-text,
+.theme-style-green .theme-header-navigate-combobox + .textbox.combo input,
+.theme-style-green .theme-header-navigate-search + .textbox.searchbox .textbox-text{color:#e4ffd6;}*/

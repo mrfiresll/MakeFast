@@ -1,0 +1,183 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>LODOP的使用样例十五</title>
+<script language="javascript" src="CheckActivX.js"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+</object> 
+</head>
+<body>
+<script language="javascript">CheckLodop();</script>
+<h2><font color="#009999">演示打印有页头页尾的表格：</font></h2>
+<p>打印表格的方式有两种，函数如下：</p>  
+<p><font color="#0000FF">ADD_PRINT_TABLE(intTop,intLeft,intWidth,intheight,strHTML);</font>用超文本打印<font color="#0000FF"><br>
+ADD_PRINT_TBURL(intTop,intLeft,intWidth,intheight,strURL);</font>按URL地址打印</p>  
+<p>控件将页面元素thead的内容做页头，将元素tfoot的内容做页尾</p>  
+<p>看看演示：</p>  
+<p>一、<a href="javascript:PrintOneURL();">预览打印</a>如下URL的表格：<br>
+<input type="text" id="T1" size="78" value="http://www.w3school.com.cn/tiy/loadtext.asp?f=xmle_cd_catalog_island_thead"><br>
+</p>  
+二、<a href="javascript:PrintMytable();">预览打印</a>如下表格<p>(为便于分页，每页仅打300px高,粗体部分是头尾)：</p>
+<table border=1 width="436" style="border-style: outset; border-width: 3">
+
+<thead>
+<tr><th width="136" rowspan="2"><b><font face="宋体" size="2">作者<font color="#000000">(<i>Artist</i>)</font></font></b></th>
+<th width="167"><b><font face="宋体" size="2">歌曲题目</font></b>
+</th>
+<th width="105" rowspan="2"><b><font face="宋体" size="2">国籍<font color="#000000"><i>(Country)</i></font></font></b></th></tr>
+<tr>
+<th width="167"><b><font color="#000000" face="宋体" size="2"><i>CD Title</i></font></b>  
+</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Bob Dylan</span></td>        
+<td width="173"><span dataFld=TITLE>Empire Burlesque</span></td>
+<td width="105"><span dataFld=COUNtrY>USA</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Bonnie Tyler</span></td>
+<td width="173"><span dataFld=TITLE>Hide your heart</span></td>
+<td width="105"><span dataFld=COUNtrY>UK</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Dolly Parton</span></td>
+<td width="173"><span dataFld=TITLE>Greatest Hits</span></td>
+<td width="105"><span dataFld=COUNtrY>USA</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Gary Moore</span></td>
+<td width="173"><span dataFld=TITLE>Still got the blues</span></td>
+<td width="105"><span dataFld=COUNtrY>UK</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Eros Ramazzotti</span></td>
+<td width="173"><span dataFld=TITLE>Eros</span></td>
+<td width="105"><span dataFld=COUNtrY>EU</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Bee Gees</span></td>
+<td width="173"><span dataFld=TITLE>One night only</span></td>
+<td width="105"><span dataFld=COUNtrY>UK</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Dr.Hook</span></td>
+<td width="173"><span dataFld=TITLE>Sylvias Mother</span></td>
+<td width="105"><span dataFld=COUNtrY>UK</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Rod Stewart</span></td>
+<td width="173"><span dataFld=TITLE>Maggie May</span></td>
+<td width="105"><span dataFld=COUNtrY>UK</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Andrea Bocelli</span></td>
+<td width="173"><span dataFld=TITLE>Romanza</span></td>
+<td width="105"><span dataFld=COUNtrY>EU</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Percy Sledge</span></td>
+<td width="173"><span dataFld=TITLE>When a man loves a woman</span></td>
+<td width="105"><span dataFld=COUNtrY>USA</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Savage Rose</span></td>
+<td width="173"><span dataFld=TITLE>Black angel</span></td>
+<td width="105"><span dataFld=COUNtrY>EU</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Many</span></td>
+<td width="173"><span dataFld=TITLE>1999 Grammy Nominees</span></td>
+<td width="105"><span dataFld=COUNtrY>USA</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Kenny Rogers</span></td>
+<td width="173"><span dataFld=TITLE>For the good times</span></td>
+<td width="105"><span dataFld=COUNtrY>UK</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Will Smith</span></td>
+<td width="173"><span dataFld=TITLE>Big Willie style</span></td>
+<td width="105"><span dataFld=COUNtrY>USA</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Van Morrison</span></td>
+<td width="173"><span dataFld=TITLE>Tupelo Honey</span></td>
+<td width="105"><span dataFld=COUNtrY>UK</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Cat Stevens</span></td>
+<td width="173"><span dataFld=TITLE>the very best of</span></td>
+<td width="105"><span dataFld=COUNtrY>UK</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Sam Brown</span></td>
+<td width="173"><span dataFld=TITLE>Stop</span></td>
+<td width="105"><span dataFld=COUNtrY>UK</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>T'Pau</span></td>
+<td width="173"><span dataFld=TITLE>Bridge of Spies</span></td>
+<td width="105"><span dataFld=COUNtrY>UK</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Tina Turner</span></td>
+<td width="173"><span dataFld=TITLE>Private Dancer</span></td>
+<td width="105"><span dataFld=COUNtrY>UK</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Kim Larsen</span></td>
+<td width="173"><span dataFld=TITLE>Midt om natten</span></td>
+<td width="105"><span dataFld=COUNtrY>EU</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Luciano Pavarotti</span></td>
+<td width="173"><span dataFld=TITLE>Pavarotti Gala Concert</span></td>
+<td width="105"><span dataFld=COUNtrY>UK</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Otis Redding</span></td>
+<td width="173"><span dataFld=TITLE>the dock of the bay</span></td>
+<td width="105"><span dataFld=COUNtrY>USA</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Simply Red</span></td>
+<td width="173"><span dataFld=TITLE>Picture book</span></td>
+<td width="105"><span dataFld=COUNtrY>EU</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>the Communards</span></td>
+<td width="173"><span dataFld=TITLE>Red</span></td>
+<td width="105"><span dataFld=COUNtrY>UK</span></td></tr></tbody>
+<tbody>
+<tr>
+<td width="136"><span dataFld=ARTIST>Joe Cocker</span></td>
+<td width="173"><span dataFld=TITLE>Unchain my heart</span></td>
+<td width="105"><span dataFld=COUNtrY>USA</span></td></tr></tbody>
+
+<tfoot>
+<tr><th colspan=3 width="426"><b><font face="宋体" size="2">我的CD清单<font color="#000000"><i>(CD   
+    list gungho999@sina.com)</i></font></font></b></th></tr>
+</tfoot>
+
+</table>
+
+<script language="javascript" type="text/javascript"> 
+	function PrintOneURL(){
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_按网址打印表格");
+		LODOP.SET_PRINT_PAGESIZE(2,0,0,"B5");
+		LODOP.ADD_PRINT_TBURL(46,90,800,300,document.getElementById("T1").value);
+		LODOP.SET_PRINT_STYLEA(1,"HOrient",3);
+		LODOP.SET_PRINT_STYLEA(1,"VOrient",3);
+		LODOP.PREVIEW();			
+	};	
+	function PrintMytable(){
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_打印表格");
+		LODOP.ADD_PRINT_TABLE(100,20,800,281,document.documentElement.innerHTML);
+		LODOP.PREVIEW();			
+	};		
+</script>
+
+</body>

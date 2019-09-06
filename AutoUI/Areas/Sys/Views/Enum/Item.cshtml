@@ -1,0 +1,89 @@
+﻿<div class="datagrid-toolbar formToolBar">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="save()" iconcls="iconfont iconfont-baocun">保存</a>
+</div>
+<div style="padding:2px;">
+    <form method="post">
+        <input id="Id" name="Id" type="hidden" />
+        <table class="groupTable">
+            <tr>
+                <td style="width:15%">编号:</td>
+                <td style="width:35%">
+                    <input id="Code" name="Code" class="easyui-textbox" data-options="required:true" style="width:100%" />
+                </td>
+                <td style="width:15%">
+                    名称:
+                </td>
+                <td style="width:35%">
+                    <input id="Name" name="Name" class="easyui-textbox" data-options="required:true" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:15%">
+                    数据库:
+                </td>
+                <td style="width:35%">
+                    <input id="DBName" name="DBName" class="easyui-combobox" data-options="valueField:'value',textField:'text',panelHeight:'auto',editable:false,data:DBNames" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>备注:</td>
+                <td colspan="3">
+                    <input id="Remark" name="Remark" class="easyui-textbox" data-options="multiline:true,height:100" style="width:100%" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script>
+    var id = queryString('id');
+    @Html.DBNames()
+
+    var defineData = {};
+    function SetData(d) {
+
+    }
+
+    function pageLoad() {
+        //编辑
+        if (id) {
+            $("#Id").val(id);
+            addAjaxParam("id", id);
+            commitAjax("GetEnum", {
+                CallBack: function (data) {
+                    if (data) {
+                        $('#Code').textbox('setValue', data.Code);
+                        $('#Name').textbox('setValue', data.Name);
+                        $('#Remark').textbox('setValue', data.Remark);
+                        $('#DBName').textbox('setValue', data.DBName);
+                    }
+                }
+            });
+        }
+    }
+
+    function save() {
+        var isValid = $('form').form('validate');
+        if (!isValid) {
+            msgBox('请检查所填数据!');
+            return;
+        }
+
+        var t = $('form').serializeArray();
+        var formData = {};
+        $.each(t, function () {
+            formData[this.name] = this.value;
+        });
+        addAjaxParam("formData", formData);
+        commitAjax("SaveEnum", {
+            CallBack: function (data) {
+                if (data) {
+                    closeWindow(true);
+                }
+                else {
+                    msgBox('操作失败');
+                }
+            }
+        })
+    }
+</script>

@@ -1,0 +1,107 @@
+﻿<div class="datagrid-toolbar formToolBar">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="save()" iconcls="iconfont iconfont-baocun">保存</a>
+</div>
+<div style="padding:2px;">
+    <form method="post">
+        <table class="groupTable">
+            <tr>
+                <td style="width:25%">显示行号:</td>
+                <td style="width:75%">
+                    <input id="rownumbers" name="rownumbers" class="easyui-combobox" data-options="data:truefalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>                
+            </tr>
+            <tr>
+                <td style="width:25%">
+                    斑马线效果:
+                </td>
+                <td style="width:75%">
+                    <input id="striped" name="striped" class="easyui-combobox" data-options="data:truefalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:25%">是否分页:</td>
+                <td style="width:75%">
+                    <input id="pagination" name="pagination" class="easyui-combobox" data-options="data:truefalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>                
+            </tr>
+            <tr>
+                <td style="width:25%">
+                    列宽自适应:
+                </td>
+                <td style="width:75%">
+                    <input id="fitColumns" name="fitColumns" class="easyui-combobox" data-options="data:truefalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:25%">
+                    显示复选框:
+                </td>
+                <td style="width:75%">
+                    <input id="checkbox" name="checkbox" class="easyui-combobox" data-options="data:truefalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:25%">
+                    是否单选:
+                </td>
+                <td style="width:75%">
+                    <input id="singleSelect" name="singleSelect" class="easyui-combobox" data-options="data:truefalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script>
+     @Html.GetEnum(typeof(MF_Base.truefalseType), "False")
+    var formData = {};
+</script>
+<script>
+    var id = queryString('id');
+
+    function pageLoad() {
+        //编辑
+        if (id) {
+            addAjaxParam("id", id);
+            commitAjax("GetProperty", {
+                CallBack: function (data) {
+                    if (data) {
+                        data = data.toJSON();
+                        formData = data;
+                        $('#rownumbers').combobox('setValue', data.rownumbers || 'false');
+                        $('#striped').combobox('setValue', data.striped || 'false');
+                        $('#pagination').combobox('setValue', data.pagination || 'false');
+                        $('#fitColumns').combobox('setValue', data.fitColumns || 'false');
+                        $('#checkbox').combobox('setValue', data.checkbox || 'false');
+                        $('#singleSelect').combobox('setValue', data.singleSelect || 'false');
+                    }
+                }
+            });
+        }
+    }
+
+    function save() {
+        var isValid = $('form').form('validate');
+        if (!isValid) {
+            msgBox('请检查所填数据!');
+            return;
+        }
+
+        var t = $('form').serializeArray();
+        $.each(t, function () {
+            formData[this.name] = this.value;
+        });        
+
+        addAjaxParam("id", id);
+        addAjaxParam("formData", formData);
+        commitAjax("SaveProperty", {
+            CallBack: function (data) {
+                if (data) {
+                    closeWindow(true);
+                }
+                else {
+                    msgBox('操作失败');
+                }
+            }
+        })
+    }
+</script>

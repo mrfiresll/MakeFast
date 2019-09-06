@@ -1,0 +1,51 @@
+﻿//-----------------------------------------------------------------
+//由T4模板Repository.tt自动生成
+//-----------------------------------------------------------------
+<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@include file="T4Model.ttinclude"#>
+<#string dbName = "MF_WorkFlow";#>
+<#string solutionPath = Host.ResolveAssemblyReference("$(SolutionDir)");#>
+
+using System;
+using System.ComponentModel.Composition;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using EFBase;
+using <#=dbName#>.Model;
+
+
+namespace <#=dbName#>
+{
+   #region BaseDbContext
+    public partial class BaseDbContext : DbContext
+    {
+			protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {	
+		    //禁用自动生成数据表末尾加s或者es
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+	<#
+foreach(T4Model model in T4Manager.GetModelClasses(solutionPath+dbName+"\\bin\\Debug\\"+dbName+".dll","EntityTypeConfiguration`1"))
+{
+#>
+       <#=model.ClassName #> <#=model.ClassName #> = new <#=model.ClassName #>();
+           modelBuilder.Configurations.Add(<#=model.ClassName #>);
+
+<#
+}
+#>
+           base.OnModelCreating(modelBuilder);
+ }
+    }
+	#endregion
+	#region EntityTypeConfiguration
+	  <#
+foreach(T4Model model in T4Manager.GetModelClasses(solutionPath+dbName+"\\bin\\Debug\\"+dbName+".dll","Entity"))
+{
+#>
+       public partial class <#=model.ClassName #>Configuration : EntityTypeConfiguration<<#=model.FullName #>>{}
+<#
+}
+#>
+	#endregion
+}

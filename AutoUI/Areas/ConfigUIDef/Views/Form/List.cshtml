@@ -1,0 +1,136 @@
+﻿<script type="text/javascript" src="@Url.Content("/AutoUI/Scripts/mainType.js")"></script>
+<body class="easyui-layout">
+    <div data-options="region:'west',border:true,split:true,collapsible:true" title="类别" style="width:200px;padding:3px;">
+        <ul id="dgTree" class="easyui-tree" url="/AutoUI/ConfigUIDef/MainType/GetTypeTree" data-options="dnd:true,onContextMenu: showContextMenu,onDblClick:beginEditNode,onAfterEdit:endEditNode,onSelect:selectNode,onBeforeDrop:onBeforeDrop,onDrop:onDrop"></ul>
+    </div>
+    <div data-options="region:'center'" style="border-top:0">
+        <div id="tb">
+            <table cellpadding="0" cellspacing="0" style="width: 100%">
+                <tr>
+                    <td>
+                        <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-jia1" plain="true" onclick="add()">增加</a>
+                        <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-shanchu" plain="true" onclick="removeit()">删除</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table id="mf_grid" class="easyui-datagrid" rownumbers="true" fit="true" pagination="true" fitcolumns="false" striped="true" border="false" idfield="Id"
+               url="getlist" autorowheight="false" singleselect="false" toolbar="#tb" data-options="">
+            <thead>
+                <tr>
+                    <th data-options="field:'ck',checkbox:true"></th>
+                    <th field="UICode" width="150" halign='center'>
+                        编号
+                    </th>
+                    <th field="Name" width="150" halign='center'>
+                        名称
+                    </th>
+                    <th field="DBName" width="200" halign='center'>
+                        数据库名
+                    </th>
+                    <th field="EntityName" width="200" halign='center'>
+                        表名
+                    </th>
+                    <th field="BasicDefine" width="100" halign='center'>
+                        基本设置
+                    </th>
+                    <th field="ControlDefine" width="100" halign='center'>
+                        控件设置
+                    </th>
+                    <th field="LayOutDefine" width="100" halign='center'>
+                        布局设置
+                    </th>
+                    <th field="PreView" width="100" halign='center'>
+                        预览
+                    </th>
+                    <th field="ModifyTime" width="100" halign='center'>
+                        最近修改时间
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div id="mm" class="easyui-menu" style="width:120px;">
+        <div onclick="appendNode()" data-options="iconCls:'iconfont iconfont-jia1'">增加</div>
+        <div id="mmRemove" onclick="removeNode()" data-options="iconCls:'iconfont iconfont-shanchu'">删除</div>
+        <div class="menu-sep"></div>
+        <div onclick="expand()">展开</div>
+        <div onclick="collapse()">折叠</div>
+    </div>
+</body>
+<script>
+    addGridLink('mf_grid', 'BasicDefine', '/AutoUI/ConfigUIDef/Form/Basic', {
+        linkText: '基本设置', height: 300, width: 600, onDestroy: function (e) {
+            if (e)
+            {
+                $("#mf_grid").datagrid('reload');
+            }
+        }
+    });
+
+    addGridLink('mf_grid', 'ControlDefine', '/AutoUI/ConfigUIDef/Form/Ctrl', { linkText: '控件设置' });
+    addGridLink('mf_grid', 'LayOutDefine', '/AutoUI/ConfigUIDef/Form/Layout', { linkText: '布局设置', height: '100%', width: '100%', showMaxButton: false });
+    addGridLink('mf_grid', 'PreView', '/AutoUI/ConfigUI/Form/PageView', { linkText: '预览', paramField: 'UICode' });
+    addGridDate('mf_grid', 'ModifyTime', 'yyyy-MM-dd');
+    //删除
+    function removeit() {
+        //获取当前选中行
+        var rows = $('#mf_grid').datagrid('getSelections');
+        //如果不为空
+        if (rows.length > 0) {
+            confirmBox('是否删除?', function (r) {
+                if (r) {
+                    var idArr = $.map(rows, function (item, index) { return item.Id; });
+                    addAjaxParam('ids', idArr.join(','));
+                    commitAjax('Delete', {
+                        CallBack: function (data) {
+                            if (data) {
+                                msgBox(data);
+                                //成功后刷新界面
+                                $("#mf_grid").datagrid('reload');
+                            }
+                        }
+                    });
+                }
+            })
+        }
+        else
+        {
+            msgBox('请选择要删除的行');
+        }
+    }
+
+    //增加同级
+    function add() {
+        openWindow('EntityList', {
+            width: 600, height: 300, onDestroy: function (data) {
+                if (data)
+                {
+                    addAjaxParam('data',data);
+                    var url = 'AddForm';
+                    commitAjax(url, {
+                        CallBack: function (e) {
+                            if (e)
+                            {
+                                $("#mf_grid").datagrid('reload');
+                            }
+                        }
+                    })
+                }  
+            }
+        });
+    }
+
+    function edit() {
+        var row = $('#mf_grid').treegrid('getSelected');
+        if (row) {
+            openWindow('Form?id=' + row.Id, {
+                width: 500, height: 280, onDestroy: function (data) {
+                    if (data)
+                        $("#mf_grid").datagrid('reload');
+                }
+            });
+        }
+    }
+</script>
+

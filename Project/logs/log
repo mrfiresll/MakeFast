@@ -1,0 +1,1297 @@
+[2019-08-18 00:02:07.660] MFTool.Logger.Error 28 
+出错了
+System.Web.HttpException (0x80004005): 未找到路径“/Project/Document/MFDocument/PageView”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:03:34.261] MFTool.Logger.Error 29 
+出错了
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.PageView(String UICode) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 58
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:04:03.144] MFTool.Logger.Error 16 
+出错了
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.PageView(String UICode) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 58
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:11:13.000] MFTool.Logger.Error 43 
+出错了
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.PageView(String UICode) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 58
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:15:00.437] MFTool.Logger.Error 46 
+出错了
+System.Reflection.ReflectionTypeLoadException: 无法加载一个或多个请求的类型。有关更多信息，请检索 LoaderExceptions 属性。
+   在 System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
+   在 System.Reflection.Assembly.GetTypes()
+   在 System.ComponentModel.Composition.Hosting.AssemblyCatalog.get_InnerCatalog()
+   在 System.ComponentModel.Composition.Hosting.AssemblyCatalog.GetExports(ImportDefinition definition)
+   在 System.Linq.Enumerable.<SelectManyIterator>d__16`2.MoveNext()
+   在 System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   在 System.ComponentModel.Composition.Hosting.CatalogExportProvider.InternalGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.AggregateExportProvider.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.CompositionContainer.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.GetExports(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   在 UIBase.MefDependencyResolver.GetService(Type serviceType) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MefDependencyResolver.cs:行号 50
+   在 System.Web.Mvc.DependencyResolverExtensions.GetService[TService](IDependencyResolver resolver)
+   在 System.Web.Mvc.SingleServiceResolver`1.GetValueFromResolver()
+   在 System.Lazy`1.CreateValue()
+   在 System.Lazy`1.LazyInitValue()
+   在 System.Web.Mvc.SingleServiceResolver`1.get_Current()
+   在 System.Web.Mvc.MvcRouteHandler.GetSessionStateBehavior(RequestContext requestContext)
+   在 System.Web.Mvc.MvcRouteHandler.GetHttpHandler(RequestContext requestContext)
+   在 System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   在 System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:15:23.074] MFTool.Logger.Error 49 
+出错了
+System.Reflection.ReflectionTypeLoadException: 无法加载一个或多个请求的类型。有关更多信息，请检索 LoaderExceptions 属性。
+   在 System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
+   在 System.Reflection.Assembly.GetTypes()
+   在 System.ComponentModel.Composition.Hosting.AssemblyCatalog.get_InnerCatalog()
+   在 System.ComponentModel.Composition.Hosting.AssemblyCatalog.GetExports(ImportDefinition definition)
+   在 System.Linq.Enumerable.<SelectManyIterator>d__16`2.MoveNext()
+   在 System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   在 System.ComponentModel.Composition.Hosting.CatalogExportProvider.InternalGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.AggregateExportProvider.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.CompositionContainer.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.GetExports(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   在 UIBase.MefDependencyResolver.GetService(Type serviceType) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MefDependencyResolver.cs:行号 50
+   在 System.Web.Mvc.DependencyResolverExtensions.GetService[TService](IDependencyResolver resolver)
+   在 System.Web.Mvc.SingleServiceResolver`1.GetValueFromResolver()
+   在 System.Lazy`1.CreateValue()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Lazy`1.get_Value()
+   在 System.Web.Mvc.SingleServiceResolver`1.get_Current()
+   在 System.Web.Mvc.MvcRouteHandler.GetSessionStateBehavior(RequestContext requestContext)
+   在 System.Web.Mvc.MvcRouteHandler.GetHttpHandler(RequestContext requestContext)
+   在 System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   在 System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:15:28.421] MFTool.Logger.Error 43 
+出错了
+System.Reflection.ReflectionTypeLoadException: 无法加载一个或多个请求的类型。有关更多信息，请检索 LoaderExceptions 属性。
+   在 System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
+   在 System.Reflection.Assembly.GetTypes()
+   在 System.ComponentModel.Composition.Hosting.AssemblyCatalog.get_InnerCatalog()
+   在 System.ComponentModel.Composition.Hosting.AssemblyCatalog.GetExports(ImportDefinition definition)
+   在 System.Linq.Enumerable.<SelectManyIterator>d__16`2.MoveNext()
+   在 System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   在 System.ComponentModel.Composition.Hosting.CatalogExportProvider.InternalGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.AggregateExportProvider.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.CompositionContainer.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.GetExports(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   在 UIBase.MefDependencyResolver.GetService(Type serviceType) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MefDependencyResolver.cs:行号 50
+   在 System.Web.Mvc.DependencyResolverExtensions.GetService[TService](IDependencyResolver resolver)
+   在 System.Web.Mvc.SingleServiceResolver`1.GetValueFromResolver()
+   在 System.Lazy`1.CreateValue()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Lazy`1.get_Value()
+   在 System.Web.Mvc.SingleServiceResolver`1.get_Current()
+   在 System.Web.Mvc.MvcRouteHandler.GetSessionStateBehavior(RequestContext requestContext)
+   在 System.Web.Mvc.MvcRouteHandler.GetHttpHandler(RequestContext requestContext)
+   在 System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   在 System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:15:43.482] MFTool.Logger.Error 45 
+出错了
+System.Reflection.ReflectionTypeLoadException: 无法加载一个或多个请求的类型。有关更多信息，请检索 LoaderExceptions 属性。
+   在 System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
+   在 System.Reflection.Assembly.GetTypes()
+   在 System.ComponentModel.Composition.Hosting.AssemblyCatalog.get_InnerCatalog()
+   在 System.ComponentModel.Composition.Hosting.AssemblyCatalog.GetExports(ImportDefinition definition)
+   在 System.Linq.Enumerable.<SelectManyIterator>d__16`2.MoveNext()
+   在 System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   在 System.ComponentModel.Composition.Hosting.CatalogExportProvider.InternalGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.AggregateExportProvider.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.CompositionContainer.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.GetExports(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   在 UIBase.MefDependencyResolver.GetService(Type serviceType) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MefDependencyResolver.cs:行号 50
+   在 System.Web.Mvc.DependencyResolverExtensions.GetService[TService](IDependencyResolver resolver)
+   在 System.Web.Mvc.SingleServiceResolver`1.GetValueFromResolver()
+   在 System.Lazy`1.CreateValue()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Lazy`1.get_Value()
+   在 System.Web.Mvc.SingleServiceResolver`1.get_Current()
+   在 System.Web.Mvc.MvcRouteHandler.GetSessionStateBehavior(RequestContext requestContext)
+   在 System.Web.Mvc.MvcRouteHandler.GetHttpHandler(RequestContext requestContext)
+   在 System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   在 System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:15:53.500] MFTool.Logger.Error 47 
+出错了
+System.Reflection.ReflectionTypeLoadException: 无法加载一个或多个请求的类型。有关更多信息，请检索 LoaderExceptions 属性。
+   在 System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
+   在 System.Reflection.Assembly.GetTypes()
+   在 System.ComponentModel.Composition.Hosting.AssemblyCatalog.get_InnerCatalog()
+   在 System.ComponentModel.Composition.Hosting.AssemblyCatalog.GetExports(ImportDefinition definition)
+   在 System.Linq.Enumerable.<SelectManyIterator>d__16`2.MoveNext()
+   在 System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   在 System.ComponentModel.Composition.Hosting.CatalogExportProvider.InternalGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.AggregateExportProvider.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.CompositionContainer.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.GetExports(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   在 UIBase.MefDependencyResolver.GetService(Type serviceType) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MefDependencyResolver.cs:行号 50
+   在 System.Web.Mvc.DependencyResolverExtensions.GetService[TService](IDependencyResolver resolver)
+   在 System.Web.Mvc.SingleServiceResolver`1.GetValueFromResolver()
+   在 System.Lazy`1.CreateValue()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   在 System.Lazy`1.get_Value()
+   在 System.Web.Mvc.SingleServiceResolver`1.get_Current()
+   在 System.Web.Mvc.MvcRouteHandler.GetSessionStateBehavior(RequestContext requestContext)
+   在 System.Web.Mvc.MvcRouteHandler.GetHttpHandler(RequestContext requestContext)
+   在 System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   在 System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:16:55.109] MFTool.Logger.Error 40 
+出错了
+System.Reflection.ReflectionTypeLoadException: 无法加载一个或多个请求的类型。有关更多信息，请检索 LoaderExceptions 属性。
+   在 System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
+   在 System.Reflection.Assembly.GetTypes()
+   在 System.ComponentModel.Composition.Hosting.AssemblyCatalog.get_InnerCatalog()
+   在 System.ComponentModel.Composition.Hosting.AssemblyCatalog.GetExports(ImportDefinition definition)
+   在 System.Linq.Enumerable.<SelectManyIterator>d__16`2.MoveNext()
+   在 System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   在 System.ComponentModel.Composition.Hosting.CatalogExportProvider.InternalGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.AggregateExportProvider.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.CompositionContainer.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.GetExports(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   在 UIBase.MefDependencyResolver.GetService(Type serviceType) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MefDependencyResolver.cs:行号 50
+   在 System.Web.Mvc.DependencyResolverExtensions.GetService[TService](IDependencyResolver resolver)
+   在 System.Web.Mvc.SingleServiceResolver`1.GetValueFromResolver()
+   在 System.Lazy`1.CreateValue()
+   在 System.Lazy`1.LazyInitValue()
+   在 System.Web.Mvc.SingleServiceResolver`1.get_Current()
+   在 System.Web.Mvc.ControllerBuilder.GetControllerFactory()
+   在 System.Web.Mvc.MvcRouteHandler.GetSessionStateBehavior(RequestContext requestContext)
+   在 System.Web.Mvc.MvcRouteHandler.GetHttpHandler(RequestContext requestContext)
+   在 System.Web.Mvc.MvcRouteHandler.System.Web.Routing.IRouteHandler.GetHttpHandler(RequestContext requestContext)
+   在 System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   在 System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:19:47.246] MFTool.Logger.Error 35 
+出错了
+System.InvalidCastException: [A]System.Web.WebPages.Razor.Configuration.HostSection 无法强制转换为 [B]System.Web.WebPages.Razor.Configuration.HostSection。类型 A 源自“System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”(在上下文“Default”中的“C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.WebPages.Razor\v4.0_2.0.0.0__31bf3856ad364e35\System.Web.WebPages.Razor.dll”位置处)。类型 B 源自“System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”(在上下文“Default”中的“C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\project\f4b3a864\1230700c\assembly\dl3\4e382c3d\001bd0c3_8e47d301\System.Web.WebPages.Razor.dll”位置处)。
+   在 System.Web.WebPages.Razor.WebRazorHostFactory.GetRazorSection(String virtualPath)
+   在 System.Web.WebPages.Razor.WebRazorHostFactory.CreateHostFromConfig(String virtualPath, String physicalPath)
+   在 System.Web.WebPages.Razor.RazorBuildProvider.GetHostFromConfig()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.CreateHost()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   在 System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:20:22.706] MFTool.Logger.Error 8 
+出错了
+System.InvalidCastException: [A]System.Web.WebPages.Razor.Configuration.HostSection 无法强制转换为 [B]System.Web.WebPages.Razor.Configuration.HostSection。类型 A 源自“System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”(在上下文“Default”中的“C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.WebPages.Razor\v4.0_2.0.0.0__31bf3856ad364e35\System.Web.WebPages.Razor.dll”位置处)。类型 B 源自“System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”(在上下文“Default”中的“C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\project\f4b3a864\1230700c\assembly\dl3\4e382c3d\001bd0c3_8e47d301\System.Web.WebPages.Razor.dll”位置处)。
+   在 System.Web.WebPages.Razor.WebRazorHostFactory.GetRazorSection(String virtualPath)
+   在 System.Web.WebPages.Razor.WebRazorHostFactory.CreateHostFromConfig(String virtualPath, String physicalPath)
+   在 System.Web.WebPages.Razor.RazorBuildProvider.GetHostFromConfig()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.CreateHost()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   在 System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:21:51.240] MFTool.Logger.Error 42 
+出错了
+System.InvalidCastException: [A]System.Web.WebPages.Razor.Configuration.HostSection 无法强制转换为 [B]System.Web.WebPages.Razor.Configuration.HostSection。类型 A 源自“System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”(在上下文“Default”中的“C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.WebPages.Razor\v4.0_2.0.0.0__31bf3856ad364e35\System.Web.WebPages.Razor.dll”位置处)。类型 B 源自“System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”(在上下文“Default”中的“C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\project\f4b3a864\1230700c\assembly\dl3\4e382c3d\001bd0c3_8e47d301\System.Web.WebPages.Razor.dll”位置处)。
+   在 System.Web.WebPages.Razor.WebRazorHostFactory.GetRazorSection(String virtualPath)
+   在 System.Web.WebPages.Razor.WebRazorHostFactory.CreateHostFromConfig(String virtualPath, String physicalPath)
+   在 System.Web.WebPages.Razor.RazorBuildProvider.GetHostFromConfig()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.CreateHost()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   在 System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:22:35.381] MFTool.Logger.Error 31 
+出错了
+System.InvalidCastException: [A]System.Web.WebPages.Razor.Configuration.HostSection 无法强制转换为 [B]System.Web.WebPages.Razor.Configuration.HostSection。类型 A 源自“System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”(在上下文“Default”中的“C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.WebPages.Razor\v4.0_2.0.0.0__31bf3856ad364e35\System.Web.WebPages.Razor.dll”位置处)。类型 B 源自“System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”(在上下文“Default”中的“C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\project\f4b3a864\1230700c\assembly\dl3\4e382c3d\001bd0c3_8e47d301\System.Web.WebPages.Razor.dll”位置处)。
+   在 System.Web.WebPages.Razor.WebRazorHostFactory.GetRazorSection(String virtualPath)
+   在 System.Web.WebPages.Razor.WebRazorHostFactory.CreateHostFromConfig(String virtualPath, String physicalPath)
+   在 System.Web.WebPages.Razor.RazorBuildProvider.GetHostFromConfig()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.CreateHost()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   在 System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   在 System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:23:17.321] MFTool.Logger.Error 17 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Update(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 191
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:23:37.369] MFTool.Logger.Error 17 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Update(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 191
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:24:10.691] MFTool.Logger.Error 42 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Update(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 191
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:24:28.088] MFTool.Logger.Error 41 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Update(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 191
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:25:37.474] MFTool.Logger.Error 32 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Update(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 191
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:27:05.713] MFTool.Logger.Error 34 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Update(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 191
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:48:20.743] MFTool.Logger.Error 88 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Update(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 191
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 00:48:59.794] MFTool.Logger.Error 74 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Update(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 191
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 12:48:07.682] MFTool.Logger.Error 8 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Update(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 191
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 17:16:33.154] MFTool.Logger.Error 28 
+出错了
+System.Reflection.ReflectionTypeLoadException: 无法加载一个或多个请求的类型。有关更多信息，请检索 LoaderExceptions 属性。
+   在 System.Reflection.RuntimeModule.GetTypes(RuntimeModule module)
+   在 System.Reflection.Assembly.GetTypes()
+   在 System.ComponentModel.Composition.Hosting.AssemblyCatalog.get_InnerCatalog()
+   在 System.ComponentModel.Composition.Hosting.AssemblyCatalog.GetExports(ImportDefinition definition)
+   在 System.Linq.Enumerable.<SelectManyIterator>d__16`2.MoveNext()
+   在 System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   在 System.ComponentModel.Composition.Hosting.CatalogExportProvider.InternalGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.CatalogExportProvider.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.AggregateExportProvider.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.CompositionContainer.GetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.TryGetExportsCore(ImportDefinition definition, AtomicComposition atomicComposition, IEnumerable`1& exports)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.GetExports(ImportDefinition definition, AtomicComposition atomicComposition)
+   在 System.ComponentModel.Composition.Hosting.ExportProvider.GetExportedValueCore[T](String contractName, ImportCardinality cardinality)
+   在 UIBase.MefDependencyResolver.GetService(Type serviceType) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MefDependencyResolver.cs:行号 50
+   在 System.Web.Mvc.DependencyResolverExtensions.GetService[TService](IDependencyResolver resolver)
+   在 System.Web.Mvc.SingleServiceResolver`1.GetValueFromResolver()
+   在 System.Lazy`1.CreateValue()
+   在 System.Lazy`1.LazyInitValue()
+   在 System.Web.Mvc.SingleServiceResolver`1.get_Current()
+   在 System.Web.Mvc.MvcRouteHandler.GetSessionStateBehavior(RequestContext requestContext)
+   在 System.Web.Mvc.MvcRouteHandler.GetHttpHandler(RequestContext requestContext)
+   在 System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   在 System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 17:17:56.547] MFTool.Logger.Error 18 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Update(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 191
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 17:18:33.374] MFTool.Logger.Error 25 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Update(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 191
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 17:25:01.892] MFTool.Logger.Error 7 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Update(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 191
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 17:39:01.408] MFTool.Logger.Error 41 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Update(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 191
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 17:41:40.153] MFTool.Logger.Error 36 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Update(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 191
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 18:41:59.943] MFTool.Logger.Error 12 
+出错了
+System.ArgumentNullException: 值不能为 null。
+参数名: 参数“cookie已过期”不能为空引用。
+   在 MFTool.ParamterCheckExtensions.Require[TException](Boolean assertion, String message) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 31
+   在 MFTool.ParamterCheckExtensions.CheckNotNull[T](T value, String paramName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\MFTool\Exception\ParamterCheckExtensions.cs:行号 73
+   在 UIBase.BaseController.GetCurrentUserID() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\BaseController.cs:行号 96
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Add(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 95
+   在 WebBase.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\WebBase\Areas\ConfigUI\Controllers\FormController.cs:行号 79
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 19:44:53.192] MFTool.Logger.Error 68 
+出错了
+System.Web.HttpException (0x80004005): 未找到路径“/Project/Create”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 UIBase.MFControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MFControllerFactory.cs:行号 20
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 19:45:25.423] MFTool.Logger.Error 59 
+出错了
+System.Web.HttpException (0x80004005): 未找到路径“/Project/Create”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 UIBase.MFControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MFControllerFactory.cs:行号 20
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 19:46:16.786] MFTool.Logger.Error 75 
+出错了
+System.Web.HttpException (0x80004005): 未找到路径“/Project/Create”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 UIBase.MFControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MFControllerFactory.cs:行号 20
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 19:46:24.333] MFTool.Logger.Error 70 
+出错了
+System.Web.HttpException (0x80004005): 未找到路径“/Project/Create”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 UIBase.MFControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MFControllerFactory.cs:行号 20
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 19:47:31.032] MFTool.Logger.Error 62 
+出错了
+System.Web.HttpException (0x80004005): 未找到路径“/Project/Create”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 UIBase.MFControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MFControllerFactory.cs:行号 20
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 19:47:58.525] MFTool.Logger.Error 62 
+出错了
+System.Web.HttpException (0x80004005): 未找到路径“/Project/Details”的控制器或该控制器未实现 IController。
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   在 UIBase.MFControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MFControllerFactory.cs:行号 20
+   在 System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 19:51:07.684] MFTool.Logger.Error 23 
+出错了
+System.InvalidOperationException: 找到多个与名为“Test”的控制器匹配的类型。如果为此请求(“{controller}/{action}/{id}”)提供服务的路由没有指定命名空间以搜索与此请求相匹配的控制器，则会发生这种情况。如果是这样，请通过调用带有 'namespaces' 参数的 "MapRoute" 方法的重载来注册此路由。
+
+“Test”请求找到下列匹配的控制器:
+Project.Controllers.TestController
+WebBase.Controllers.TestController
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerTypeWithinNamespaces(RouteBase route, String controllerName, HashSet`1 namespaces)
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerType(RequestContext requestContext, String controllerName)
+   在 UIBase.MFControllerFactory.GetControllerType(RequestContext requestContext, String controllerName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MFControllerFactory.cs:行号 15
+   在 System.Web.Mvc.DefaultControllerFactory.System.Web.Mvc.IControllerFactory.GetControllerSessionBehavior(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcRouteHandler.GetSessionStateBehavior(RequestContext requestContext)
+   在 System.Web.Mvc.MvcRouteHandler.GetHttpHandler(RequestContext requestContext)
+   在 System.Web.Mvc.MvcRouteHandler.System.Web.Routing.IRouteHandler.GetHttpHandler(RequestContext requestContext)
+   在 System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   在 System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 19:51:28.958] MFTool.Logger.Error 23 
+出错了
+System.InvalidOperationException: 找到多个与名为“Test”的控制器匹配的类型。如果为此请求(“{controller}/{action}/{id}”)提供服务的路由没有指定命名空间以搜索与此请求相匹配的控制器，则会发生这种情况。如果是这样，请通过调用带有 'namespaces' 参数的 "MapRoute" 方法的重载来注册此路由。
+
+“Test”请求找到下列匹配的控制器:
+Project.Controllers.TestController
+WebBase.Controllers.TestController
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerTypeWithinNamespaces(RouteBase route, String controllerName, HashSet`1 namespaces)
+   在 System.Web.Mvc.DefaultControllerFactory.GetControllerType(RequestContext requestContext, String controllerName)
+   在 UIBase.MFControllerFactory.GetControllerType(RequestContext requestContext, String controllerName) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\UIBase\MFControllerFactory.cs:行号 15
+   在 System.Web.Mvc.DefaultControllerFactory.System.Web.Mvc.IControllerFactory.GetControllerSessionBehavior(RequestContext requestContext, String controllerName)
+   在 System.Web.Mvc.MvcRouteHandler.GetSessionStateBehavior(RequestContext requestContext)
+   在 System.Web.Mvc.MvcRouteHandler.GetHttpHandler(RequestContext requestContext)
+   在 System.Web.Mvc.MvcRouteHandler.System.Web.Routing.IRouteHandler.GetHttpHandler(RequestContext requestContext)
+   在 System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context)
+   在 System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 19:52:16.253] MFTool.Logger.Error 23 
+出错了
+System.ArgumentException: 对于“Project.Controllers.Test2Controller”中方法“System.Web.Mvc.ActionResult Details(Int32)”的不可以为 null 的类型“System.Int32”的参数“id”，参数字典包含一个 null 项。可选参数必须为引用类型、可以为 null 的类型或声明为可选参数。
+参数名: parameters
+   在 System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[2019-08-18 22:26:02.938] MFTool.Logger.Info 37 
+id【aaad0171-b3ae-425c-8398-b5ccc64e8730】生成索引失败
+System.IO.FileNotFoundException: 未能找到文件“C:\Users\ll_song\Source\Repos\MFFrameWork\Project\UpLoad\aaad0171-b147-488a-907a-cf89aba69a8e__________MS升职提议书-财务.doc”。
+文件名:“C:\Users\ll_song\Source\Repos\MFFrameWork\Project\UpLoad\aaad0171-b147-488a-907a-cf89aba69a8e__________MS升职提议书-财务.doc”
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   在 System.IO.File.OpenRead(String path)
+   在 IFilterTextReader.FilterReader..ctor(String fileName, String extension, FilterReaderOptions filterReaderOptions) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\IFilterTextReader\FilterReader.cs:行号 188
+   在 DocumentIndex.SearchIndexManager.GetContent(String filtPath) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 260
+   在 DocumentIndex.SearchIndexManager.AddFileContent(IndexWriter writer, IndexOperation indexContent) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 223
+   在 DocumentIndex.SearchIndexManager.CreateIndexContent() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 187
+[2019-08-18 22:45:45.945] MFTool.Logger.Info 35 
+id【aaad0177-1c0d-42ec-867b-c883eb5bae86】生成索引失败
+System.IO.FileNotFoundException: 未能找到文件“C:\Users\ll_song\Source\Repos\MFFrameWork\Project\UpLoad\aaad0177-1155-47e1-a660-fd9869058f62__________MS升职提议书-财务.doc”。
+文件名:“C:\Users\ll_song\Source\Repos\MFFrameWork\Project\UpLoad\aaad0177-1155-47e1-a660-fd9869058f62__________MS升职提议书-财务.doc”
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   在 System.IO.File.OpenRead(String path)
+   在 IFilterTextReader.FilterReader..ctor(String fileName, String extension, FilterReaderOptions filterReaderOptions) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\IFilterTextReader\FilterReader.cs:行号 188
+   在 DocumentIndex.SearchIndexManager.GetContent(String filtPath) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 260
+   在 DocumentIndex.SearchIndexManager.AddFileContent(IndexWriter writer, IndexOperation indexContent) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 223
+   在 DocumentIndex.SearchIndexManager.CreateIndexContent() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 187
+[2019-08-18 22:49:02.438] MFTool.Logger.Info 11 
+id【aaad0178-0022-4f38-8b5b-df1c3411c9e7】生成索引失败
+System.IO.FileNotFoundException: 未能找到文件“C:\Users\ll_song\Source\Repos\MFFrameWork\Project\UpLoad\aaad0177-fee9-462e-af05-5487342dde41__________MS升职提议书-财务.doc”。
+文件名:“C:\Users\ll_song\Source\Repos\MFFrameWork\Project\UpLoad\aaad0177-fee9-462e-af05-5487342dde41__________MS升职提议书-财务.doc”
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   在 System.IO.File.OpenRead(String path)
+   在 IFilterTextReader.FilterReader..ctor(String fileName, String extension, FilterReaderOptions filterReaderOptions) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\IFilterTextReader\FilterReader.cs:行号 188
+   在 DocumentIndex.SearchIndexManager.GetContent(String filtPath) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 260
+   在 DocumentIndex.SearchIndexManager.AddFileContent(IndexWriter writer, IndexOperation indexContent) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 223
+   在 DocumentIndex.SearchIndexManager.CreateIndexContent() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 187
+[2019-08-18 22:51:02.346] MFTool.Logger.Info 10 
+id【aaad0178-627f-4fb3-bc27-a53e0c1cf1d8】生成索引失败
+System.IO.FileNotFoundException: 未能找到文件“C:\Users\ll_song\Source\Repos\MFFrameWork\Project\UpLoad\aaad0178-5bb3-4359-8389-f556d335cd84__________MS升职提议书-财务.doc”。
+文件名:“C:\Users\ll_song\Source\Repos\MFFrameWork\Project\UpLoad\aaad0178-5bb3-4359-8389-f556d335cd84__________MS升职提议书-财务.doc”
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   在 System.IO.File.OpenRead(String path)
+   在 IFilterTextReader.FilterReader..ctor(String fileName, String extension, FilterReaderOptions filterReaderOptions) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\IFilterTextReader\FilterReader.cs:行号 188
+   在 DocumentIndex.SearchIndexManager.GetContent(String filtPath) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 260
+   在 DocumentIndex.SearchIndexManager.AddFileContent(IndexWriter writer, IndexOperation indexContent) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 223
+   在 DocumentIndex.SearchIndexManager.CreateIndexContent() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 187
+[2019-08-18 22:51:52.122] MFTool.Logger.Error 10 
+Position：Logger[Write]
+GetMaxOrderIndex失败+sql:select max(OrderIndex) from [MFDocument]
+System.InvalidCastException: 对象不能从 DBNull 转换为其他类型。
+   在 System.DBNull.System.IConvertible.ToDouble(IFormatProvider provider)
+   在 EFBase.Repository`1.GetMaxOrderIndex() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\EFBase\Repository.cs:行号 514
+[2019-08-18 22:51:54.763] MFTool.Logger.Info 8 
+id【aaad0178-cb12-49f3-bedf-1be72320acbd】生成索引失败
+System.IO.FileNotFoundException: 未能找到文件“C:\Users\ll_song\Source\Repos\MFFrameWork\Project\bin\Dict\Dict.Dct”。
+文件名:“C:\Users\ll_song\Source\Repos\MFFrameWork\Project\bin\Dict\Dict.Dct”
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   在 PanGu.Dict.WordDictionary.LoadFromBinFile(String fileName, String& verNumStr)
+   在 PanGu.Dict.WordDictionary.Load(String fileName, Boolean textFile, String& version)
+   在 PanGu.Dict.WordDictionary.Load(String fileName)
+   在 PanGu.Segment.LoadDictionary()
+   在 PanGu.Segment.Init(String fileName)
+   在 PanGu.Segment.Init()
+   在 DocumentIndex.PanGuTokenizer.InitPanGuSegment() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\PanGuTokenizer.cs:行号 25
+   在 DocumentIndex.PanGuTokenizer..ctor(TextReader input) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\PanGuTokenizer.cs:行号 65
+   在 DocumentIndex.PanGuTokenizer..ctor(TextReader input, Boolean originalResult) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\PanGuTokenizer.cs:行号 47
+   在 DocumentIndex.PanGuAnalyzer.TokenStream(String fieldName, TextReader reader) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\PanGuAnalyzer.cs:行号 30
+   在 Lucene.Net.Analysis.Analyzer.ReusableTokenStream(String fieldName, TextReader reader)
+   在 Lucene.Net.Index.DocInverterPerField.ProcessFields(Fieldable[] fields, Int32 count)
+   在 Lucene.Net.Index.DocFieldProcessorPerThread.ProcessDocument()
+   在 Lucene.Net.Index.DocumentsWriter.UpdateDocument(Document doc, Analyzer analyzer, Term delTerm)
+   在 Lucene.Net.Index.DocumentsWriter.AddDocument(Document doc, Analyzer analyzer)
+   在 Lucene.Net.Index.IndexWriter.AddDocument(Document doc, Analyzer analyzer)
+   在 Lucene.Net.Index.IndexWriter.AddDocument(Document doc)
+   在 DocumentIndex.SearchIndexManager.AddFileContent(IndexWriter writer, IndexOperation indexContent) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 241
+   在 DocumentIndex.SearchIndexManager.CreateIndexContent() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 187
+[2019-08-18 22:53:22.791] MFTool.Logger.Error 7 
+Position：Logger[Write]
+GetMaxOrderIndex失败+sql:select max(OrderIndex) from [MFDocument]
+System.InvalidCastException: 对象不能从 DBNull 转换为其他类型。
+   在 System.DBNull.System.IConvertible.ToDouble(IFormatProvider provider)
+   在 EFBase.Repository`1.GetMaxOrderIndex() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\EFBase\Repository.cs:行号 514
+[2019-08-18 22:53:26.331] MFTool.Logger.Info 8 
+id【aaad0179-355d-45c0-8a19-e685ae03eb3e】生成索引失败
+System.IO.FileNotFoundException: 未能找到文件“C:\Users\ll_song\Source\Repos\MFFrameWork\Project\bin\Dict\ChsSingleName.txt”。
+文件名:“C:\Users\ll_song\Source\Repos\MFFrameWork\Project\bin\Dict\ChsSingleName.txt”
+   在 PanGu.Framework.File.ReadFileToString(String FileName, Encoding encode)
+   在 PanGu.Dict.ChsName.LoadNameDict(String filePath, Dictionary`2& dict)
+   在 PanGu.Dict.ChsName.LoadChsName(String dictPath)
+   在 PanGu.Segment.LoadDictionary()
+   在 PanGu.Segment.Init(String fileName)
+   在 PanGu.Segment.Init()
+   在 DocumentIndex.PanGuTokenizer.InitPanGuSegment() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\PanGuTokenizer.cs:行号 25
+   在 DocumentIndex.PanGuTokenizer..ctor(TextReader input) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\PanGuTokenizer.cs:行号 65
+   在 DocumentIndex.PanGuTokenizer..ctor(TextReader input, Boolean originalResult) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\PanGuTokenizer.cs:行号 47
+   在 DocumentIndex.PanGuAnalyzer.TokenStream(String fieldName, TextReader reader) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\PanGuAnalyzer.cs:行号 30
+   在 Lucene.Net.Analysis.Analyzer.ReusableTokenStream(String fieldName, TextReader reader)
+   在 Lucene.Net.Index.DocInverterPerField.ProcessFields(Fieldable[] fields, Int32 count)
+   在 Lucene.Net.Index.DocFieldProcessorPerThread.ProcessDocument()
+   在 Lucene.Net.Index.DocumentsWriter.UpdateDocument(Document doc, Analyzer analyzer, Term delTerm)
+   在 Lucene.Net.Index.DocumentsWriter.AddDocument(Document doc, Analyzer analyzer)
+   在 Lucene.Net.Index.IndexWriter.AddDocument(Document doc, Analyzer analyzer)
+   在 Lucene.Net.Index.IndexWriter.AddDocument(Document doc)
+   在 DocumentIndex.SearchIndexManager.AddFileContent(IndexWriter writer, IndexOperation indexContent) 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 241
+   在 DocumentIndex.SearchIndexManager.CreateIndexContent() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\DocumentIndex\SearchIndexManager.cs:行号 187
+[2019-08-18 22:54:59.609] MFTool.Logger.Error 7 
+Position：Logger[Write]
+GetMaxOrderIndex失败+sql:select max(OrderIndex) from [MFDocument]
+System.InvalidCastException: 对象不能从 DBNull 转换为其他类型。
+   在 System.DBNull.System.IConvertible.ToDouble(IFormatProvider provider)
+   在 EFBase.Repository`1.GetMaxOrderIndex() 位置 c:\Users\ll_song\Source\Repos\MFFrameWork\EFBase\Repository.cs:行号 514
+[2019-08-23 15:35:19.531] MFTool.Logger.Error 13 
+Position：Logger[Write]
+GetMaxOrderIndex失败+sql:select max(OrderIndex) from [MFDocument]
+System.Data.SqlClient.SqlException (0x80131904): 对象名 'MFDocument' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   在 EFBase.Extension.DynamicFromSql(DbContext db, String Sql, Dictionary`2 Params) 位置 c:\Users\ll_song\Source\Repos\MakeFast\EFBase\Extension.cs:行号 66
+   在 EFBase.Repository`1.DynamicFromSql(String Sql, Dictionary`2 Params) 位置 c:\Users\ll_song\Source\Repos\MakeFast\EFBase\Repository.cs:行号 479
+   在 EFBase.Repository`1.GetMaxOrderIndex() 位置 c:\Users\ll_song\Source\Repos\MakeFast\EFBase\Repository.cs:行号 514
+ClientConnectionId:cb733748-cfcd-46a1-ae83-05c08d0778b9
+Error Number:208,State:1,Class:16
+[2019-08-23 15:35:19.892] MFTool.Logger.Error 13 
+Position：Logger[Write]
+MF_Project的SaveChanges失败
+System.Data.Entity.Infrastructure.DbUpdateException: 更新条目时出错。有关详细信息，请参阅内部异常。 ---> System.Data.Entity.Core.UpdateException: 更新条目时出错。有关详细信息，请参阅内部异常。 ---> System.Data.SqlClient.SqlException: 对象名 'dbo.MFDocument' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   在 System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 EFBase.UnitOfWork.<>c__DisplayClass4.<Commit>b__3() 位置 c:\Users\ll_song\Source\Repos\MakeFast\EFBase\UnitOfWork.cs:行号 178
+[2019-08-23 15:35:19.900] MFTool.Logger.Error 13 
+出错了
+System.Exception: MF_Project的SaveChanges失败 ---> System.Data.Entity.Infrastructure.DbUpdateException: 更新条目时出错。有关详细信息，请参阅内部异常。 ---> System.Data.Entity.Core.UpdateException: 更新条目时出错。有关详细信息，请参阅内部异常。 ---> System.Data.SqlClient.SqlException: 对象名 'dbo.MFDocument' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   在 System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   在 System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   在 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   在 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 EFBase.UnitOfWork.<>c__DisplayClass4.<Commit>b__3() 位置 c:\Users\ll_song\Source\Repos\MakeFast\EFBase\UnitOfWork.cs:行号 178
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 EFBase.UnitOfWork.<>c__DisplayClass4.<Commit>b__3() 位置 c:\Users\ll_song\Source\Repos\MakeFast\EFBase\UnitOfWork.cs:行号 183
+   在 EFBase.UnitOfWork.Commit() 位置 c:\Users\ll_song\Source\Repos\MakeFast\EFBase\UnitOfWork.cs:行号 203
+   在 AutoUI.Areas.ConfigUI.Controllers.FormController.Add(Dictionary`2 dic) 位置 c:\Users\ll_song\Source\Repos\MakeFast\AutoUI\Areas\ConfigUI\Controllers\FormController.cs:行号 154
+   在 AutoUI.Areas.ConfigUI.Controllers.FormController.Save() 位置 c:\Users\ll_song\Source\Repos\MakeFast\AutoUI\Areas\ConfigUI\Controllers\FormController.cs:行号 79
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

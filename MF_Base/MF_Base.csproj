@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C946DF5C-2EC0-4B04-80B7-B7321C1F099E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MF_Base</RootNamespace>
+    <AssemblyName>MF_Base</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\3rd\EntityFrameWork\6.1.3\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rd\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseDbContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\ControlType.cs" />
+    <Compile Include="Enum\EnumRoleType.cs" />
+    <Compile Include="Migrations\201908261519283_qq.cs" />
+    <Compile Include="Migrations\201908261519283_qq.Designer.cs">
+      <DependentUpon>201908261519283_qq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Sys\MF_MyLog.cs" />
+    <Compile Include="Model\Sys\MF_EnumDetail.cs" />
+    <Compile Include="Model\Sys\MF_Enum.cs" />
+    <Compile Include="Model\Sys\MF_MainType.cs" />
+    <Compile Include="Model\Sys\MF_Department.cs" />
+    <Compile Include="Model\Sys\MF_RoleUser.cs" />
+    <Compile Include="Model\Sys\MF_UserForTest2.cs" />
+    <Compile Include="Model\Sys\MF_UserTT.cs" />
+    <Compile Include="Model\Sys\MF_UserForTest1.cs" />
+    <Compile Include="Model\Sys\MF_UserForTest.cs" />
+    <Compile Include="Model\Sys\SQLDataSource.cs" />
+    <Compile Include="Configuration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DatabaseInitializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\EnumFuncType.cs" />
+    <Compile Include="Enum\TrueFalseType.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="Model\Sys\MF_Func.cs" />
+    <Compile Include="Model\Sys\MF_FuncRole.cs" />
+    <Compile Include="Model\Sys\MF_Role.cs" />
+    <Compile Include="Model\UIConfig\FormConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\UIConfig\ListConfig.cs" />
+    <Compile Include="Model\Sys\MF_User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="T4\BaseDbContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseDbContext.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EFBase\EFBase.csproj">
+      <Project>{2ec68dbb-a0ed-401c-92cf-b2b3904ebb76}</Project>
+      <Name>EFBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFTool\MFTool.csproj">
+      <Project>{3438cdd7-2f17-4798-83ad-2c4e99bad4a3}</Project>
+      <Name>MFTool</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="T4\MultipleOutputHelper.ttinclude" />
+    <None Include="T4\T4Model.ttinclude" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="T4\BaseDbContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BaseDbContext.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201908261519283_qq.resx">
+      <DependentUpon>201908261519283_qq.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)MF_Base.dll" "$(SolutionDir)WorkFlow\bin\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

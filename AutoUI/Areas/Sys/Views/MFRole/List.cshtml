@@ -1,0 +1,123 @@
+﻿<div id="tb">
+    <table cellpadding="0" cellspacing="0" style="width: 100%">
+        <tr>
+            <td>
+                <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-jia1" plain="true" onclick="add()">增加</a>
+                <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-bianji1" plain="true" onclick="edit()">编辑</a>
+                <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-shanchu" plain="true" onclick="removeit()">删除</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<body id="mainLayout" class="easyui-layout">
+    <input id="hiddenId" type="hidden" />
+    <div data-options="region:'center',border:false">
+        <table id="dg" class="easyui-datagrid" rownumbers="true" fit="true" pagination="true" fitcolumns="false" striped="true" border="false" idfield="Id"
+               url="GetList?roleType=@ViewBag.RoleType" autorowheight="false" singleselect="false" toolbar="#tb" data-options="onClickRow:onClickRow">
+            <thead>
+                <tr>
+                    <th data-options="field:'ck',checkbox:true"></th>
+                    <th field="Code" width="150" halign='center'>
+                        编号
+                    </th>
+                    <th field="Name" width="240" halign='center'>
+                        名称
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div data-options="region:'east',split:true,collapsible:false" style="width:500px;">
+        <table id="dgUser" class="easyui-datagrid" rownumbers="true" fit="true" pagination="false" fitcolumns="false" striped="true" border="false" idfield="Id"
+               url="GetRoleUserList" autorowheight="false" singleselect="true">
+            <thead>
+                <tr>
+                    <th field="Code" width="150" halign='center'>
+                        编号
+                    </th>
+                    <th field="RealName" width="240" halign='center'>
+                        名称
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+<script>
+    var roleType = queryString('RoleType');
+</script>
+<script>
+    addGridLink('dg', 'BasicDefine', '/AutoUI/ConfigUIDef/Form/Basic', {
+        linkText: '基本设置', height: 300, width: 500, onDestroy: function (e) {
+            if (e) {
+                $("#dg").datagrid('reload');
+            }
+        }
+    });
+
+    addGridLink('dg', 'ControlDefine', '/AutoUI/ConfigUIDef/Form/Ctrl', { linkText: '控件设置' });
+    addGridLink('dg', 'LayOutDefine', '/AutoUI/ConfigUIDef/Form/Layout', { linkText: '布局设置', height: '100%', width: '100%', showMaxButton: false });
+    addGridLink('dg', 'PreView', '/AutoUI/ConfigUI/Form/PageView', { linkText: '预览', paramField: 'UICode' });
+
+    //删除
+    function removeit() {
+        //获取当前选中行
+        var rows = $('#dg').datagrid('getSelections');
+        //如果不为空
+        if (rows.length > 0) {
+            confirmBox('是否删除?', function (r) {
+                if (r) {
+                    var idArr = $.map(rows, function (item, index) { return item.Id; });
+                    addAjaxParam('ids', idArr.join(','));
+                    commitAjax('DeleteRole', {
+                        CallBack: function (data) {
+                            if (data) {
+                                msgBox(data);
+                                //成功后刷新界面
+                                $("#dg").datagrid('reload');
+                            }
+                        }
+                    });
+                }
+            })
+        }
+        else {
+            msgBox('请选择要删除的行');
+        }
+    }
+
+    //增加
+    function add() {
+        openWindow('Item?RoleType='+ roleType, {
+            width: 600, height: 300, onDestroy: function (data) {
+                if (data) {
+                    $("#dg").datagrid('reload');
+                }
+            }
+        });
+    }
+
+    function edit() {
+        var row = $('#dg').treegrid('getSelected');
+        if (row) {
+            openWindow('Item?id=' + row.Id, {
+                width: 500, height: 300, onDestroy: function (data) {
+                    if (data)
+                        $("#dg").datagrid('reload');
+                }
+            });
+        }
+    }
+
+    function onClickRow(rowIndex, rowData)
+    {
+        $('#dgUser').datagrid('load', { RoleId: rowData.Id });
+
+        //var queryParams = { roleId: rowData.Id };
+
+        //$('#dg2').treegrid('options').queryParams = queryParams;
+        //$("#dg2").treegrid('reload');
+    }
+</script>
+

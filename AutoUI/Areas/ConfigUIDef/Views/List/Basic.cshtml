@@ -1,0 +1,207 @@
+﻿<script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/codemirror/lib/codemirror.js")"></script>
+<script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/codemirror/mode/javascript/javascript.js")"></script>
+<script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/codemirror/mode/sql/sql.js")"></script>
+<link type="text/css" href="@Url.Content("/BaseResource/Plugin/codemirror/lib/codemirror.css")" rel="stylesheet" />
+<style>
+    .CodeMirror {
+        border: 1px solid #ccc;
+        font-size: 13px;
+    }
+</style>
+<div class="datagrid-toolbar formToolBar">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="save()" iconcls="iconfont iconfont-baocun">保存</a>
+</div>
+<div style="padding:2px;">
+    <form method="post">
+        <input id="Id" name="Id" type="hidden" />
+        <table class="groupTable">
+            <tr>
+                <td style="width:15%">类全名:</td>
+                <td style="width:35%">
+                    <input id='EntityFullName' name='EntityFullName' class='easyui-mfbuttonedit' data-options="required:false,onButtonClick:entityFullNameSelect,onClearButtonClick:clearButtonClick" style='width:100%;' />
+                </td>
+                <td style="width:15%">
+                    表名:
+                </td>
+                <td style="width:35%">
+                    <input id="TableName" name="TableName" class="easyui-textbox" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:15%">编号:</td>
+                <td style="width:35%">
+                    <input id="UICode" name="UICode" class="easyui-textbox" data-options="required:true" style="width:100%" />
+                </td>
+                <td style="width:15%">
+                    名称:
+                </td>
+                <td style="width:35%">
+                    <input id="Name" name="Name" class="easyui-textbox" style="width:100%" />
+                </td>
+            </tr>          
+            <tr>
+                <td style="width:15%">数据库:</td>
+                <td style="width:35%">
+                    <input id="DBName" class="easyui-combobox" name="DBName"
+                           data-options="required:true,valueField:'value',textField:'text',panelHeight:'auto',data:DBNames,onChange:dbNameValueChanged" style="width:100%" />
+                </td>
+                <td style="width:15%">
+                    类别:
+                </td>
+                <td style="width:35%">
+                    <input id="MainTypeFullId" name="MainTypeFullId" class="easyui-combobox" data-options="valueField:'value',textField:'text',panelHeight:'auto',editable:false" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>SQL:</td>
+                <td colspan="3">
+                    <textarea id="SQL" name="SQL" style="width:100%;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>SQLOrderBy:</td>
+                <td colspan="3">
+                    <input id="OrderBy" name="OrderBy" data-options="prompt:'order by'" class="easyui-textbox" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>Script:</td>
+                <td colspan="3">
+                    <textarea id="Script" name="Script" style="width:100%;"></textarea>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script>
+    @Html.GetEnum(typeof(MF_Base.truefalseType), "False")
+    @Html.DBNames()
+</script>
+<script>
+    var id = queryString('id');
+    var scriptCodeMirror;
+    var sqlCodeMirror
+    function initialCodeMirror() {
+        scriptCodeMirror = CodeMirror.fromTextArea(document.getElementById('Script'), {
+            mode: "text/javascript",
+            lineNumbers: true,
+            styleActiveLine: true,
+            matchBrackets: true,
+            theme: "xq-light"
+        });
+        scriptCodeMirror.setSize('auto', '200px');
+
+        sqlCodeMirror = CodeMirror.fromTextArea(document.getElementById('SQL'), {
+            mode: "text/x-sql",
+            indentWithTabs: true,
+            smartIndent: true,
+            lineNumbers: true,
+            matchBrackets: true,
+            autofocus: true
+        });
+        sqlCodeMirror.setSize('auto', '200px');
+    }
+
+    function pageLoad() {
+        initialCodeMirror();
+        //编辑
+        if (id) {
+            $("#Id").val(id);
+            addAjaxParam("id", id);
+            commitAjax("Get", {
+                CallBack: function (data) {
+                    if (data) {
+                        $('#UICode').textbox('setValue', data.UICode);
+                        $('#Name').textbox('setValue', data.Name);
+                        $('#TableName').textbox('setValue', data.TableName);
+                        $('#EntityFullName').textbox('setValue', data.EntityFullName);
+                        $('#DBName').combobox('setValue', data.DBName);
+                        $('#MainTypeFullId').combobox('setValue', data.MainTypeFullId);
+                        $('#OrderBy').textbox('setValue', data.OrderBy);
+                        scriptCodeMirror.setValue(removeEscapeStr(data.Script));
+                        sqlCodeMirror.setValue(data.SQL);
+                        checkFulNameSelect();
+                    }
+                }
+            });
+        }
+ 
+    }
+
+    function save() {
+        var isValid = $('form').form('validate');
+        if (!isValid) {
+            msgBox('请检查所填数据!');
+            return;
+        }
+
+        var t = $('form').serializeArray();
+        var formData = {};
+        $.each(t, function () {
+            formData[this.name] = this.value;
+        });
+        formData["SQL"] = sqlCodeMirror.getValue();
+        formData["Script"] = scriptCodeMirror.getValue();
+        addAjaxParam("formData", formData);
+        commitAjax("Save", {
+            CallBack: function (data) {
+                if (data) {
+                    closeWindow(true);
+                }
+                else {
+                    msgBox('操作失败');
+                }
+            }
+        })
+    }
+
+    function entityFullNameSelect(e) {
+        var url = "EntityList"
+        var windowSettings = {};
+        windowSettings.width = 600;
+        windowSettings.height = 300;
+        windowSettings.onDestroy = function (data) {
+            if (data != 'close') {
+                $('#EntityFullName').textbox('setValue', '');//先value
+                $('#EntityFullName').textbox('setText', '');//先value
+
+                $('#EntityFullName').textbox('setValue', data.EntityFullName);
+                $('#DBName').combobox('setValue', data.DBName);
+                $('#TableName').textbox('setValue', data.TableName);
+                $('#UICode').textbox('setValue', data.EntityFullName.replace(/[.]/g, "_"));
+                dbNameValueChanged();
+                checkFulNameSelect();
+            }
+        }
+        openWindow(url, windowSettings);
+    }
+
+    function dbNameValueChanged() {
+        var val = $('#DBName').combobox('getValue');
+        $('#MainTypeFullId').combobox('clear');
+        var url = '/AutoUI/ConfigUIDef/MainType/GetMainTypeList?DBName=' + val;
+        $('#MainTypeFullId').combobox('reload', url);
+    }
+
+    function checkFulNameSelect() {
+        var val = $('#EntityFullName').textbox('getValue');
+        if (val && val != '') {
+            $('#DBName').combobox('readonly', true);
+            $('#TableName').textbox('readonly', true);
+            $('#UICode').textbox('readonly', true);
+        }
+        else {
+            $('#DBName').combobox('readonly', false);
+            $('#TableName').textbox('readonly', false);
+            $('#UICode').textbox('readonly', false);
+        }
+    }
+
+    function clearButtonClick()
+    {
+        $('#DBName').combobox('setValue', '');
+        $('#TableName').textbox('setValue', '');
+        $('#UICode').textbox('setValue', '');
+        checkFulNameSelect();
+    }
+</script>

@@ -1,0 +1,160 @@
+﻿<div class="datagrid-toolbar formToolBar">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="saveFormData()" iconcls="iconfont iconfont-baocun">保存</a>
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="delectConnect()" iconcls="icon icon-del">删除</a>
+</div>
+<div style="padding:2px;">
+    <form id="mf_form" method="post">
+        <div id="roleTab" class="easyui-tabs" data-options="fit:false">
+            <div title="基本信息" style="padding:2px;">
+                <table class="groupTable">
+                    <tr>
+                        <td style="width:35%">
+                            路由名称：
+                        </td>
+                        <td style="width:65%">
+                            <input id="Name" name="Name" class="easyui-textbox" value="" data-options="required:true" style="width:100%" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div title="路由条件" style="padding:2px;">
+                <table class="groupTable">
+                    <tr>
+                        <td style="width:35%">
+                            通行条件表达式：
+                        </td>
+                        <td style="width:65%">
+                            <input id="PassExpression" name="PassExpression" prompt="{FormData1}-{FormData2}*{FormData3} 其中FormData为表单字段" class="easyui-textbox" data-options="multiline:true" style="width: 100%;height: 100px" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div title="接收人" style="padding:2px;">
+                <table class="groupTable">
+                    <tr>
+                        <td style="width:35%">指定人:</td>
+                        <td style="width:65%">
+                            <input id='NextExcuteUserId' name='NextExcuteUserId' class='easyui-mfbuttonedit' data-options="textName:'NextExcuteUserName',onButtonClick:selectNextStepUser" style='width:100%;'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:35%">指定角色:</td>
+                        <td style="width:65%">
+                            <input id='NextExcuteUserRoleId' name='NextExcuteUserRoleId' class='easyui-mfbuttonedit' data-options="textName:'NextExcuteUserRoleName',onButtonClick:selectNextStepRole" style='width:100%;'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:35%" rowspan="3">指定人(数据源):</td>
+                        <td style="width:65%">
+                            <input id='NextExcuteUserSQLSourceId' name='NextExcuteUserSQLSourceId' class='easyui-mfbuttonedit' data-options="textName:'NextExcuteUserSQLSourceName',onButtonClick:selectSQLSource,onClearButtonClick:onClearButtonClick" style='width:100%;'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:65%">
+                            <input id="NextExcuteUserSQLSourceResKeyField" name="NextExcuteUserSQLSourceResKeyField" class="easyui-combobox" prompt="选择数据源提取数据对应字段Key" data-options="panelHeight:150,editable:false" style="width:100%" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:65%">
+                            <input id="NextExcuteUserSQLSourceResValueField" name="NextExcuteUserSQLSourceResValueField" class="easyui-combobox" prompt="选择数据源提取数据对应字段Value" data-options="panelHeight:150,editable:false" style="width:100%" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    @Html.GetEnum(typeof(MF_Base.truefalseType), "False")
+</script>
+<script>
+    function afterSetFormData(data) {
+        reLoadComboboxData1(data.NextExcuteUserSQLSourceId);
+        reLoadComboboxData2(data.NextExcuteUserSQLSourceId);
+    }
+
+    function delectConnect() {
+        confirmBox('是否删除?', function (r) {
+            if (r) {
+                closeWindow('delete');
+            }
+        })
+    }
+
+    function selectNextStepUser() {
+        var txt = $('#NextExcuteUserId').textbox('getText');
+        var val = $('#NextExcuteUserId').textbox('getValue');
+        var res = {
+            Id: val,
+            RealName: txt
+        }
+
+        openWindow('/AutoUI/Sys/MFUser/MultiSelector', {
+            width: 700, height: 400,
+            data: res,
+            onDestroy: function (res) {
+                if (res) {
+                    $('#NextExcuteUserId').mfbuttonedit('setValue', res.Id);
+                    $('#NextExcuteUserId').mfbuttonedit('setText', res.RealName);
+                }
+            }
+        });
+    }
+
+    function selectNextStepRole() {
+        openWindow('/AutoUI/ConfigUI/List/PageView?UICode=RoleSelector', {
+            width: 400, height: 400,
+            onDestroy: function (res) {
+                if (res) {
+                    $('#NextExcuteUserRoleId').mfbuttonedit('setValue', res.Id);
+                    $('#NextExcuteUserRoleId').mfbuttonedit('setText', res.Name);
+                }
+            }
+        });
+    }
+
+    function selectSQLSource() {
+        openWindow('/AutoUI/ConfigUI/List/PageView?UICode=SQLDataSourceSelector', {
+            width: 800, height: 600,
+            onDestroy: function (res) {
+                if (res) {
+                    $('#NextExcuteUserSQLSourceId').mfbuttonedit('setValue', res.Id);
+                    $('#NextExcuteUserSQLSourceId').mfbuttonedit('setText', res.Name);
+                    reLoadComboboxData1(res.Id);
+                    reLoadComboboxData2(res.Id);
+                }
+            }
+        });
+    }
+
+    function reLoadComboboxData1(resId) {
+        if (!resId) return;
+        addAjaxParam("sqlDataSourceId", resId);
+        commitAjax("/AutoUI/Sys/SQLDataSource/GetFields", {
+            CallBack: function (data) {
+                if (data) {
+                    $('#NextExcuteUserSQLSourceResKeyField').combobox('loadData', data);
+                }
+            }
+        })
+    }
+
+    function reLoadComboboxData2(resId) {
+        if (!resId) return;
+        addAjaxParam("sqlDataSourceId", resId);
+        commitAjax("/AutoUI/Sys/SQLDataSource/GetFields", {
+            CallBack: function (data) {
+                if (data) {
+                    $('#NextExcuteUserSQLSourceResValueField').combobox('loadData', data);
+                }
+            }
+        })
+    }
+
+    function onClearButtonClick() {
+        $('#NextExcuteUserSQLSourceResKeyField').combobox('clear');
+        $('#NextExcuteUserSQLSourceResKeyField').combobox('loadData', []);
+        $('#NextExcuteUserSQLSourceResValueField').combobox('clear');
+        $('#NextExcuteUserSQLSourceResValueField').combobox('loadData', []);
+    }
+</script>

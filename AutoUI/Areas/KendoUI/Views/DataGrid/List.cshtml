@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "List";
+}
+
+<div id="toolbar"></div>
+<div id="grid"></div>
+<script>
+$("#grid").kendoGrid({
+    selectable: "multiple cell",
+    allowCopy: true,
+    columns: [
+        { field: "表名" },
+        { field: "编号" },
+        { field: "分类" },
+        { field: "创建时间" }
+    ],
+    dataSource: [
+        { 表名: "Tea", 编号: "1000-10002",创建时间:"2011-1-1" },
+        { 表名: "Tea", 编号: "1000-10002", 创建时间: "2011-1-1" },
+        { 表名: "Tea", 编号: "1000-10002", 创建时间: "2011-1-1" },
+        { 表名: "Tea", 编号: "1000-10002", 创建时间: "2011-1-1" }
+    ]
+});
+
+$("#toolbar").kendoToolBar({
+    items: [
+        { type: "button", text: "Button" },
+        { type: "button", text: "Toggle Button", togglable: true },
+        {
+            type: "splitButton",
+            text: "Insert",
+            menuButtons: [
+                { text: "Insert above", icon: "insert-up" },
+                { text: "Insert between", icon: "insert-middle" },
+                { text: "Insert below", icon: "insert-down" }
+            ]
+        },
+        { type: "separator" },
+        { template: "<label for='dropdown'>Format:</label>" },
+        {
+            template: "<input id='dropdown' style='width: 150px;' />",
+            overflow: "never"
+        },
+        { type: "separator" },
+        {
+            type: "buttonGroup",
+            buttons: [
+                { icon: "align-left", text: "Left", togglable: true, group: "text-align" },
+                { icon: "align-center", text: "Center", togglable: true, group: "text-align" },
+                { icon: "align-right", text: "Right", togglable: true, group: "text-align" }
+            ]
+        },
+        {
+            type: "buttonGroup",
+            buttons: [
+                { icon: "bold", text: "Bold", togglable: true },
+                { icon: "italic", text: "Italic", togglable: true },
+                { icon: "underline", text: "Underline", togglable: true }
+            ]
+        },
+        {
+            type: "button",
+            text: "Action",
+            overflow: "always"
+        },
+        {
+            type: "button",
+            text: "Another Action",
+            overflow: "always"
+        },
+        {
+            type: "button",
+            text: "Something else here",
+            overflow: "always"
+        }
+    ]
+});
+</script>

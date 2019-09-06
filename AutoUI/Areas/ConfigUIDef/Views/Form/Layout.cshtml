@@ -1,0 +1,86 @@
+﻿<script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/ckeditor/ckeditor.js")"></script>
+
+<div id="editor1"></div>
+
+<script type="text/javascript">
+    var formId = queryString('id');
+    $(function () {
+        CKEDITOR.replace('editor1', {
+            contentsCss: ['/BaseResource/Css/Site.css'],
+            on: {
+                'instanceReady': function (e) {
+                    var editor = e.editor;
+                    editor.SaveLayout = saveLayout;
+                    editor.LayoutPreview = preview;
+                    editor.LayoutSelected = layoutSelected;
+
+                    addAjaxParam("formId", formId);
+                    commitAjax("GetLayout", {
+                        CallBack: function (data) {
+                            if (data) {
+                                InsertHtml(data);
+                            }
+                        }
+                    })
+
+
+
+                    $(window).ready(function () {
+                        var curSize = editor.getResizable()
+                        var curWidth = curSize.$.style.width;
+                        if (curWidth == '') {
+                            curWidth = editor.element.$.style.width;
+                            if (curWidth == '') {
+                                curWidth = '100%';
+                            }
+                        }
+
+                        editor.resize(curWidth, $(document).height(), null, false);
+                    });
+                }
+            }
+        })
+    })
+
+    function saveLayout(editor) {
+        confirmBox('是否保存?', function (r) {
+            if (r) {
+                $.post("SaveLayout",
+                        { formId: formId, html: editor.getData() },
+                        function (data) {
+                            if (data) {
+                                closeWindow(true);
+                            }
+                            else {
+                                msgBox('操作失败');
+                            }
+                  });
+            }
+        })
+    }
+
+    function preview() {
+        alert('ss1')
+    }
+
+    function layoutSelected(e) {
+        addAjaxParam("formId", formId);
+        addAjaxParam("layoutType", e);
+        commitAjax("CreateLayout", {
+            CallBack: function (data) {
+                if (data) {                    
+                    InsertHtml(data);
+                }
+            }
+        })
+    }
+
+    function InsertHtml(value) {
+        var oEditor = CKEDITOR.instances.editor1;
+        if (oEditor.mode == 'wysiwyg') {
+            oEditor.setData(value);
+        }
+        else
+            alert('You must be in WYSIWYG mode!');
+    };
+</script>

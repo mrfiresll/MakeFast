@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<html>
+<head>
+    <title></title>
+    @*<link href="~/UIFrame/EasyUi/portal.css" rel="stylesheet" type="text/css" media="screen" />
+    <script type="text/javascript" src="~/UIFrame/EasyUi/jquery.portal.js"></script>
+    <script type="text/javascript" src="~/Scripts/home.js"></script>*@
+</head>
+<body style="height:100%">
+    <div id="pp">
+        <div style="width:100%">
+        </div>
+    </div>
+     
+</body>
+</html>
+
+<script>
+    function dataBtnClick() {
+        openWindow('/AutoUI/Sys/MFUser/SingleSelector', {
+            width: 700, height: 400,
+            onDestroy: function (res) {
+                if (res) {
+                    alert(res.RealName)
+                }
+            }
+        });
+    }
+</script>

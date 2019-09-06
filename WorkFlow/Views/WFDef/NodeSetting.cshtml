@@ -1,0 +1,26 @@
+﻿<div class="datagrid-toolbar formToolBar">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="saveFormData()" iconcls="iconfont iconfont-baocun">保存</a>
+</div>
+<div style="padding:2px;">
+    <form id="mf_form" method="post">
+        <table class="groupTable">
+            <tr>
+                <td style="width:30%">
+                    环节名称：
+                </td>
+                <td style="width:70%">
+                    <input name="Name" class="easyui-textbox" value="角色审批" data-options="required:true" style="width: 100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>允许保存:</td>
+                <td>
+                    <input id="CanSave" name="CanSave" class="easyui-combobox" data-options="data:TrueFalseType,panelHeight:'auto',editable:false" style="width:100%" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script>   
+    var TrueFalseType = [{ "text": "否", "value": "0", "selected": true }, { "text": "是", "value": "1" }];
+</script>

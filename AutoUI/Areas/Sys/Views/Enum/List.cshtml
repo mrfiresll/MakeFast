@@ -1,0 +1,136 @@
+﻿<script type="text/javascript" src="@Url.Content("/AutoUI/Scripts/mainType.js")"></script>
+<body class="easyui-layout">
+    <div data-options="region:'west',border:true,split:true,collapsible:true" title="类别" style="width:200px;padding:3px;">
+        <ul id="dgTree" class="easyui-tree" url="/AutoUI/ConfigUIDef/MainType/GetTypeTreeTop" data-options="dnd:true,onSelect:selectNode,onBeforeDrop:onBeforeDrop,onDrop:onDrop"></ul>
+    </div>
+    <div data-options="region:'center'" style="border-top:0">
+        <div id="tb">
+            <table cellpadding="0" cellspacing="0" style="width: 100%">
+                <tr>
+                    <td>
+                        <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-jia1" plain="true" onclick="add()">增加</a>
+                        <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-bianji1" plain="true" onclick="edit()">编辑</a>
+                        <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-shanchu" plain="true" onclick="delRow()">删除</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table id="mf_grid" class="easyui-datagrid" rownumbers="true" fit="true" pagination="true" fitcolumns="true" striped="true" border="false" idfield="Id"
+               url="GetList" autorowheight="false" singleselect="false" toolbar="#tb" data-options="onClickRow:onClickRow">
+            <thead>
+                <tr>
+                    <th data-options="field:'ck',checkbox:true"></th>
+                    <th field="Code" width="100" halign='center'>
+                        编号
+                    </th>
+                    <th field="Name" width="100" halign='center'>
+                        名称
+                    </th>
+                    <th field="Remark" width="150" halign='center'>
+                        备注
+                    </th>
+                    <th field="ModifyUserName" width="100" halign='center' align="center">
+                        最后修改人
+                    </th>
+                    <th field="ModifyTime" width="100" halign='center' align="center">
+                        最后修改时间
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div data-options="region:'east',border:true,split:true,collapsible:true" title="" style="width:400px;">
+        <div id="tb2">
+            <table cellpadding="0" cellspacing="0" style="width: 100%">
+                <tr>
+                    <td>
+                        <a href="#" class="easyui-linkbutton" onclick="javascript: $('#detail').datagrid('mfInsertRow')" iconcls="iconfont iconfont-jia1" plain="true">增加</a>
+                        <a href="#" class="easyui-linkbutton" onclick="javascript: $('#detail').datagrid('mfMoveUp')" iconcls="iconfont iconfont-xiangshang" plain="true">上移</a>
+                        <a href="#" class="easyui-linkbutton" onclick="javascript: $('#detail').datagrid('mfMoveDown')" iconcls="iconfont iconfont-paixu" plain="true">下移</a>
+                        <a href="#" class="easyui-linkbutton" onclick="javascript: $('#detail').datagrid('mfDeleteRow')" iconcls="iconfont iconfont-shanchu" plain="true">删除</a>
+                        <a href="#" class="easyui-linkbutton" onclick="saveDetail()" iconcls="iconfont iconfont-baocun" plain="true">保存</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table id="detail" rownumbers="false" fit="true" pagination="false" fitcolumns="true" striped="true" border="false" idfield="Id"
+               autorowheight="false" toolbar="#tb2" singleselect="false">
+            <thead>
+                <tr>
+                    <th data-options="field:'ck',checkbox:true"></th>
+                    <th field="Text" width="150" halign='center' editor="{type:'validatebox'}">
+                        文本
+                    </th>
+                    <th field="Value" width="150" halign='center' editor="{type:'validatebox'}">
+                        值
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+<script>
+    addGridDate('mf_grid', 'ModifyTime', 'yyyy-MM-dd');
+    $('#detail').datagrid().datagrid('enableCellEditing');
+</script>
+<script>
+    //增加同级
+    function add() {
+        openWindow('Item', {
+            width: 500, height: 280, onDestroy: function (data) {
+                if (data)
+                    $("#mf_grid").datagrid('reload');
+            }
+        });
+    }
+
+    function edit() {
+        var row = $('#mf_grid').datagrid('getSelected');
+        if (row) {
+            openWindow('Item?id=' + row.Id, {
+                width: 500, height: 280, onDestroy: function (data) {
+                    if (data)
+                        $("#mf_grid").datagrid('reload');
+                }
+            });
+        }
+        else
+        {
+            msgBox("请选择要编辑的行");
+        }
+    }
+
+    function onClickRow(index, item)
+    {
+        addAjaxParam('EnumId', item.Id);
+        commitAjax('GetEnumDetail', {
+            CallBack: function (data) {
+                $('#detail').datagrid('loadData', data);
+            }
+        })
+    }
+
+    function saveDetail()
+    {
+        var enumRow = $('#mf_grid').datagrid('getSelected');
+        if(!enumRow) return;
+        $('#detail').datagrid('endEditingCell');
+        var rows = $('#detail').datagrid('getRows');
+        addAjaxParam('enumId', enumRow.Id);
+        addAjaxParam('data', rows);
+        commitAjax('SaveEnumDetail', {
+            CallBack: function (data) {
+                if (data)
+                {
+                    msgBox('保存成功');
+                }
+            }
+        })
+    }
+
+    function mainTypeTreeNodeSelect()
+    {
+        $('#detail').datagrid('mfClearRows');        
+    }
+</script>
+

@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "系统登陆";
+}
+
+<link type="text/css" href="@Url.Content("~/Content/frame.css")" rel="stylesheet" />
+<link type="text/css" href="@Url.Content("/BaseResource/Plugin/insdepui/theme/master.css")" rel="stylesheet" />
+
+@section Head_Js{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/main.js")"></script>
+    <script type="text/javascript" src="@Url.Content("/BaseResource/Plugin/insdepui/theme/master.js")"></script>
+}
+<body class="easyui-layout theme-layout theme-style-blue" id="mainLayout">
+    <noscript>
+        <div style="position: absolute; z-index: 100000; height: 2046px; top: 0px; left: 0px;
+            width: 100%; background: white; text-align: center;">
+            <img src="images/noscript.gif" alt='抱歉，请开启脚本支持！' />
+        </div>
+    </noscript>
+    <div id="northPanel" class="theme-header-layout" data-options="region:'north'" style="overflow: hidden;">
+        <div class="theme-header-navigate">
+            <div id="headerMenuLeft" class="left">
+                <a class="l-btn theme-header-logo"></a>
+                <a href="#" class="easyui-linkbutton theme-left-menu-switch" data-options="plain:true,iconCls:'iconfont iconfont-liebiao',hasDownArrow:false"></a>
+            </div>
+            <div class="right">
+                <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'iconfont iconfont-dingxiang',hasDownArrow:false" onclick="myTask()"></a>
+                <a href="#" class="easyui-menubutton" data-options="plain:true,iconCls:'iconfont iconfont-tixing',hasDownArrow:false" onclick="myEmail()"></a>
+                <a href="#" class="easyui-menubutton" data-options="plain:true,iconCls:'iconfont iconfont-tuichu',hasDownArrow:false" onclick="logOut()"></a>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'west'" class="theme-left-layout">
+        <div class="theme-left-menu">
+        </div>
+    </div>
+    @*<div id="southPanel" data-options="region:'south',split:true">用户名：@ViewBag.CurrentUserName  &nbsp; 角色：@ViewBag.RoleNames  &nbsp; 职务：@ViewBag.DutyNames  &nbsp;  部门：@ViewBag.DepartName</div>*@
+    <div data-options="region:'center'">
+        <div id="tabs" class="easyui-tabs  theme-tabs-layout  tabs-underline" data-options="fit:true,border:false">
+            @*<div title="首页" id="home" data-options="border:false">
+                <div id="pp" data-options="border:false">
+                    <div style="width:100%">
+                    </div>
+                </div>
+            </div>*@
+        </div>
+    </div>
+    <div id="mm" class="easyui-menu" style="width: 150px;">
+        <div id="mm-tabupdate">刷新</div>
+        <div class="menu-sep"></div>
+        <div id="mm-tabclose">关闭</div>
+        <div id="mm-tabcloseall">全部关闭</div>
+        <div id="mm-tabcloseother">除此之外全部关闭</div>
+        <div class="menu-sep"></div>
+        <div id="mm-tabcloseright">当前页右侧全部关闭</div>
+        <div id="mm-tabcloseleft">当前页左侧全部关闭</div>
+        <div class="menu-sep"></div>
+        <div id="mm-exit">退出</div>
+    </div>
+</body>
+<script>
+    function myTask() {
+        openWindow('/WorkFlow/WFList/ListTab', { height: 500, width: 1000 });
+    }
+</script>
+

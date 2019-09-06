@@ -1,0 +1,48 @@
+﻿@*<div id="tb">
+    <table cellpadding="0" cellspacing="0" style="width: 100%">
+        <tr>
+            <td>
+                <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-jia1" plain="true" onclick="add()">增加</a>
+                <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-shanchu" plain="true" onclick="removeit()">删除</a>
+            </td>
+        </tr>
+    </table>
+</div>*@
+<table id="dg" class="easyui-datagrid" rownumbers="true" fit="true" pagination="true" fitcolumns="false" striped="true" border="false" idfield="Id"
+       url="getlist" autorowheight="false" singleselect="true" toolbar="#tb">
+    <thead>
+        <tr>
+            <th data-options="field:'ck',checkbox:true"></th>
+            <th field="CurrentStepName" width="200" halign='center'>
+                任务名称
+            </th>
+            <th field="DefName" width="250" halign='center'>
+                流程名称
+            </th>
+            <th field="SendTime" width="100" halign='center'>
+                发送时间
+            </th>            
+            <th field="StepUserName" width="100" halign='center' align="center">
+                当前处理人
+            </th>
+            <th field="StepGraph" width="100" halign='center' align="center">
+                流程跟踪
+            </th>
+        </tr>
+    </thead>
+</table>
+<script>
+    addGridDate('dg', 'SendTime', 'yyyy-MM-dd');
+ 
+    addGridLink('dg', 'CurrentStepName', '/WorkFlow/WFForm/PageView', { paramField: 'FormInstId',
+         height: '70%', width: '80%', onDestroy: function (e) {
+            if (e)
+            {
+                $("#dg").datagrid('reload');
+            }
+        }
+    });
+
+    addGridLink('dg', 'StepGraph', '/WorkFlow/WFForm/Trace', { paramField: 'FormInstId', linkText: '流程跟踪' });
+</script>
+

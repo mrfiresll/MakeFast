@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "f";
+}
+
+<div class="k-header k-grid-toolbar" style="height:22px;width:100%; position:fixed;top:0;z-index:10">
+    <a class="k-button" style="height:20px;" href=" javascript:void(0)" onclick="save()"><span class="k-icon k-i-plus"></span>保存</a>
+    <a class="k-button" style="height:20px;" href="javascript:void(0)" onclick="closeWindow()"><span class="k-icon k-i-cancel"></span>取消</a>
+</div>
+<div style="padding:2px;margin-top:32px">
+    <form class="k-content">
+        <input type="hidden" name="id" id="id" value="" />
+        <input type="submit" style="display:none" />
+        <table class="mfire-groupTable">
+            <tr>
+                <td style="width:30%"><label for="num" class="required">必须填写：</label></td>
+                <td><input id="required" name="required" style="width: 100%;" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script>
+    var configID = '@ViewBag.ConfigID';
+    @Html.GetEnum(typeof(BaseConfig.TrueFalseType));
+    var id = queryString('id');
+</script>
+<script>
+    var defineData = {};
+    function SetData(d)
+    {
+        if (d)
+        {
+            var dropdownlist = $("#required").data("kendoDropDownList");
+            dropdownlist.value(d.required);
+        }        
+    }
+
+    function pageLoad()
+    {
+        $("#required").kendoDropDownList({
+            dataTextField: "text",
+            dataValueField: "value",
+            dataSource: YesNoType,
+            index: 0,
+        });
+    }
+
+    function save()
+    {
+        closeWindow($('form').serializeObject());
+    }
+</script>
+

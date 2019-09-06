@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CE64084F-FDFB-432F-84C5-918CFC12CE94}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoUI</RootNamespace>
+    <AssemblyName>AutoUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NCode.Composition.DisposableParts">
+      <HintPath>..\3rd\NCode.Composition.DisposableParts.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rd\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\3rd\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\ConfigUIDef\ConfigUIDefAreaRegistration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\ConfigUIDef\Controllers\FormController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\ConfigUIDef\Controllers\FormCtrlDetailController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\ConfigUIDef\Controllers\ListController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\ConfigUIDef\Controllers\MainTypeController.cs" />
+    <Compile Include="Areas\ConfigUI\ConfigUIAreaRegistration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\ConfigUI\Controllers\EntityFormController.cs" />
+    <Compile Include="Areas\ConfigUI\Controllers\FileController.cs" />
+    <Compile Include="Areas\ConfigUI\Controllers\FormController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\ConfigUI\Controllers\ListController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\ConfigUI\Controllers\NPOIController.cs" />
+    <Compile Include="Areas\ConfigUI\EasyUICtrl\ComboBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\ConfigUI\EasyUICtrl\CtrlBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\ConfigUI\EasyUICtrl\SubDataGrid.cs" />
+    <Compile Include="Areas\ConfigUI\EasyUICtrl\DataGrid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\ConfigUI\EasyUICtrl\MultiFileBox.cs" />
+    <Compile Include="Areas\ConfigUI\EasyUICtrl\MultiTextBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\ConfigUI\EasyUICtrl\Button.cs" />
+    <Compile Include="Areas\ConfigUI\EasyUICtrl\PopupSelector.cs" />
+    <Compile Include="Areas\ConfigUI\EasyUICtrl\DateBox.cs" />
+    <Compile Include="Areas\ConfigUI\EasyUICtrl\FileBox.cs" />
+    <Compile Include="Areas\ConfigUI\EasyUICtrl\TextBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Org\OrgAreaRegistration.cs" />
+    <Compile Include="Areas\Sys\Controllers\AuthorTreeManageController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Sys\Controllers\MFRoleController.cs" />
+    <Compile Include="Areas\Sys\Controllers\EnumController.cs" />
+    <Compile Include="Areas\Sys\Controllers\MFDepartmentController.cs" />
+    <Compile Include="Areas\Sys\Controllers\SQLDataSourceController.cs" />
+    <Compile Include="Areas\Sys\Controllers\MFUserController.cs" />
+    <Compile Include="Areas\Sys\SysAreaRegistration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\MyBaseController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ArrRoleFunc.cs" />
+    <Compile Include="Helper\CheckLoginAttr.cs" />
+    <Compile Include="Helper\DefaultValue.cs" />
+    <Compile Include="Helper\EasyUIHelper.cs" />
+    <Compile Include="Helper\Common.cs" />
+    <Compile Include="Helper\LoggerFilter.cs" />
+    <Compile Include="Helper\MessageBox.cs" />
+    <Compile Include="Helper\NoCheckLoginAttr.cs" />
+    <Compile Include="Helper\NPOIExcel.cs" />
+    <Compile Include="Models\DataTables\DataTablesParameters.cs" />
+    <Compile Include="Models\DataTables\DataTablesResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Areas\ConfigUIDef\Views\FormCtrlDetail\ComboBox.cshtml" />
+    <Content Include="Areas\ConfigUIDef\Views\FormCtrlDetail\EnumDef.cshtml" />
+    <Content Include="Areas\ConfigUIDef\Views\FormCtrlDetail\MultiTextBox.cshtml" />
+    <Content Include="Areas\ConfigUIDef\Views\FormCtrlDetail\TextBox.cshtml" />
+    <Content Include="Areas\ConfigUIDef\Views\Form\Basic.cshtml" />
+    <Content Include="Areas\ConfigUIDef\Views\Form\Ctrl.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\ConfigUIDef\Views\Form\EntityList.cshtml" />
+    <Content Include="Areas\ConfigUIDef\Views\Form\Layout.cshtml" />
+    <Content Include="Areas\ConfigUIDef\Views\Form\List.cshtml" />
+    <Content Include="Areas\ConfigUIDef\Views\List\Button.cshtml" />
+    <Content Include="Areas\ConfigUIDef\Views\List\List.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\ConfigUIDef\Views\Web.config" />
+    <Content Include="Areas\ConfigUIDef\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\ConfigUI\Views\Form\PageView.cshtml" />
+    <Content Include="Areas\ConfigUI\Views\Web.config" />
+    <Content Include="Areas\ConfigUI\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Sys\Views\AuthorTreeManage\Item.cshtml" />
+    <Content Include="Areas\Sys\Views\AuthorTreeManage\List.cshtml" />
+    <Content Include="Areas\Sys\Views\web.config" />
+    <Content Include="Areas\Sys\Views\_ViewStart.cshtml" />
+    <Content Include="Content\frame.css" />
+    <Content Include="Content\login\login-img.png" />
+    <Content Include="Content\login\login.css" />
+    <Content Include="Content\login\login_logo.png" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="DBData\2018-6-27.sql" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bg.gif" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Scripts\home.js" />
+    <Content Include="Scripts\mainType.js" />
+    <Content Include="Scripts\main2.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\ConfigUIDef\Models\" />
+    <Folder Include="Areas\ConfigUIDef\Views\MainType\" />
+    <Folder Include="Areas\ConfigUI\Views\NPOI\" />
+    <Folder Include="Areas\Org\Controllers\" />
+    <Folder Include="Areas\Org\Models\" />
+    <Folder Include="Areas\Sys\Models\" />
+    <Folder Include="UpLoad\" />
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Test\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseResource\BaseResource.csproj">
+      <Project>{569c665f-553f-4d01-8221-7389403925c7}</Project>
+      <Name>BaseResource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EFBase\EFBase.csproj">
+      <Project>{2ec68dbb-a0ed-401c-92cf-b2b3904ebb76}</Project>
+      <Name>EFBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MF_Base\MF_Base.csproj">
+      <Project>{c946df5c-2ec0-4b04-80b7-b7321c1f099e}</Project>
+      <Name>MF_Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFTool\MFTool.csproj">
+      <Project>{3438cdd7-2f17-4798-83ad-2c4e99bad4a3}</Project>
+      <Name>MFTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UIBase\UIBase.csproj">
+      <Project>{7afbda4a-4151-4071-aee3-f207dabcfc94}</Project>
+      <Name>UIBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Main\Home.cshtml" />
+    <Content Include="Views\Main\Index.cshtml" />
+    <Content Include="Views\Shared\_EasyUiLayout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\ConfigUIDef\Views\List\Basic.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\ConfigUIDef\Views\List\Column.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\ConfigUIDef\Views\List\ColumnDetail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\ConfigUIDef\Views\List\Property.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\ConfigUI\Views\List\PageView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\ConfigUIDef\Views\List\ButtonDetail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\ConfigUIDef\Views\FormCtrlDetail\PopupSelector.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\ConfigUIDef\Views\FormCtrlDetail\DateBox.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+    <Content Include="Areas\Sys\Views\MFUser\Pwd.cshtml" />
+    <Content Include="Areas\Sys\Views\MFRole\List.cshtml" />
+    <Content Include="Areas\Sys\Views\MFRole\Item.cshtml" />
+    <Content Include="Areas\Sys\Views\MFUser\Role.cshtml" />
+    <Content Include="Areas\Sys\Views\MFUser\SingleSelector.cshtml" />
+    <Content Include="Areas\Sys\Views\SQLDataSource\PageView.cshtml" />
+    <Content Include="Areas\ConfigUIDef\Views\List\EntityList.cshtml" />
+    <Content Include="Areas\Sys\Views\MFUser\MultiSelector.cshtml" />
+    <Content Include="Areas\ConfigUIDef\Views\FormCtrlDetail\FileBox.cshtml" />
+    <Content Include="Areas\ConfigUIDef\Views\FormCtrlDetail\MultiFileBox.cshtml" />
+    <Content Include="Areas\ConfigUIDef\Views\FormCtrlDetail\SubDataGrid.cshtml" />
+    <Content Include="Areas\Sys\Views\Enum\List.cshtml" />
+    <Content Include="Areas\Sys\Views\Enum\Item.cshtml" />
+    <Content Include="Areas\Sys\Views\MFDepartment\List.cshtml" />
+    <Content Include="Areas\Sys\Views\MFDepartment\DepartmentSelector.cshtml" />
+    <Content Include="Areas\Org\Views\web.config" />
+    <Content Include="Areas\Org\Views\_ViewStart.cshtml" />
+    <None Include="Properties\PublishProfiles\AutoUI.pubxml" />
+    <None Include="Properties\PublishProfiles\WebBase.pubxml" />
+    <Content Include="Views\Shared\PageView.cshtml" />
+    <Content Include="Views\Shared\_InsdepEasyUiLayout.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES6</TypeScriptTarget>
+    <TypeScriptNoEmitOnError>False</TypeScriptNoEmitOnError>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3726</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3162/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

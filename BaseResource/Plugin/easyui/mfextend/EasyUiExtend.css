@@ -1,0 +1,22 @@
+﻿.datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber             {
+    text-overflow: ellipsis;
+}
+/*为了控制控件的可见性*/
+.euiCtrlHidden + span{
+    display:none;
+}
+
+.euiCtrlHidden{
+    display:none;
+}
+
+/*mfbuttonedit显示位置为右侧*/
+.textbox-button-right
+{
+    right:0;
+}
+
+.icon-clear{
+	background:url('clear.png') no-repeat center center;
+}
+

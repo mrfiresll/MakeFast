@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>LODOP的使用样例九</title>
+<script language="javascript" src="CheckActivX.js"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+</object> 
+</head>
+<body>
+<script language="javascript">CheckLodop();</script>
+
+<h2><b><font color="#009999">演示程序方式装载背景图：</font></b></h2>
+<p>&nbsp;&nbsp;&nbsp; 用户在套打程序的<a href="javascript:myPrintSetup1()">打印维护</a>操作时，可以用“装载背景图”手工加入一个对照图片。 </p>  
+
+<p>事实上页面程序也可提前加载好统一的背景对照图，避免使用者每次使用都手工加载！ </p>
+
+<p>下面是互联网上的一个图片，我们用它演示（如果图片看不到就自己在网上找一个吧） </p>
+
+<p><img border="0" src="http://classad.sina.com.cn/images/ditu.jpg" width="336" height="242">&nbsp;</p>
+
+<p>&nbsp;&nbsp;  
+看到以上图片了吗（没有联网可能看不到哟）？如果能看到就进入<a href="javascript:myPrintSetup2()">打印维护</a>看一下。</p>
+
+<h3><font color="#009999">本样例关键点：用</font><font color="#FF00FF">&lt;img&gt;</font><font color="#009999">
+标签和</font><font size="3" color="#FF00FF">ADD_PRINT_SETUP_BKIMG</font><font color="#009999">函数加载控件背景。</font></h3>
+<script language="javascript" type="text/javascript"> 
+	function myPrintSetup1() {		
+		CreatePage();
+		LODOP.PRINT_SETUP();		
+	};
+	function myPrintSetup2() {		
+		CreatePage();
+		LODOP.ADD_PRINT_SETUP_BKIMG("<img border='0' src='http://classad.sina.com.cn/images/ditu.jpg'>");
+		LODOP.PRINT_SETUP();		
+	};		
+	function CreatePage() {
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_测试页");
+		LODOP.ADD_PRINT_TEXT(43,250,75,20,"东北地区");
+		LODOP.ADD_PRINT_TEXT(96,173,75,20,"华北地区");
+		LODOP.ADD_PRINT_TEXT(187,208,60,20,"华南地区");
+		LODOP.ADD_PRINT_TEXT(137,256,60,20,"华东地区");
+		LODOP.ADD_PRINT_TEXT(136,176,61,20,"华中地区");
+		LODOP.ADD_PRINT_TEXT(77,76,60,20,"西北地区");
+		LODOP.ADD_PRINT_TEXT(172,129,60,20,"西南地区");
+		LODOP.ADD_PRINT_UPLINE(57,224,60,40,0,1);
+		LODOP.ADD_PRINT_DNLINE(89,118,59,18,0,1);
+		LODOP.ADD_PRINT_UPLINE(152,152,61,17,0,1);
+		LODOP.ADD_PRINT_DNLINE(117,195,6,17,0,1);
+		LODOP.ADD_PRINT_DNLINE(163,231,8,27,0,1);
+		LODOP.ADD_PRINT_DNLINE(147,234,19,1,0,1);
+		LODOP.ADD_PRINT_TEXT(94,395,24,97,"地区方位图");
+	};			
+</script> 
+
+</body>
+</html>

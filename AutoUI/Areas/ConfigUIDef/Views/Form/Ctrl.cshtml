@@ -1,0 +1,116 @@
+﻿<div id="tb">
+    <table cellpadding="0" cellspacing="0" style="width: 100%">
+        <tr>
+            <td>
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfSaveRows',true)" iconcls="iconfont iconfont-baocun" plain="true">保存修改</a>
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfMoveUp')" iconcls="iconfont iconfont-xiangshang" plain="true">上移</a>
+                <a href="#" class="easyui-linkbutton" onclick="javascript: $('#dg').datagrid('mfMoveDown')" iconcls="iconfont iconfont-paixu" plain="true">下移</a>
+                <a href="#" class="easyui-linkbutton" onclick="refreshProperty()" iconcls="iconfont iconfont-shuaxin" plain="true">重新载入</a>
+            </td>
+        </tr>
+    </table>
+</div>
+ 
+<table id="dg" rownumbers="true" fit="true" pagination="true" fitcolumns="false" striped="true" border="false" idfield="FieldName"
+       autorowheight="false" toolbar="#tb" singleselect="false" data-options="onBeforeCellEdit:beforeCellEdit">
+    <thead>
+        <tr>
+            <th data-options="field:'ck',checkbox:true"></th>
+            <th field="Detail" width="100" halign='center'>
+                详细设置
+            </th>
+            <th field="FieldType" width="150" halign='center'>
+                字段类型
+            </th>
+            <th field="CtrlType" width="150" halign='center' formatter="ControlTypeFormatter" editor="{type:'combobox',options:{data:ControlType,panelHeight:'auto'}}">
+                控件类型
+            </th>
+            <th field="ColumnName" width="150" halign='center' editor="{type:'validatebox'}">
+                列名
+            </th>
+            <th field="FieldName" width="150" halign='center'>
+                字段名
+            </th>
+            <th field="IsVisible" width="100" halign='center' align="center" editor="{type:'checkbox',options:{on:'是',off:'否'}}">
+                是否显示
+            </th>
+            <th field="Enable" width="100" halign='center' align="center" editor="{type:'checkbox',options:{on:'是',off:'否'}}">
+                是否有效
+            </th>
+        </tr>
+    </thead>
+</table>
+<script>
+    @Html.GetEnumWithFormatter(typeof(MF_Base.ControlType));
+</script>
+
+<script>
+    var formId = queryString('Id')
+    addGridBtn('dg', 'Detail', {
+        linkText: '详细设置',
+        onButtonClick: function (row, index) {
+            if (!$('#dg').datagrid('endEditingCell')) {
+                return;
+            }
+
+            var url = '/AutoUI/ConfigUIDef/FormCtrlDetail/' + row.CtrlType;
+
+            var width = 300;
+            if (row.CtrlType == 'SubDataGrid') {
+                width = '80%';
+                url += '?formId=' + formId + "&fieldName=" + row.FieldName;
+            }
+
+            openWindow(url, {
+                width: width, height: '80%',
+                data: row.Detail,
+                onDestroy: function (res) {
+                    if (res) {
+                        $('#dg').datagrid('mfUpdateRow', {
+                            index: index,
+                            row: {
+                                Detail: JSON.stringify(res)
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    });
+
+    $('#dg').datagrid({
+        url: 'GetCtrlList',
+        saveUrl: 'SaveCtrl?formId=' + formId,
+        queryParams: { formId: queryString('Id') }
+    }).datagrid('enableCellEditing');
+
+    //刷新
+    function refreshProperty() {
+        confirmBox('是否重新载入属性?', function (r) {
+            if (r) {
+                addAjaxParam('formId', formId);
+                commitAjax('RefreshProperty', {
+                    CallBack: function (data) {
+                        if (data) {
+                            msgBox(data);
+                            //成功后刷新界面
+                            $("#dg").datagrid('reload');
+                        }
+                    }
+                });
+            }
+        })
+    }
+
+    function beforeCellEdit(index, field) {
+        var selectRow = $(this).datagrid('getRows')[index];
+        //子表字段的子表控件类型一般在首次加载已经赋予,这里使子表字段只能应用子表控件类型不能改
+        if (selectRow.CtrlType == 'SubDataGrid'
+
+            && field == 'CtrlType')
+        {
+            return false;
+        }        
+    }
+</script>
+

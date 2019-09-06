@@ -1,0 +1,204 @@
+﻿<body class="easyui-layout">
+    <div data-options="region:'west',border:true,split:true,collapsible:true" title="部门" style="width:300px;padding:3px;">
+        <ul id="dgTree" class="easyui-tree" url="/AutoUI/Sys/MFDepartment/GetTree" data-options="dnd:true,
+            onContextMenu: showContextMenu,onDblClick:beginEditNode,onAfterEdit:endEditNode,
+            onSelect:selectNode,onBeforeDrop:onBeforeDrop,onDrop:onDrop"></ul>
+    </div>
+    <div data-options="region:'center'" style="border-top:0">
+        <div id="tb">
+            <table cellpadding="0" cellspacing="0" style="width: 100%">
+                <tr>
+                    <td>
+                        <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-shanchu" plain="true" onclick="removeUser()">移除</a>
+                        <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-shanchu" plain="true" onclick="setDepartment()">设置部门</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table id="mf_grid" class="easyui-datagrid" rownumbers="true" fit="true" pagination="true" fitcolumns="false" striped="true" border="false" idfield="Id"
+               url="GetDepartUser" autorowheight="false" singleselect="false" toolbar="#tb" data-options="">
+            <thead>
+                <tr>
+                    <th data-options="field:'ck',checkbox:true"></th>
+                    <th field="Code" width="150" halign='center'>
+                        编号
+                    </th>
+                    <th field="RealName" width="150" halign='center'>
+                        名称
+                    </th>
+                    <th field="DepartName" width="200" halign='center'>
+                        所在部门
+                    </th>
+                    <th field="RoleName" width="200" halign='center'>
+                        系统角色
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div id="mm" class="easyui-menu" style="width:120px;">
+        <div onclick="appendNode()" data-options="iconCls:'iconfont iconfont-jia1'">增加</div>
+        <div id="mmRemove" onclick="removeNode()" data-options="iconCls:'iconfont iconfont-shanchu'">删除</div>
+        <div class="menu-sep"></div>
+        <div onclick="expand()">展开</div>
+        <div onclick="collapse()">折叠</div>
+    </div>
+</body>
+<script>
+    function beginEditNode(node) {
+        if (node.parentId) {
+            $(this).tree('beginEdit', node.target);
+        }
+
+    }
+
+    function endEditNode(node) {
+        addAjaxParam("Id", node.id);
+        addAjaxParam("Name", node.text);
+        commitAjax('/AutoUI/Sys/MFDepartment/UpdateDepartmentName', {
+            CallBack: function (data) {
+
+            }
+        })
+    }
+
+    function showContextMenu(e, node) {
+        e.preventDefault();
+        $(this).tree('select', node.target);
+        $('#mm').menu('show', {
+            left: e.pageX,
+            top: e.pageY
+        })
+    }
+
+    function appendNode() {
+        var t = $('#dgTree');
+        var node = t.tree('getSelected');
+
+        //顶部节点不传递自身节点,因为顶部节点不进入数据库
+        if (node.parentId)
+        {
+            addAjaxParam("ParentId", node.id);
+            addAjaxParam("FullId", node.fullId);
+        }
+
+        commitAjax('/AutoUI/Sys/MFDepartment/AddDepartment', {
+            CallBack: function (data) {
+                if (data) {
+                    t.tree('append', {
+                        parent: (node ? node.target : null),
+                        data: [{
+                            id: data.Id,
+                            text: data.Name,
+                            parentId: node.id,
+                            fullId: data.FullId
+                        }]
+                    });
+                }
+            }
+        });
+
+    }
+
+    function removeNode() {
+        var t = $('#dgTree');
+        var node = t.tree('getSelected');
+        addAjaxParam("FullId", node.fullId);
+        commitAjax('/AutoUI/Sys/MFDepartment/RemoveDepartment', {
+            CallBack: function (data) {
+                if (data) {
+                    if (node.parentId) {
+                        t.tree('remove', node.target);
+                    }
+                    else {
+                        $.each(t.tree('getChildren', node.target), function (index, item) {
+                            t.tree('remove', item.target);
+                        })
+                    }
+                }
+            }
+        });
+    }
+
+    function collapse() {
+        var node = $('#dgTree').tree('getSelected');
+        $('#dgTree').tree('collapse', node.target);
+    }
+    function expand() {
+        var node = $('#dgTree').tree('getSelected');
+        $('#dgTree').tree('expand', node.target);
+    }
+
+    function selectNode(node) {
+        //top
+        if (!node.parentId || node.parentId == '') {
+            $('#mf_grid').datagrid('load', {
+                departmentId: ''
+            });
+        }
+        else {
+            $('#mf_grid').datagrid('load', {
+                departmentFullId: node.fullId
+            });
+        }
+    }
+
+    function removeUser()
+    {
+        var selectedUsers = $('#mf_grid').datagrid('getSelections');
+        if (!selectedUsers) return msgBox("请选择要移除的行");
+
+        confirmBox('是否移除?', function (r) {
+            if (r) {
+                addAjaxParam("users", selectedUsers);
+                commitAjax('removeUsersDepartment', {
+                    CallBack: function (data2) {
+                        $("#mf_grid").datagrid('reload');
+                    }
+                });
+            }
+        })
+        
+    }
+
+    function setDepartment()
+    {
+        var selectedUser = $('#mf_grid').datagrid('getSelected');
+        if (!selectedUser) return msgBox("请选择要设置的行");
+
+        openWindow('DepartmentSelector', {
+            width: 300, height: 400, onDestroy: function (departmentId) {
+                if (departmentId) {
+                    addAjaxParam("departmentId", departmentId);
+                    addAjaxParam("userId", selectedUser.Id);
+                    commitAjax('SetUserDepartment', {
+                        CallBack: function (data2) {
+                            $("#mf_grid").datagrid('reload');
+                        }
+                    });                   
+                }
+            }
+        });
+    }
+
+    function onBeforeDrop(targetRowDom, sourceRow, point)
+    {
+        //不能为顶部的同级节点
+        if (point == 'top' || point == 'bottom')
+        {
+            var parentId = $('#dgTree').tree('getNode', targetRowDom).parentId;
+            if (!parentId) return false;
+        }
+    }
+
+    function onDrop(targetRowDom, sourceRow, point)
+    {
+        var targetId = $('#dgTree').tree('getNode', targetRowDom).id;
+
+        addAjaxParam("sourceID", sourceRow.id);
+        addAjaxParam("targetID", targetId);
+        addAjaxParam("point", point);
+        commitAjax("MoveDepartment");
+    }
+</script>
+

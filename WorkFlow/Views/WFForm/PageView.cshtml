@@ -1,0 +1,123 @@
+﻿@using MFTool;
+
+<div class="datagrid-toolbar formToolBar">
+    @* 可否保存 *@
+    @if (ViewBag.CanSave)
+    {
+        <a href="#" class="easyui-linkbutton" plain="true" onclick="saveForm()" iconcls="iconfont iconfont-baocun">保存</a>
+    }
+    @* 下一个环节选择按钮 *@@{
+        int index = 1;
+        int personIconMax = 8;@* 见icon.css 的 icon-person *@
+
+        foreach (MF_WorkFlow.Model.WFRoutingDefInst tmp in ViewBag.NextRoutingDefInstList)
+        {
+            string iconCls = "icon icon-person" + (index % personIconMax);
+            index++;
+            string isFinal = (tmp.E_WFNodeDefInst.WFNodeType == MF_WorkFlow.WFNodeType.End.ToString()).ToString().ToLower();
+            string jsonStr = tmp.ToJson();
+            <a href="#" class="easyui-linkbutton" plain="true"
+            onclick="saveFlow('@jsonStr','@isFinal')" 
+            iconcls="@iconCls">@tmp.Name</a>
+        }
+    }
+</div>
+<div style="padding:2px;">
+    <form method="post" id="mf_form">
+        @Html.Raw(ViewBag.FormHtml)
+    </form>
+</div>
+<script>
+    var formId = '@ViewBag.FormId'
+    var wFDefInstId = '@ViewBag.WFDefInstId'
+    var id = queryString('FormInstId');
+    var currentStepId = '@ViewBag.CurrentStepId'
+
+    //下一环节角色限定部分
+    //角色限定
+    var nextStepRoleIdArrStr = '@ViewBag.NextStepRoleIdArr';
+</script>
+<script type="text/javascript" src="@Url.Content("/BaseResource/Script/configui.js")"></script>
+<script>
+    @Html.Raw(ViewBag.Script)
+</script>
+<script>
+    function saveForm() {
+        addAjaxParam("JustSave", true);
+        save();
+    }
+    function saveFlow(wfRoutingDefInstStr, isFinal) {
+        var wfRoutingDefInst = JSON.parse(wfRoutingDefInstStr);
+        var routingDefInstId = wfRoutingDefInst.Id;
+        var nextRoutingName = wfRoutingDefInst.Name;
+
+        if (!validateFormData())
+            return;
+
+        if (routingDefInstId) {
+            addAjaxParam("nextRoutingDefInstId", routingDefInstId);//下个节点
+        }
+        if (currentStepId) {
+            addAjaxParam("currentStepId", currentStepId);//当前步骤
+        }
+
+        addAjaxParam("wFDefInstId", wFDefInstId);//流程定义实例Id
+        addAjaxParam("formInstId", id);//表单实例(Entity)Id
+
+        //结束环节
+        if (isFinal == 'true') {
+            confirmBox('是否【' + nextRoutingName + '】?', function (r) {
+                if (r) {
+                    save();
+                }
+            })
+        }
+        else {
+            if (wfRoutingDefInst.IsDefineNextExcuteUsers) {
+                commitAjax("GetNextExcuteUsers?routingDefInstId=" + routingDefInstId, {
+                    notUsePostData: true,
+                    CallBack: function (data) {
+                        if (data && data.Id != '') {
+                            confirmBox('是否发送给【' + data.Name + '】?', function (r) {
+                                if (r) {
+                                    addAjaxParam("nextUserId", data.Id);
+                                    addAjaxParam("nextUserName", data.Name);
+                                    save();
+                                }
+                            })
+                        }
+                        else {
+                            confirmBox('无法找到接收人是否手动选择?', function (r) {
+                                if (r) {
+                                    openWindow('/AutoUI/Sys/MFUser/MultiSelector', {
+                                        width: 700, height: 400,
+                                        onDestroy: function (res) {
+                                            if (res) {
+                                                addAjaxParam("nextUserId", res.Id);
+                                                addAjaxParam("nextUserName", res.RealName);
+                                                save();
+                                            }
+                                        }
+                                    });
+                                }
+                            })
+                        }
+                    }
+                });
+            }
+            else {
+                openWindow('/AutoUI/Sys/MFUser/MultiSelector', {
+                    width: 700, height: 400,
+                    onDestroy: function (res) {
+                        if (res) {
+                            addAjaxParam("nextUserId", res.Id);
+                            addAjaxParam("nextUserName", res.RealName);
+                            save();
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+</script>

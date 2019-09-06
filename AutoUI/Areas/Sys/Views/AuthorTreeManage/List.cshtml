@@ -1,0 +1,154 @@
+﻿<div id="tb">
+    <table cellpadding="0" cellspacing="0" style="width: 100%">
+        <tr>
+            <td>
+                <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-jia1" plain="true" onclick="addEq()">增加同级</a>
+                <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-jia1" plain="true" onclick="addSub()">增加子级</a>
+                <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-bianji1" plain="true" onclick="edit()">编辑</a>
+                <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-xiangshang" plain="true" onclick="move('up')">升序</a>
+                <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-paixu" plain="true" onclick="move('down')">降序</a>
+                <a href="#" class="easyui-linkbutton" iconcls="iconfont iconfont-shanchu" plain="true" onclick="removeit()">删除</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<table id="dg" class="easyui-treegrid" rownumbers="true" fit="true" fitcolumns="true" striped="true" border="false" idfield="Id" treefield="Text"
+       url="getfunctreejson" autorowheight="false" singleselect="true" toolbar="#tb">
+    <thead>
+        <tr>
+            <th field="Text" width="100" halign='center'>
+                名称
+            </th>
+            <th field="Url" width="300" halign='center'>
+                链接
+            </th>
+            <th field="IconCls" width="100" halign='center'>
+                图标
+            </th>
+            <th field="EnumFuncType" width="100" halign='center'>
+                类型
+            </th>
+        </tr>
+    </thead>
+</table>
+<script>
+
+</script>
+<script>
+    function doSearch(value) {
+        alert('You input: ' + value);
+    }
+    //删除
+    function removeit() {
+        //获取当前选中行
+        var row = $('#dg').treegrid('getSelected');
+        //如果不为空
+        if (row) {
+            confirmBox('是否删除?', function (r) {
+                if (r) {
+                    addAjaxParam('id', row.Id);
+                    commitAjax('DeleteFunc', {
+                        CallBack: function (data) {
+                            if (data) {
+                                $("#dg").treegrid('remove', row.Id);
+                            }
+                        }
+                    });
+                }
+            })
+        }
+    }
+
+    //增加同级
+    function addEq() {
+        var row = $('#dg').treegrid('getSelected');
+        if (row) {
+            addAjaxParam('data', row);
+            commitAjax('AddEqFunc', {
+                CallBack: function (data) {
+                    if (data) {
+                        $("#dg").treegrid('append', { parent: row.ParentId, data: [data] });
+                    }
+                }
+            });
+        }
+    }
+
+    //增加子级
+    function addSub() {
+        var row = $('#dg').treegrid('getSelected');
+        if (row) {
+            addAjaxParam('data', row);
+            commitAjax('AddSubFunc', {
+                CallBack: function (data) {
+                    if (data) {
+                        $("#dg").treegrid('append', { parent: row.Id, data: [data] });
+                    }
+                }
+            });
+        }
+    }
+
+    function edit() {
+        var row = $('#dg').treegrid('getSelected');
+        if (row) {
+            openWindow('Item?id=' + row.Id, {
+                width: 500, height: 280, onDestroy: function (data) {
+                    if (data)
+                        $("#dg").treegrid('update', { id: row.Id, row: data });
+                }
+            });
+        }
+    }
+
+    function move(o) {
+        var n = $("#dg").treegrid("getSelected"); if (n == null) { msgBox("无法移动!"); return; };
+        var selectRow = $('#datagrid-row-r1-2-' + n.Id);
+        if (o == 'up') {
+            var pre = selectRow.prev();
+            if (typeof (pre.attr("node-id")) == "undefined") {
+                pre = pre.prev();
+            }
+
+            if (typeof (pre.attr("node-id")) == "undefined" /*|| pre.attr("node-id").indexOf("L") == 0*/) {
+                msgBox("无法移动!");
+            } else {
+                var preId = (pre.attr("node-id"));
+                addAjaxParam('aId', n.Id);
+                addAjaxParam('bId', preId);
+                commitAjax('ExChangeOrder', {
+                    CallBack: function (data) {
+                        if (data) {
+                            var n2 = $("#dg").treegrid("pop", n.Id);
+                            $("#dg").treegrid("insert", { before: preId, data: n2 });
+                            $("#dg").treegrid("select", n.Id);
+                        }
+                    }
+                });
+            }
+        }
+        if (o == 'down') {
+            var next = selectRow.next();
+            if (typeof (next.attr("node-id")) == "undefined") {
+                next = next.next();
+            }
+            if (typeof (next.attr("node-id")) == "undefined" /*|| pre.attr("node-id").indexOf("L") == 0*/) {
+                alert("无法移动!");
+            } else {
+                var nextId = (next.attr("node-id"));
+                addAjaxParam('aId', n.Id);
+                addAjaxParam('bId', nextId);
+                commitAjax('ExChangeOrder', {
+                    CallBack: function (data) {
+                        if (data) {
+                            var n2 = $("#dg").treegrid("pop", nextId);
+                            $("#dg").treegrid("insert", { before: n.Id, data: n2 });
+                            $("#dg").treegrid("select", n.Id);
+                        }
+                    }
+                });
+            }
+        }
+    }
+</script>
+

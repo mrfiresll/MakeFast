@@ -1,0 +1,163 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>LODOP的使用样例十一</title>
+<script language="javascript" src="CheckActivX.js"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+</object> 
+</head>
+<body>
+<script language="javascript">CheckLodop();</script>
+<h2><font color="#009999">演示如何打印条码图案：</font>
+</h2>
+<p>条码图案打印有两种方式：</p>
+<h3><font color="#009999">一、用专用“条码字体”方式</font></h3>
+<p>&nbsp;&nbsp; 这种方式简单有效，但要求本地机器安装条码字体，</p> 
+<p>下面演示打印一个零件的标签，其中包含条码图案：</p>
+<p>零件号:<input type="text" id="T1" size="20" value="9022404/9022405">条码值:<input type="text" id="T2" size="20" value="*902240460GP12345*" name="code"></p>
+<p>条码图案：<font face="C39HrP24DlTt" size="4">*902240460GP12345*</font>(字体是“C39HrP24DlTt”)</p>
+
+
+<p><font size="2"><input type="button" value="打印预览" onclick="prn1_preview()"><input type="button" value="打印维护" onclick="prn1_setup()"><input type="button" value="打印设计" onclick="prn1_design()"><br>
+</font>
+<script language="javascript" type="text/javascript"> 
+	function prn1_preview() {	
+		CreateOneFormPage(T1.value,T2.value);	
+		LODOP.PREVIEW();	
+	};
+	function prn1_setup() {		
+		CreateOneFormPage(T1.value,T2.value);
+		LODOP.PRINT_setup();	
+	};
+	function prn1_design() {		
+		CreateOneFormPage(T1.value,T2.value);
+		LODOP.PRINT_design(); 	
+	};	
+	function CreateOneFormPage(strPartNumber,strCodeValue){
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_商品标签");
+		LODOP.SET_PRINT_PAGESIZE(1,1130,910,"");
+		LODOP.ADD_PRINT_RECT(27,23,378,287,0,1);
+		LODOP.ADD_PRINT_RECT(68,23,378,46,0,1);
+		LODOP.ADD_PRINT_RECT(146,23,378,34,0,1);
+		LODOP.ADD_PRINT_RECT(268,23,378,46,0,1);
+		LODOP.ADD_PRINT_RECT(207,23,378,32,0,1);
+		LODOP.ADD_PRINT_LINE(313,117,27,118,0,1);
+		LODOP.ADD_PRINT_RECT(113,220,95,126,0,1);
+		LODOP.ADD_PRINT_TEXT(282,125,263,26,"*902240460GP12345*");
+		LODOP.SET_PRINT_STYLEA(8,"FontName","C39HrP24DlTt");
+		LODOP.SET_PRINT_STYLEA(8,"FontSize",16);
+		LODOP.SET_PRINT_STYLEA(8,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(35,25,87,33,"零件名称\nDescription");
+		LODOP.SET_PRINT_STYLEA(9,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(78,28,87,33,"零件号\nPart Number");
+		LODOP.SET_PRINT_STYLEA(10,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(117,27,87,33,"使用地点\nUsing Loc");
+		LODOP.SET_PRINT_STYLEA(11,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(156,28,87,23,"包装状况");
+		LODOP.SET_PRINT_STYLEA(12,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(184,27,87,24,"项目Project");
+		LODOP.SET_PRINT_STYLEA(13,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(209,24,92,33,"库位\nStorge Area");
+		LODOP.SET_PRINT_STYLEA(14,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(246,22,97,24,"制造商Supplier");
+		LODOP.SET_PRINT_STYLEA(15,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(277,25,92,33,"条形码\nBracode");
+		LODOP.SET_PRINT_STYLEA(16,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(34,122,268,33,"前制动角总成（左/右）\nWHEEL BRK ASM -FRT (LH/RH)");
+		LODOP.ADD_PRINT_TEXT(77,123,263,26,"9022404/9022405");
+		LODOP.SET_PRINT_STYLEA(18,"FontSize",18);
+		LODOP.SET_PRINT_STYLEA(18,"Alignment",2);
+		LODOP.SET_PRINT_STYLEA(18,"Bold",1);
+		LODOP.ADD_PRINT_TEXT(117,220,87,33,"单车用量\nQty per Veh");
+		LODOP.SET_PRINT_STYLEA(19,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(124,124,87,23,"HJ-M");
+		LODOP.SET_PRINT_STYLEA(20,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(124,331,53,23,"2");
+		LODOP.SET_PRINT_STYLEA(21,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(157,115,107,23,"8*DPHHJ/M-CN-302");
+		LODOP.SET_PRINT_STYLEA(22,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(157,225,87,23,"批号Batch NO.");
+		LODOP.SET_PRINT_STYLEA(23,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(157,316,87,23,"60GP12345/60GP12346");
+		LODOP.SET_PRINT_STYLEA(24,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(186,124,87,23,"SGM980");
+		LODOP.SET_PRINT_STYLEA(25,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(184,224,87,23,"出厂日期Date");
+		LODOP.SET_PRINT_STYLEA(26,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(184,316,87,23,"2008-9-28");
+		LODOP.SET_PRINT_STYLEA(27,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(215,124,87,23,"08#-06");
+		LODOP.SET_PRINT_STYLEA(28,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(215,316,87,23,"NA");
+		LODOP.SET_PRINT_STYLEA(29,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(208,222,92,33,"DPH库位\nStorge Area");
+		LODOP.SET_PRINT_STYLEA(30,"Alignment",2);
+		LODOP.ADD_PRINT_TEXT(243,119,268,33,"上海宝山千斤顶总厂");
+		LODOP.SET_PRINT_STYLEA(31,"FontSize",13);
+		LODOP.SET_PRINT_STYLEA(31,"Alignment",2);
+
+	};	
+</script> 
+<script language="javascript" type="text/javascript">    
+	function prn2_Preview() {		
+		CreatePrintPage();
+	  	LODOP.PREVIEW();		
+	};
+	function prn2_Setup() {		
+		CreatePrintPage();
+		LODOP.PRINT_SETUP();		
+	};
+	function prn2_Design() {		
+		CreatePrintPage();
+		LODOP.PRINT_DESIGN();		
+	};	
+	function CreatePrintPage() {
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_打印条码");
+		LODOP.SET_PRINT_PAGESIZE(1,1000,300,"");
+		LODOP.ADD_PRINT_SHAPE(4,33,47,2,48,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,51,2,48,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,56,2,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,62,4,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,69,5,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,79,4,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,87,2,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,93,4,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,102,2,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,108,4,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,117,2,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,123,8,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,134,2,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,140,4,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,148,2,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,154,4,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,161,2,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,167,4,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,176,2,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,182,4,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,189,5,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,198,2,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,204,4,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,212,2,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,218,4,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,225,2,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,231,4,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,240,2,36,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,246,2,48,0,1,0);
+		LODOP.ADD_PRINT_SHAPE(4,33,250,2,48,0,1,0);
+	};	
+</script> 
+<h3><font color="#009999">二、直接用画图方式</font></h3>
+<p>&nbsp;&nbsp; Lodop的函数<font color="#0000FF">ADD_PRINT_SHAPE</font>可控制到像素，即最小距离单位小于0.3毫米，</p>      
+<p>所以能够实现低密度条码图案一类的精密画图打印：</p>     
+<ul>
+  <li>
+    <p style="line-height: 150%">条码打印区域为：宽10厘米、高3厘米</li>
+  <li>
+    <p style="line-height: 150%">条高1厘米的连续性一维条码</li>
+</ul>
+<p><input type="button" value="打印预览" name="B3"  onclick="prn2_Preview()"><input type="button" value="打印维护" name="B3" onclick="prn2_Setup()"><input type="button" value="打印设计" name="B3" onclick="prn2_Design()"></p>                                           
+
+<p>（该图为示意图案、不反映条码值）</p>                                           
+
+</body>
+</html>

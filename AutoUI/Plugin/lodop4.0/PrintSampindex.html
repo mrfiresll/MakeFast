@@ -1,0 +1,127 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>LODOP的使用说明</title>
+</head>
+
+<body>
+
+<h2><b><font color="#009999">网页打印控件Lodop(V4.0)使用说明及样例</font></b></h2>
+<table cellpadding="0" cellspacing="0" border="0" class="numberedList" width="569"><tr id="eCE2" valign="top" class=""><td align="right" class="dropCapQ" nowrap width="6"></td><td width="812"><table name="tiba" class="tiba" width="777"><tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;"><td class="pageNumberListContent" style="vertical-align: top" width="747"><p><b><font color="#0000FF" face="黑体" size="3">Lodop</font></b>是专业Web打印控件,类型为ActiveX插件,用它既可裁剪输出页面内容，</p></td></tr><tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;"><td class="pageNumberListContent" style="vertical-align: top" width="747"><p>又可用程序代码生成复杂打印页。该控件功能异常强大，却简单易用。</p></td></tr><tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;"><td class="pageNumberListContent" style="vertical-align: top" width="747">功能用<font face="Arial" size="2">JavaScript</font>调用,主要接口函数如下：</td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" border="0" class="numberedList" width="550" height="202"><tr id="eCE4" valign="top" class=""><td align="right" class="dropCapQ" nowrap width="6" height="202"></td><td width="812" height="202"><table name="tiba" class="tiba" width="775" height="174"><tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;"><td class="pageNumberListContent" style="vertical-align: top" width="13" height="1"><font color="#0000FF"><font size="1">●</font></font></td><td class="pageNumberListContent" style="vertical-align: top" width="752" height="1"><font color="#0000FF" size="2">PRINT_INIT(strPrintTaskName)打印初始化</font>
+          </td></tr><tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;"><td class="pageNumberListContent" style="vertical-align: top" width="13" height="18"><font size="1" color="#0000FF">●</font></td><td class="pageNumberListContent" style="vertical-align: top" width="752" height="18"><font color="#0000FF" size="2">SET_PRINT_PAGESIZE(intOrient,intPageWidth,intPageHeight,strPageName)设定纸张大小</font>
+          </td></tr><tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;"><td class="pageNumberListContent" style="vertical-align: top" width="13" height="18"><font color="#0000FF"><font size="1">●</font></font></td><td class="pageNumberListContent" style="vertical-align: top" width="752" height="18"><font color="#0000FF" size="2">ADD_PRINT_HTM(intTop,intLeft,intWidth,intHeight,strHtml)增加超文本项</font>
+          </td></tr><tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;"><td class="pageNumberListContent" style="vertical-align: top" width="13" height="18"><font color="#0000FF"><font size="1">●</font></font></td><td class="pageNumberListContent" style="vertical-align: top" width="752" height="18"><font color="#0000FF" size="2">ADD_PRINT_TEXT(intTop,intLeft,intWidth,intHeight,strContent)增加纯文本项</font>
+          </td></tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-align: top" width="13" height="18"><font size="1">●</font></td><td class="pageNumberListContent" style="vertical-align: top" width="752" height="18"><font color="#0000FF" size="2">ADD_PRINT_TABLE(intTop,intLeft,intWidth,intHeight,strHtml)增加表格项</font>
+          </td>
+        </tr>
+        <tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;"><td class="pageNumberListContent" style="vertical-align: top" width="13" height="18"><font color="#0000FF"><font size="1">●</font></font></td><td class="pageNumberListContent" style="vertical-align: top" width="752" height="18"><font color="#0000FF" size="2">ADD_PRINT_SHAPE(intShapeType,intTop,intLeft,intWidth,intHeight,intLineStyle,intLineWidth,intColor)画图形</font>
+          </td></tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-align: top" width="13" height="18"><font size="1">●</font></td><td class="pageNumberListContent" style="vertical-align: top" width="752" height="18"><font color="#0000FF" size="2">SET_PRINT_STYLE(strStyleName,  
+            varStyleValue)设置对象风格</font>    
+          </td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-align: top" width="13" height="1"><font size="1" color="#0000FF">●</font></td><td class="pageNumberListContent" style="vertical-align: top" width="752" height="1"><font color="#0000FF" size="2">PREVIEW打印预览</font>
+          </td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-align: top" width="13" height="1"><font size="1" color="#0000FF">●</font></td><td class="pageNumberListContent" style="vertical-align: top" width="752" height="1"><font color="#0000FF" size="2">PRINT直接打印</font>
+          </td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-align: top" width="13" height="14"><font size="1" color="#0000FF">●</font></td><td class="pageNumberListContent" style="vertical-align: top" width="752" height="14"><font color="#0000FF" size="2">PRINT_SETUP打印维护</font>
+          </td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-align: top" width="13" height="1"><font size="1" color="#0000FF">●</font></td><td class="pageNumberListContent" style="vertical-align: top" width="752" height="1"><font color="#0000FF" size="2">PRINT_DESIGN打印设计</font>
+          </td>
+        </tr>
+      </table></td></tr></table><table cellpadding="0" cellspacing="0" border="0" class="numberedList" width="572"><tr id="eCE3" valign="top" class=""><td align="right" class="dropCapQ" nowrap width="6"></td><td width="812"><table name="tiba" class="tiba" width="774"><tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;"><td class="pageNumberListContent" style="vertical-align: top" width="744"><p>可邮件<a href="mailto:gungho999@sina.com">gungho999@sina.com</a>索取技术手册,了解更多详细资料，</p></td></tr><tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;"><td class="pageNumberListContent" style="vertical-align: top" width="744"><p>下面通过演示样例来理解，为容易理解源代码，每个样例尽量简单，</p></td></tr><tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;"><td class="pageNumberListContent" style="vertical-align: top" width="744">在实际应用中都可混合使用，一个样例代表一类或几类应用。</td></tr></table></td></tr></table><table cellpadding="0" cellspacing="0" border="0" class="numberedList" width="572"><tr id="eCE1" valign="top" class=""><td align="right" class="dropCapQ" nowrap width="6"></td><td width="812"><table name="tiba" class="tiba" width="681"><tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;"><td class="pageNumber" width="667" colspan="2"> 
+            <p><b><font color="#009999" face="宋体" size="3">样例清单</font></b></p> 
+                            </td></tr> 
+        <tr> 
+          <td class="pageNumber" width="16">1. 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651"><p class="stepParaFirst">如何在页面内嵌入控件见<font color="#0000ff"><a href="PrintSample1.html">样例一</a></font> 
+            </p></td> 
+        </tr> 
+        <tr> 
+          <td class="pageNumber" width="16">2. 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651"><p class="stepParaFirst">如何裁剪打印当前页面内容见<font color="#0000ff"><a href="PrintSample2.html">样例二</a></font> 
+            </p></td> 
+        </tr> 
+        <tr> 
+          <td class="pageNumber" width="16">3. 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651"><p class="stepParaFirst">如何用代码生成打印页见<a href="PrintSample3.html">样例三</a> 
+            </p></td> 
+        </tr> 
+        <tr> 
+          <td class="pageNumber" width="16">4. 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651"><p class="stepParaFirst">如何打印设计和定位套打见<a href="PrintSample4.html">样例四</a> 
+            </p></td> 
+        </tr> 
+        <tr> 
+          <td class="pageNumber" width="16">5. 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651">如何控制纸张大小见<a href="PrintSample5.html">样例五</a> 
+          </td> 
+        </tr> 
+        <tr> 
+          <td class="pageNumber" width="16">6. 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651">如何打印多页长文档见<a href="PrintSample6.html">样例六</a> 
+          </td> 
+        </tr> 
+        <tr> 
+          <td class="pageNumber" width="16">7. 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651">如何定向输出见<a href="PrintSample7.html">样例七</a> 
+          </td> 
+        </tr> 
+        <tr> 
+          <td class="pageNumber" width="16">8. 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651">如何打印图片见<a href="PrintSample8.html">样例八</a> 
+          </td> 
+        </tr> 
+        <tr> 
+          <td class="pageNumber" width="16">9. 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651">如何用程序加载打印维护背景图见<a href="PrintSample9.html">样例九</a> 
+          </td> 
+        </tr> 
+        <tr> 
+          <td class="pageNumber" width="16">10 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651">如何控制打印样式(STYLE)见<a href="PrintSample10.html">样例十</a> 
+          </td> 
+        </tr> 
+        <tr> 
+          <td class="pageNumber" width="16">11 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651">如何打印条码图案见<a href="PrintSample11.html">样例十一</a> 
+          </td> 
+        </tr> 
+        <tr> 
+          <td class="pageNumber" width="16">12 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651">如何读写本地文件见<a href="PrintSample12.html">样例十二</a> 
+          </td> 
+        </tr> 
+        <tr> 
+          <td class="pageNumber" width="16">13 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651">如何打印旋转内容见<a href="PrintSample13.html">样例十三</a> 
+          </td> 
+        </tr> 
+        <tr> 
+          <td class="pageNumber" width="16">14 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651">如何按URL打印见<a href="PrintSample14.html">样例十四</a> 
+          </td> 
+        </tr> 
+        <tr> 
+          <td class="pageNumber" width="16">15 
+                            </td><td class="pageNumberListContent" style="vertical-align: top" width="651">如何打印表格的页头页尾见<a href="PrintSample15.html">样例十五</a> 
+          </td> 
+        </tr> 
+      </table></td></tr></table> 
+
+
+</body>
+
+</html>
+

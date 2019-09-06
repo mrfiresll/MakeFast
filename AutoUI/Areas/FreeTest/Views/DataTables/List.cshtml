@@ -1,0 +1,26 @@
+﻿<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "ajax": {
+                "url":"GetList"
+            }
+            //"data": function (data) {
+            //    alert('11')
+            //    data.Name = $("#name").val();;//此处是添加额外的请求参数
+            //    return JSON.stringify(data);
+            //}
+        });
+    });
+</script>
+
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th data-data="Id" data-visible="false">Id</th>
+            <th data-data="Num">编号</th>
+            <th data-data="Name">名称</th>
+            <th data-data="EntityNameSpace">命名空间</th>
+            <th data-data="EntityName">类名</th>
+        </tr>
+    </thead>
+</table>

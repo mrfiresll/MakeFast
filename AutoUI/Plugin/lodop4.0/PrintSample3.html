@@ -1,0 +1,227 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>LODOP的使用样例三</title>
+<script language="javascript" src="CheckActivX.js"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+</object> 
+</head>
+<body>
+<script language="javascript">CheckLodop();</script>
+
+<h2><b><font color="#009999">演示用程序代码生成打印页：</font></b></h2>
+<table cellpadding="0" cellspacing="0" border="0" class="numberedList" width="572">
+  <tr id="eCE2" vAlignment="top" class>
+    <td Alignment="right" class="dropCapQ" nowrap width="6"></td>
+    <td width="812">
+      <table name="tiba" class="tiba" width="769">
+        <tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;">
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+            <p>&nbsp;&nbsp;&nbsp; 一般B/S系统总是“页面看到什么才能打印什么”，这种局面即便是采用</p>                            
+          </td>
+        </tr>
+        <tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;">
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+            <p>一些传统打印控件也没有改观。现在利用Lodop简单强大的几个函数，配合</p>
+          </td>
+        </tr>
+        <tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;">
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          JavaScript完全进入了“只看想看的、打印想打的”理想打印时代！</td>
+        </tr>
+        <tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;">
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+            <h4></h4>
+          </td>
+        </tr>
+        <tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;">
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+            <h4><font color="#009999">下面模拟打印一张名片，了解这几个函数</font></h4>
+          </td>
+        </tr>
+        <tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;">
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739"><b>1、画一个名片大小的矩形边框：</b></td>
+        </tr>
+        <tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;">
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <font color="#0000FF" size="2">LODOP.ADD_PRINT_RECT(10,15,400,220,0,1);</font></td>
+        </tr>
+        <tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;">
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <font size="2">边框离纸张顶端10px(单位是显示像素,下同)距左边15px、宽400px、高220px、</font></td>              
+        </tr>
+        <tr style="padding:0px 0px 7px 0px;border:inset 1px #f00;">
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <font size="2">框为实线(0-实线                             
+            1-破折线 2-点线 3-点划线 4-双点划线)、线宽为1px</font></td>                         
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739"></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739"><b>2、设置基本打印风格：</b></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <font color="#0000FF" size="2">LODOP.SET_PRINT_STYLE(&quot;FontSize&quot;,11);</font></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <font size="2">&quot;FontSize&quot;</font><font size="2">是系统关键字，表示设置字体大小，11是字体大小值，单位是pt。</font></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739"><b>3、在矩形框内打印姓名栏：</b></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <font color="#0000FF" size="2">LODOP.ADD_PRINT_TEXT(20,180,100,25,&quot;郭德刚&quot;);</font></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <font size="2">姓名栏离纸张顶端20px、距左边180px、宽100px、高25px、内容为“郭德刚”</font></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739"><b>4、设置姓名栏的打印风格：</b></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <font color="#0000FF" size="2">LODOP.SET_PRINT_STYLEA(2,&quot;FontName&quot;,&quot;隶书&quot;);</font></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <font color="#0000FF" size="2">LODOP.SET_PRINT_STYLEA(2,&quot;FontSize&quot;,15);</font></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <font size="2">2是姓名栏的增加顺序号,</font><font color="#0000FF" size="2">&quot;FontName&quot;</font><font size="2">和</font><font color="#0000FF" size="2">&quot;FontSize&quot;</font><font size="2">是</font><font size="2">系统关键字</font><font size="2">,表示设置字体名和字体大小。</font></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <font size="2">&quot;隶书&quot;是字体名值,同操作系统的字体名，15是字体大小值，单位是pt。</font></td>                        
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <b>5、下面打印其职务、地址、电话等</b>(用基本风格)：</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <font color="#0000FF" size="2">LODOP.ADD_PRINT_TEXT(53,187,75,20,&quot;科学家&quot;);<br>
+            LODOP.ADD_PRINT_TEXT(100,131,272,20,&quot;地址：中国北京社会科学院附近东大街西胡同&quot;);<br>
+            LODOP.ADD_PRINT_TEXT(138,132,166,20,&quot;电话：010-88811888&quot;);</font></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <b>6、在发送以上指令前，一般要初始化并设置打印任务名：</b></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <font color="#0000FF" size="2">LODOP.PRINT_INIT(&quot;打印插件功能演示_代码功能_名片&quot;);</font></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          <font size="2">初始化并指定打印任务名是&quot;打印插件功能演示_代码功能_名片&quot;</font></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          现在用以上代码打印，先看看<a href="javascript:myPreview()"><b>打印预览</b></a>效果！</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          如果效果好可以<a href="javascript:myPrint()"><b>直接打印</b></a>
+          ，打印机多就<a href="javascript:myPrintA()"><b>选择打印机</b></a>打印！</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          效果不好又懒地改，干脆让操作者自己<a href="javascript:mySetup()"><b>打印维护</b></a>吧！</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">尽管这些函数足够简单，可理解其参数也是不胜其烦，</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">但事实上包括我写这些样例也不是人工计算其参数的，</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          全得益于打印控件提供的强大<a href="javascript:myDesign()"><b>打印设计</b></a>功能！</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">
+          &nbsp;</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">进入<a href="javascript:myBlankDesign()"><b>空白设计</b></a>自己涂鸦一番，多用用其中“生成程序代码”菜单哟！</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739"></td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">“打印设计”和“打印维护”有点类似，二者的区别是功能权限，</td>
+        </tr>
+        <tr>
+          <td class="pageNumberListContent" style="vertical-Alignment: top" width="739">前者是开发人员用的，后者可根据实际情况提供给最终用户。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p Alignment="left"></p>
+<script language="javascript" type="text/javascript"> 
+	function myPrint() {		
+		CreatePrintPage();
+		LODOP.PRINT();		
+	};  
+	function myPrintA() {		
+		CreatePrintPage();
+		LODOP.PRINTA();		
+	};  	
+	function myPreview() {		
+		CreatePrintPage();
+		LODOP.PREVIEW();		
+	};		
+	function mySetup() {		
+		CreatePrintPage();
+		LODOP.PRINT_SETUP();		
+	};	
+	function myDesign() {		
+		CreatePrintPage();
+		LODOP.PRINT_DESIGN();		
+	};	
+	function myBlankDesign() {
+   		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_空白练习");		
+		LODOP.PRINT_DESIGN();		
+	};			
+	function CreatePrintPage() {
+		LODOP.PRINT_INIT("打印插件功能演示_Lodop功能_名片");
+		LODOP.ADD_PRINT_RECT(10,15,400,220,0,1);
+		LODOP.SET_PRINT_STYLE("FontSize",11);
+		LODOP.ADD_PRINT_TEXT(20,180,100,25,"郭德刚");
+		LODOP.SET_PRINT_STYLEA(2,"FontName","隶书");
+		LODOP.SET_PRINT_STYLEA(2,"FontSize",15);		
+		LODOP.ADD_PRINT_TEXT(53,187,75,20,"科学家");
+		LODOP.ADD_PRINT_TEXT(100,131,272,20,"地址：中国北京社会科学院附近东大街西胡同");
+		LODOP.ADD_PRINT_TEXT(138,132,166,20,"电话：010-88811888");	
+	};	
+</script> 
+
+
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+﻿<div class="datagrid-toolbar formToolBar">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="save()" iconcls="iconfont iconfont-baocun">保存</a>
+</div>
+<div style="padding:2px;">    
+    <form method="post">
+        <input id="Id" name="Id" type="hidden" />
+        <table class="groupTable">
+            <tr>
+                <td style="width:15%">菜单名称:</td>
+                <td style="width:85%">
+                    <input id="Text" name="Text" class="easyui-textbox" style="width: 100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Url:
+                </td>
+                <td>
+                    <input id="Url" name="Url" class="easyui-textbox" style="width: 100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>图标:</td>
+                <td>
+                    <input id="IconCls" name="IconCls" class="easyui-textbox" style="width: 100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>说明:</td>
+                <td>
+                    <input id="Remark" name="Remark" class="easyui-textbox" data-options="multiline:true" value="" style="width: 100%; height: 100px">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script>
+    var formData = {};
+</script>
+<script>
+    var id = queryString('id');
+
+    var defineData = {};
+    function SetData(d) {
+  
+    }
+
+    function pageLoad() {
+        //编辑
+        if (id) {
+            $("#Id").val(id);
+            addAjaxParam("id", id);
+            commitAjax("GetFunc", {
+                CallBack: function (data) {
+                    if (data) {
+                        formData = data;
+                        $('#Text').textbox('setValue', data.Text);
+                        $('#Url').textbox('setValue', data.Url);
+                        $('#IconCls').textbox('setValue', data.IconCls);
+                        $('#Remark').textbox('setValue', data.Remark);
+                    }
+                }
+            });
+        }
+    }
+
+    function save() {
+        var isValid = $('form').form('validate');
+        if (!isValid) {
+            msgBox('请检查所填数据!');
+            return;
+        }
+
+        var t = $('form').serializeArray();
+        $.each(t, function () {
+            formData[this.name] = this.value;
+        });
+        addAjaxParam("formData", formData);
+        commitAjax("Save", {
+            CallBack: function (data) {
+                if (data) {
+                    closeWindow(formData);
+                }
+                else {
+                    msgBox('操作失败');
+                }
+            }
+        })
+    }
+</script>

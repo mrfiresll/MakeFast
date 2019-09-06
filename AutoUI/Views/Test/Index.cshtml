@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript" src="@Url.Content("/BaseResource/Script/configui.js")"></script>
+<table class="easyui-datalist" id="testtt" fit="true" lines="true" filemaxsize="30000" fileextaccept=".pdf"
+    data-options="textFormatter:upLoadDataListRowRender,onLoadSuccess:mfUpLoadDataListOnLoad,onLoadError:mfUpLoadDataListOnLoad" rownumbers="true">
+   
+</table>
+
+<script>
+    var dd = [
+{ "text": "Epson WorkForce 845", "value": "Printer" },
+{ "text": "Canon PIXMA MG5320", "value": "Printer1" }]
+
+    $(function () {
+        $('#testtt').datalist('loadData',dd);
+    })
+</script>

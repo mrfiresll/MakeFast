@@ -1,0 +1,220 @@
+﻿
+@{
+    ViewBag.Title = "md";    
+}
+<div id="dataGrid" class="mfire-grid-fullHeight"></div>
+<script type="text/x-kendo-template" id="template">
+    <div class="k-header">
+        <a class="k-button" href="javascript:void(0)" onclick="dialogAddOrEdit()"><span class="k-icon k-i-add"></span>新增</a>
+        <a class="k-button" href="javascript:void(0)" onclick="dialogAddOrEdit(true)"><span class="k-icon k-i-edit"></span>编辑</a>
+        <a class="k-button" href="javascript:void(0)" onclick="del()"><span class="k-icon k-i-delete"></span>删除</a>
+     </div>
+</script>
+<script>
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    type: "post",
+                    url: "GetList",
+                    dataType: "json",
+                    contentType: "application/json"
+                },
+                parameterMap: function (options, operation) {
+                    if (operation == "read") {
+                        var parameter = {
+                            page: options.page,    //当前页
+                            pageSize: options.pageSize,//每页显示个数
+                            DDT:"233" //传递post参数
+                        };
+                        return kendo.stringify(parameter);
+                    }
+                }
+            },
+            batch: true,
+            pageSize: 10, //每页显示个数
+            schema: {
+                model: {
+                    fields: {
+                        CreateTime: { type: "date" }//定义字符串数据的具体对应类型
+                    }
+                },
+                data: function (d) {
+                    return d.Data;  //响应到页面的数据
+                },
+                total: function (d) {
+                    return d.Total;   //总条数
+                }
+            },
+            serverPaging: true,
+            serverFiltering: true,
+            serverSorting: true
+
+        });
+
+        $("#dataGrid").kendoGrid({
+            dataSource: dataSource,
+            navigatable: true,            
+            //height: 550,
+            selectable: "multiple",
+            //toolbar:  ["create", "save", "cancel"],
+            toolbar: kendo.template($("#template").html()),// ["create", "save", "cancel"],
+            // pageable: true,pageable可以为true或者直接指定内部参数
+            pageable: {
+                //page: 1,
+                //pageSize : 10,// 一页显示多少行数据
+                previousNext : true,// 是否允许有上一页、下一页、首页、尾页摁扭
+                numeric : true,// 是否显示翻页处的页数按钮
+                buttonCount : 5,// 限制页数按钮的显示个数
+                input : false,// 是否显示输入页数的文本框
+                refresh : true,// 是否允许刷新页面
+                pageSizes : true,// 是否允许调整一页显示的行数，可设置[5, 10, 15]
+            },
+            columns: [
+                {selectable: true, width: "50px"},
+               {
+                   headerAttributes: {
+                       "class": "table-header-cell"
+                   },
+                   title:"编号",
+                   field: "Num"
+               },
+               {
+                   headerAttributes: {
+                       "class": "table-header-cell"
+                   },
+                   title: "名称",
+                   field: "Name"
+               },
+               {
+                   title: "命名空间",
+                   field: "EntityNameSpace",
+                   headerAttributes: {
+                       "class": "table-header-cell"
+                   },
+                   attributes: {
+                       //"class": "table-cell",用class class加引号
+                       style: "text-align: center"
+                   }
+               },
+               {
+                   title: "类名",
+                   field: "EntityName",
+                   headerAttributes: {
+                       "class": "table-header-cell"                       
+                   },
+                   attributes: {
+                       //"class": "table-cell",用class class加引号
+                       style: "text-align: center"
+                   }
+               },
+               //{
+               //    field: "字段定义",
+               //    width: 120,
+               //    attributes: {
+               //        //"class": "table-cell",用class class加引号
+               //        style: "text-align: center"
+               //    },
+               //    //template: "<a href='javascript:void(0)' onclick='openWindow(\"Param?id=#: Id #\")' />字段定义</a>"
+               //},
+               {
+                   command: { text: "控件定义", click: paramDefine }, title: " ", width: "120px",
+                   attributes: {
+                       //"class": "table-cell",用class class加引号
+                       style: "text-align: center"
+                   }
+               },
+               {
+                   command: { text: "布局定义", click: layoutDefine }, title: " ", width: "120px",
+                   attributes: {
+                       //"class": "table-cell",用class class加引号
+                       style: "text-align: center;"
+                   }
+               },
+               { command: { text: "预览", click: preview }, title: " ", width: "100px",
+                   attributes: {
+                       //"class": "table-cell",用class class加引号
+                       style: "text-align: center"
+                   } },
+               {
+                   headerAttributes: {
+                       "class": "table-header-cell"
+                   },
+                   title: "创建时间",
+                   field: "CreateTime", format: "{0: yyyy-MM-dd}",
+                   attributes: {
+                       //"class": "table-cell",用class class加引号
+                       style: "text-align: center"
+                   }
+               }
+            ],
+            //dataBound: bindCheckColumn,//页面加载完成后
+            editable: false
+        });
+    });
+
+    function paramDefine(e) {
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"))
+        openWindow("/MVCTemplate/FormConfig/Param?id=" + dataItem.Id)
+    }
+
+    function layoutDefine(e) {
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"))
+        openWindow("/MVCTemplate/FormConfig/Param?id=" + dataItem.Id)
+    }
+
+    function preview(e) {
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"))
+        openWindow("/MVCTemplate/FormConfig/Param?id=" + dataItem.Id)
+    }
+
+    function del()
+    {
+        var grid = $("#dataGrid").data("kendoGrid");
+        var selectedRows = grid.select();
+        if(selectedRows.length == 0)
+        {
+            msgBox('请至少选择一行');
+            return;
+        }
+
+        var dataItems = [];
+        grid.select().each(function () {
+            dataItems.push(grid.dataItem($(this)));           
+        });
+
+        addAjaxParam("listData", dataItems);      
+        commitAjax("Delete", { CallBack : function(d){
+            msgBox('删除成功');
+            grid.dataSource.read();
+            grid.refresh();
+        }});
+    }
+
+    function dialogAddOrEdit(isEdit)
+    {
+        var grid = $("#dataGrid").data("kendoGrid");
+        var url = '/MVCTemplate/FormConfig/Form'
+        if (isEdit)
+        {
+            var selectedRows = grid.select();
+            if (selectedRows.length == 0) {
+                msgBox('请至少选择一行');
+                return;
+            }
+   
+            url += '?id=' + grid.dataItem(selectedRows[0]).Id;
+        }
+
+        openWindow(url, {
+            onDestroy: function (e) {
+                if (e)
+                {                    
+                    grid.dataSource.read();
+                    grid.refresh();
+                }
+            }
+        });
+    }
+</script>
+
