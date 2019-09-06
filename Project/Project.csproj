@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentIndex, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rd\DocumentIndex.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\3rd\EntityFrameWork\6.1.3\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
@@ -261,10 +265,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DocumentIndex\DocumentIndex.csproj">
-      <Project>{e2655e59-9010-4d2d-bbbf-632a38e91b78}</Project>
-      <Name>DocumentIndex</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EFBase\EFBase.csproj">
       <Project>{2ec68dbb-a0ed-401c-92cf-b2b3904ebb76}</Project>
       <Name>EFBase</Name>
